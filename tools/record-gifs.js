@@ -17,15 +17,15 @@ fs.mkdirSync(OUT, { recursive: true });
 // sel: elements whose union is cropped (null = whole viewport); dur = one full loop in seconds
 const JOBS = [
   { name: 'http-stateless',     slide: 3,  sel: ['.stateless'],         dur: 8,    fig: true },
-  { name: 'authn-vs-authz',     slide: 4,  sel: ['.id-scan', '.doors'], dur: 12,   header: true, pad: 8 },
-  { name: 'token-timeline',     slide: 6,  sel: ['.tl'],                dur: 9,    fig: true },
-  { name: 'lifecycle-sequence', slide: 7,  sel: null,                   dur: 15.6, scale: 0.55, fps: 6 },
-  { name: 'xss-storage',        slide: 8,  sel: ['.xss'],               dur: 8,    fig: true },
-  { name: 'fetch-wrapper',      slide: 9,  sel: ['.icp'],               dur: 5,    fig: true },
-  { name: 'silent-refresh',     slide: 11, sel: ['.sr-btn', '#srFig'],  dur: 14 },
-  { name: 'auth-store',         slide: 12, sel: ['.sig'],               dur: 6,    fig: true },
-  { name: 'route-guard',        slide: 13, sel: ['.guard'],             dur: 10,   fig: true },
-  { name: 'hidden-button-curl', slide: 16, sel: ['.curl'],              dur: 7,    fig: true },
+  { name: 'authn-vs-authz',     slide: 5,  sel: ['.id-scan', '.doors'], dur: 12,   header: true, pad: 8 },
+  { name: 'token-timeline',     slide: 7,  sel: ['.tl'],                dur: 9,    fig: true },
+  { name: 'lifecycle-sequence', slide: 8,  sel: null,                   dur: 15.6, scale: 0.55, fps: 6 },
+  { name: 'xss-storage',        slide: 9,  sel: ['.xss'],               dur: 8,    fig: true },
+  { name: 'fetch-wrapper',      slide: 10, sel: ['.icp'],               dur: 5,    fig: true },
+  { name: 'silent-refresh',     slide: 12, sel: ['.sr-btn', '#srFig'],  dur: 14 },
+  { name: 'auth-store',         slide: 13, sel: ['.sig'],               dur: 6,    fig: true },
+  { name: 'route-guard',        slide: 14, sel: ['.guard'],             dur: 10,   fig: true },
+  { name: 'hidden-button-curl', slide: 17, sel: ['.curl'],              dur: 7,    fig: true },
 ];
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));

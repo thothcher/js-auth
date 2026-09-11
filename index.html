@@ -142,7 +142,7 @@
   @keyframes bub2 { 0%, 75% { opacity: 0; transform: translateY(6px); } 79%, 95% { opacity: 1; transform: none; } 99%, 100% { opacity: 0; } }
   @keyframes srv  { 0%, 25%, 34%, 73%, 82%, 100% { stroke: #0b2997; } 28% { stroke: #10b981; } 76% { stroke: #f43f5e; } }
 
-  /* 04 · Authn: ID ბარათის სკანირება ✓ · Authz: ბარათი ერთ კარს აღებს, მეორეს — ვერა */
+  /* 05 · Authn: ID ბარათის სკანირება ✓ · Authz: ბარათი ერთ კარს აღებს, მეორეს — ვერა */
   .id-scan .scan { animation: scan 3s ease-in-out infinite; }
   @keyframes scan { 0% { transform: translateY(0); opacity: 0; } 8% { opacity: 1; } 42% { transform: translateY(45px); } 60% { transform: translateY(0); opacity: 1; } 66%, 100% { transform: translateY(0); opacity: 0; } }
   .id-scan .ok { transform-box: fill-box; transform-origin: center; animation: pop-ok 3s ease infinite; }
@@ -156,7 +156,7 @@
   .doors .deny { animation: pop-deny 4s ease infinite; }
   @keyframes pop-deny { 0%, 58% { opacity: 0; } 62%, 88% { opacity: 1; } 96%, 100% { opacity: 0; } }
 
-  /* 06 · token-ების ვადა: playhead მარცხნიდან მარჯვნივ, უკან რჩება ნაცოცხლები დრო */
+  /* 07 · token-ების ვადა: playhead მარცხნიდან მარჯვნივ, უკან რჩება ნაცოცხლები დრო */
   .tl .tl-reveal { transform-box: fill-box; transform-origin: 0 0; animation: tl-reveal 9s linear infinite; }
   @keyframes tl-reveal { 0% { transform: scaleX(0); } 88%, 100% { transform: scaleX(1); } }
   .tl .tl-head { animation: tl-head 9s linear infinite; }
@@ -164,10 +164,10 @@
   .tl .tl-end { animation: tl-end 9s ease infinite; }
   @keyframes tl-end { 0%, 87% { opacity: 0; } 90%, 100% { opacity: 1; } }
 
-  /* 07 · sequence diagram: ისრის წერტილი მოძრაობს მხოლოდ მიმდინარე ნაბიჯზე */
+  /* 08 · sequence diagram: ისრის წერტილი მოძრაობს მხოლოდ მიმდინარე ნაბიჯზე */
   .dia .travel { opacity: 0; }
 
-  /* 08 · XSS „ხოჭო" ოთხ საცავს სტუმრობს (8s ციკლი) */
+  /* 09 · XSS „ხოჭო" ოთხ საცავს სტუმრობს (8s ციკლი) */
   .xss .bug { animation: bug 8s ease-in-out infinite; }
   @keyframes bug {
     0%       { transform: translate(170px, 105px); }
@@ -190,7 +190,7 @@
   .xss .shield-box { animation: shield 8s ease infinite; }
   @keyframes shield { 0%, 76%, 94%, 100% { stroke-width: 2; stroke: #059669; } 80%, 88% { stroke-width: 5; stroke: #10b981; } }
 
-  /* 09 · fetch wrapper: წერილი შედის უბრალოდ, გამოდის Bearer „შტამპით" (5s ციკლი) */
+  /* 10 · fetch wrapper: წერილი შედის უბრალოდ, გამოდის Bearer „შტამპით" (5s ციკლი) */
   .icp .env1 { animation: env1 5s ease-in-out infinite; }
   @keyframes env1 { 0% { transform: translateX(0); opacity: 0; } 6% { opacity: 1; } 32% { transform: translateX(100px); opacity: 1; } 36%, 100% { transform: translateX(100px); opacity: 0; } }
   .icp .icp-box { animation: icp-box 5s ease infinite; }
@@ -202,7 +202,7 @@
   .icp .icp-ok { animation: icp-ok 5s ease infinite; }
   @keyframes icp-ok { 0%, 80% { opacity: 0; } 84%, 96% { opacity: 1; } 100% { opacity: 0; } }
 
-  /* 11 · silent refresh: ოთხი 401 — lock-ის გარეშე vs lock-ით (7s ციკლი, რეჟიმს JS ცვლის) */
+  /* 12 · silent refresh: ოთხი 401 — lock-ის გარეშე vs lock-ით (7s ციკლი, რეჟიმს JS ცვლის) */
   .sr-fig[data-mode="bad"] .good-only, .sr-fig[data-mode="good"] .bad-only { display: none; }
   .sr-btn { border-color: #e3e1f3; background: #fff; color: #545378; }
   .sr-btn:hover { border-color: #17153b; }
@@ -221,7 +221,7 @@
   .sr .sr-diag { animation: sr-diag 7s ease-in infinite; }
   @keyframes sr-diag { 0%, 26% { transform: translate(0, 0); opacity: 0; } 28% { opacity: 1; } 50% { transform: translate(var(--tx), var(--ty)); opacity: 1; } 53%, 100% { transform: translate(var(--tx), var(--ty)); opacity: 0; } }
 
-  /* 12 · auth store: setUser() → user → getter-ები → UI (6s ციკლი) */
+  /* 13 · auth store: setUser() → user → getter-ები → UI (6s ციკლი) */
   .sig .pill-set { animation: pill-set 6s ease infinite; }
   @keyframes pill-set { 0%, 16% { opacity: 0; transform: translateY(4px); } 20%, 34% { opacity: 1; transform: none; } 38%, 100% { opacity: 0; } }
   .sig .pill-out { animation: pill-out 6s ease infinite; }
@@ -240,7 +240,7 @@
   @keyframes v1c { 0%, 50% { opacity: 0; } 54%, 92% { opacity: 1; } 96%, 100% { opacity: 0; } }
   @keyframes v0c { 0%, 50% { opacity: 1; } 54%, 92% { opacity: 0; } 96%, 100% { opacity: 1; } }
 
-  /* 13 · guard: უცნობი → /login, შემდეგ login-ით → /admin (10s ციკლი) */
+  /* 14 · guard: უცნობი → /login, შემდეგ login-ით → /admin (10s ციკლი) */
   .guard .walker { animation: walker 10s ease-in-out infinite; }
   @keyframes walker {
     0%       { transform: translate(24px, 70px); opacity: 0; }
@@ -265,7 +265,7 @@
   .guard .admin-door { animation: g-door 10s ease infinite; }
   @keyframes g-door { 0%, 76%, 96%, 100% { fill: #ebefff; stroke-width: 1.5; } 80%, 92% { fill: #d6dfff; stroke-width: 3.5; } }
 
-  /* 16 · ღილაკი დამალულია, curl კი მაინც მიდის — backend პასუხობს 403 (7s ციკლი) */
+  /* 17 · ღილაკი დამალულია, curl კი მაინც მიდის — backend პასუხობს 403 (7s ციკლი) */
   .curl .del-btn { animation: del-btn 7s ease infinite; }
   @keyframes del-btn { 0%, 16% { opacity: 1; } 24%, 94% { opacity: 0; } 100% { opacity: 1; } }
   .curl .ghost { animation: ghost 7s ease infinite; }
@@ -279,7 +279,7 @@
   .curl .resp { animation: curl-resp 7s ease infinite; }
   @keyframes curl-resp { 0%, 64% { opacity: 0; transform: translateY(4px); } 68%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
 
-  /* 17 · დიდი სურათი: request „მოგზაურობს" ჯაჭვში, ყოველი რგოლი რიგრიგობით ინთება */
+  /* 18 · დიდი სურათი: request „მოგზაურობს" ჯაჭვში, ყოველი რგოლი რიგრიგობით ინთება */
   .flow > :nth-child(1) { --k: 0; } .flow > :nth-child(2) { --k: .5; } .flow > :nth-child(3) { --k: 1; } .flow > :nth-child(4) { --k: 1.5; }
   .flow > :nth-child(5) { --k: 2; } .flow > :nth-child(6) { --k: 2.5; } .flow > :nth-child(7) { --k: 3; } .flow > :nth-child(8) { --k: 3.5; }
   .flow > :nth-child(9) { --k: 4; } .flow > :nth-child(10) { --k: 4.5; } .flow > :nth-child(11) { --k: 5; } .flow > :nth-child(12) { --k: 5.5; }
@@ -289,10 +289,10 @@
   @keyframes flow-on { 0%, 14%, 100% { transform: none; box-shadow: none; } 4%, 10% { transform: translateY(-6px) scale(1.04); box-shadow: 0 0 0 3px #0b299740, 0 16px 30px -12px #0b2997; } }
   @keyframes flow-arrow { 0%, 12%, 100% { color: #545378; transform: none; } 5% { color: #0b2997; transform: translateX(5px) scale(1.4); } }
 
-  /* 20 · ბნელ სლაიდზე ჩიპები */
+  /* 21 · ბნელ სლაიდზე ჩიპები */
   .chip.dark { background: #ffffff0f; box-shadow: 0 12px 30px -16px var(--c); }
 
-  /* 10 · session demo: გაფრთხილების ფაზა */
+  /* 11 · session demo: გაფრთხილების ფაზა */
   #sessionDemo.warn #sessionBar { animation: blink 1s ease-in-out infinite; }
   @keyframes blink { 50% { opacity: .45; } }
   #sessionOverlay.flex { animation: fade-in .35s ease both; }
@@ -300,7 +300,7 @@
   @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
   @keyframes lock-snap { from { transform: scale(.4) rotate(-20deg); opacity: 0; } to { transform: none; opacity: 1; } }
 
-  /* 15 · RBAC: ღილაკი „ცოცხლდება" როცა უფლება ეძლევა */
+  /* 16 · RBAC: ღილაკი „ცოცხლდება" როცა უფლება ეძლევა */
   .rbac-toolbar-btn { border-radius: 10px; }
   .rbac-toolbar-btn.just-on  { animation: perm-on .45s cubic-bezier(.3,1.6,.5,1); }
   .rbac-toolbar-btn.just-off { animation: perm-off .4s ease; }
@@ -309,7 +309,7 @@
   .rbac-role-btn { border-radius: 999px; }
   #rbacOutput p { transition: color .3s ease; }
 
-  /* 05 · JWT: აქტიური ნაწილი „სუნთქავს" */
+  /* 06 · JWT: აქტიური ნაწილი „სუნთქავს" */
   .jwt-part.is-on { animation: jwt-glow 1.6s ease-in-out infinite; }
   @keyframes jwt-glow { 50% { filter: brightness(1.08) saturate(1.3); } }
   [data-jwt-decoded] { transition: border-color .3s ease, transform .3s ease; }
@@ -467,6 +467,89 @@
 </section>
 
 <!-- 04 ───────────────────────────────────────────────────────────── -->
+<section class="slide h-full" data-section="სტატუს კოდები" data-notes="კოდებს ზეპირად ნუ ასწავლი — მთავარი პირველი ციფრია: 2 — წარმატება, 3 — სხვაგან წადი, 4 — კლიენტის ბრალი, 5 — სერვერის ბრალი. დღევანდელი ლექციისთვის ორი კოდია მთავარი, 401 და 403 — შემდეგ სლაიდზე სწორედ ამ ორ ცნებას გავარჩევთ. ბოლოს აჩვენე fetch-ის ხაფანგი: 404-ზე და 500-ზე fetch არ აგდებს error-ს, ამიტომ res.ok ყოველთვის უნდა შემოწმდეს. (ვალიდაციის შეცდომაზე ზოგი API 400-ის ნაცვლად 422-ს აბრუნებს.)">
+  <div class="grid h-full grid-cols-12 grid-rows-[auto_1fr_auto] gap-x-6 gap-y-4 px-14 py-12">
+    <div class="col-span-12 flex items-end justify-between gap-10">
+      <div>
+        <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>სერვერის პასუხი</p>
+        <h2 class="display mt-3 text-5xl font-semibold">HTTP სტატუს კოდები</h2>
+      </div>
+      <p class="max-w-md text-sm text-ink-2">სამნიშნა რიცხვი, რომლის <span class="text-ink">პირველი ციფრი კლასია</span> — ის ამბობს, რა მოხდა ზოგადად. დანარჩენი ორი მხოლოდ დეტალს აზუსტებს.</p>
+    </div>
+
+    <div class="col-span-3 flex flex-col border border-rule bg-panel">
+      <div class="rounded-t-[15px] border-b border-rule bg-box-p/10 px-3.5 py-2.5">
+        <div class="flex items-baseline justify-between gap-3"><p class="font-mono text-2xl font-semibold text-ok-d">2xx</p><p class="font-mono text-[11px] uppercase tracking-[0.18em] text-ok-d">Success</p></div>
+        <p class="mt-0.5 text-[12.5px] leading-snug text-ink-2">წარმატება — „ყველაფერი რიგზეა“</p>
+      </div>
+      <ul data-stagger class="divide-y divide-rule">
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-ok-d">200</span><span class="font-medium">OK</span></p><p class="pl-8 text-[12px] text-ink-2">შესრულდა, მონაცემი body-შია</p></li>
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-ok-d">201</span><span class="font-medium">Created</span></p><p class="pl-8 text-[12px] text-ink-2">ახალი რესურსი შეიქმნა</p></li>
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-ok-d">202</span><span class="font-medium">Accepted</span></p><p class="pl-8 text-[12px] text-ink-2">მიღებულია, შესრულდება მერე</p></li>
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-ok-d">204</span><span class="font-medium">No Content</span></p><p class="pl-8 text-[12px] text-ink-2">შესრულდა, body ცარიელია</p></li>
+      </ul>
+    </div>
+
+    <div class="col-span-3 flex flex-col border border-rule bg-panel">
+      <div class="rounded-t-[15px] border-b border-rule bg-box-c/15 px-3.5 py-2.5">
+        <div class="flex items-baseline justify-between gap-3"><p class="font-mono text-2xl font-semibold text-info-d">3xx</p><p class="font-mono text-[11px] uppercase tracking-[0.18em] text-info-d">Redirection</p></div>
+        <p class="mt-0.5 text-[12.5px] leading-snug text-ink-2">გადამისამართება — „სხვაგანაა“</p>
+      </div>
+      <ul data-stagger class="divide-y divide-rule">
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-info-d">301</span><span class="font-medium">Moved Permanently</span></p><p class="pl-8 text-[12px] text-ink-2">სამუდამოდ ახალ მისამართზეა</p></li>
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-info-d">302</span><span class="font-medium">Found</span></p><p class="pl-8 text-[12px] text-ink-2">დროებით სხვა მისამართზეა</p></li>
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-info-d">304</span><span class="font-medium">Not Modified</span></p><p class="pl-8 text-[12px] text-ink-2">არ შეცვლილა — აიღე cache-დან</p></li>
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-info-d">307</span><span class="font-medium">Temporary Redirect</span></p><p class="pl-8 text-[12px] text-ink-2">დროებითი, method უცვლელია</p></li>
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-info-d">308</span><span class="font-medium">Permanent Redirect</span></p><p class="pl-8 text-[12px] text-ink-2">სამუდამო, method უცვლელია</p></li>
+      </ul>
+    </div>
+
+    <div class="col-span-3 flex flex-col border border-rule bg-panel">
+      <div class="rounded-t-[15px] border-b border-rule bg-box-m/15 px-3.5 py-2.5">
+        <div class="flex items-baseline justify-between gap-3"><p class="font-mono text-2xl font-semibold text-warn-d">4xx</p><p class="font-mono text-[11px] uppercase tracking-[0.18em] text-warn-d">Client Error</p></div>
+        <p class="mt-0.5 text-[12.5px] leading-snug text-ink-2">კლიენტის შეცდომა — „შენი ბრალია“</p>
+      </div>
+      <ul data-stagger class="divide-y divide-rule">
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-warn-d">400</span><span class="font-medium">Bad Request</span></p><p class="pl-8 text-[12px] text-ink-2">არასწორი ველები ან ფორმატი</p></li>
+        <li class="bg-live/5 px-3.5 py-1.5 leading-snug shadow-[inset_3px_0_0_var(--color-live)]"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-warn-d">401</span><span class="font-medium">Unauthorized</span> <span class="ml-1 rounded-full bg-live px-1.5 py-px align-middle font-mono text-[9.5px] uppercase tracking-[0.12em] text-paper">auth</span></p><p class="pl-8 text-[12px] text-ink-2">token აკლია ან ვადაგასულია</p></li>
+        <li class="bg-live/5 px-3.5 py-1.5 leading-snug shadow-[inset_3px_0_0_var(--color-live)]"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-warn-d">403</span><span class="font-medium">Forbidden</span> <span class="ml-1 rounded-full bg-live px-1.5 py-px align-middle font-mono text-[9.5px] uppercase tracking-[0.12em] text-paper">auth</span></p><p class="pl-8 text-[12px] text-ink-2">ცნობილი ხარ, უფლება არ გაქვს</p></li>
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-warn-d">404</span><span class="font-medium">Not Found</span></p><p class="pl-8 text-[12px] text-ink-2">ასეთი რესურსი არ არსებობს</p></li>
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-warn-d">409</span><span class="font-medium">Conflict</span></p><p class="pl-8 text-[12px] text-ink-2">მაგ. email უკვე დაკავებულია</p></li>
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-warn-d">429</span><span class="font-medium">Too Many Requests</span></p><p class="pl-8 text-[12px] text-ink-2">ბევრი მცდელობა — დაელოდე</p></li>
+      </ul>
+    </div>
+
+    <div class="col-span-3 flex flex-col border border-rule bg-panel">
+      <div class="rounded-t-[15px] border-b border-rule bg-bad/10 px-3.5 py-2.5">
+        <div class="flex items-baseline justify-between gap-3"><p class="font-mono text-2xl font-semibold text-[#e11d48]">5xx</p><p class="font-mono text-[11px] uppercase tracking-[0.18em] text-[#e11d48]">Server Error</p></div>
+        <p class="mt-0.5 text-[12.5px] leading-snug text-ink-2">სერვერის შეცდომა — „ჩემი ბრალია“</p>
+      </div>
+      <ul data-stagger class="divide-y divide-rule">
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-[#e11d48]">500</span><span class="font-medium">Internal Server Error</span></p><p class="pl-8 text-[12px] text-ink-2">მოულოდნელი შეცდომა სერვერზე</p></li>
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-[#e11d48]">502</span><span class="font-medium">Bad Gateway</span></p><p class="pl-8 text-[12px] text-ink-2">upstream-მა ცუდად უპასუხა</p></li>
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-[#e11d48]">503</span><span class="font-medium">Service Unavailable</span></p><p class="pl-8 text-[12px] text-ink-2">სერვისი დროებით მიუწვდომელია</p></li>
+        <li class="px-3.5 py-1.5 leading-snug"><p class="text-[13px]"><span class="mr-2 font-mono font-semibold text-[#e11d48]">504</span><span class="font-medium">Gateway Timeout</span></p><p class="pl-8 text-[12px] text-ink-2">upstream-მა ვერ მოასწრო</p></li>
+      </ul>
+    </div>
+
+    <div class="col-span-12 grid grid-cols-3 gap-px bg-rule">
+      <div class="bg-paper p-3.5">
+        <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-2">1xx · Informational</p>
+        <p class="mt-1 text-[13px] text-ink-2">შუალედური პასუხი, მაგ. <code class="font-mono text-[12px]">101 Switching Protocols</code> WebSocket-ისთვის. <code class="font-mono text-[12px]">fetch</code>-ში არ ჩანს.</p>
+      </div>
+      <div class="bg-paper p-3.5">
+        <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-live">fetch-ის ხაფანგი</p>
+        <p class="mt-1 text-[13px] text-ink-2"><code class="font-mono text-[12px]">fetch()</code> 4xx/5xx-ზე <span class="text-ink">error-ს არ აგდებს</span>. ყოველთვის შეამოწმე <code class="font-mono text-[12px]">res.ok</code> — true მხოლოდ 2xx-ზეა.</p>
+      </div>
+      <div class="bg-ink p-3.5 text-paper">
+        <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-box-p">401 ≠ 403</p>
+        <p class="mt-1 text-[13px] text-paper/70"><span class="text-paper">401</span> → silent refresh, მერე retry. <span class="text-paper">403</span> → refresh არ უშველის, აჩვენე „წვდომა აკრძალულია“.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Authn vs Authz" data-notes="ეს ორი სიტყვა ინგლისურადაც ჰგავს ერთმანეთს — swap-ის რისკი მაღალია interview-ზეც კი. ბარათი ბოლოს დააკლიკე მხოლოდ მას შემდეგ, რაც დარბაზმა თავად სცადა პასუხის გამოცნობა.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-12">
@@ -539,7 +622,7 @@
   </div>
 </section>
 
-<!-- 05 ───────────────────────────────────────────────────────────── -->
+<!-- 06 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="JWT" data-notes="დააკლიკინე დარბაზს სამივე ფერადი ბლოკი — highlight გადადის შესაბამის decoded ველზე. ხაზი გაუსვი: signature არ ნიშნავს დაშიფვრას. Payload ნებისმიერს შეუძლია წაიკითხოს base64-დან — არასდროს ჩადოთ იქ პაროლი თუ საიდუმლო.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
@@ -589,7 +672,7 @@
   </div>
 </section>
 
-<!-- 06 ───────────────────────────────────────────────────────────── -->
+<!-- 07 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Tokens" data-notes="ცხრილს ხმამაღლა კითხულობდე მწკრივ-მწკრივ. ხაზი გაუსვი ბოლო მწკრივს: access token-ის მოპარვა 15 წუთის პრობლემაა, refresh token-ის მოპარვა კვირების პრობლემა — სწორედ ამიტომ საჭიროებს refresh token ყველაზე მაღალ დაცვას (შემდეგ სლაიდზე გავაგრძელებთ).">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
@@ -663,7 +746,7 @@
   </div>
 </section>
 
-<!-- 07 ───────────────────────────────────────────────────────────── -->
+<!-- 08 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Lifecycle" data-notes="გაატარე თითოეულ ნაბიჯზე ხმამაღლა. მე-4 და მე-5 ნაბიჯი ერთად წარმოადგინე — სწორედ ეს არის Silent Refresh, რომელსაც ცალკე სლაიდზე დავაგრძელებთ.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12" data-player data-interval="2600">
     <div class="col-span-4">
@@ -726,7 +809,7 @@
   </div>
 </section>
 
-<!-- 08 ───────────────────────────────────────────────────────────── -->
+<!-- 09 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="შენახვა" data-notes="ეს ხშირად დასმული interview კითხვაა — არავითარი „ერთადერთი სწორი პასუხი" არ არსებობს, ტრეიდ-ოფია. ხაზი გაუსვი httpOnly cookie-ს: JavaScript-ს საერთოდ არ შეუძლია მისი წაკითხვა — ესე იგი XSS-ითაც ვერ მოიპარავენ.">
   <div class="grid grid-cols-12 gap-10 px-14 pt-12 pb-8">
     <div class="col-span-4">
@@ -794,7 +877,7 @@
   </div>
 </section>
 
-<!-- 09 ───────────────────────────────────────────────────────────── -->
+<!-- 10 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="fetch wrapper" data-notes="ხაზი გაუსვი: wrapper ერთხელ იწერება და ყველა request-ს ეხმარება — არც ერთ ფაილში აღარ დაგვჭირდება ხელით token-ის მიბმა. წესი: აპლიკაციის კოდში fetch() პირდაპირ აღარსად იწერება, მხოლოდ apiFetch().">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
@@ -854,7 +937,7 @@
 
       <div class="border border-rule bg-ink p-5 font-mono text-[12.5px] leading-[1.8] text-paper">
         <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-paper/50">ფენები · აპლიკაცია მხოლოდ apiFetch()-ს იძახებს</p>
-        <pre class="mt-3 overflow-x-auto"><code><span class="text-box-p">apiFetch</span>(url)         <span class="text-paper/50">// 401 → refresh → retry (სლაიდი 11)</span>
+        <pre class="mt-3 overflow-x-auto"><code><span class="text-box-p">apiFetch</span>(url)         <span class="text-paper/50">// 401 → refresh → retry (სლაიდი 12)</span>
   └─ <span class="text-box-p">authFetch</span>(url)   <span class="text-paper/50">// + Authorization: Bearer</span>
        └─ <span class="text-box-p">fetch</span>(url)</code></pre>
       </div>
@@ -862,7 +945,7 @@
   </div>
 </section>
 
-<!-- 10 ───────────────────────────────────────────────────────────── -->
+<!-- 11 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Session" data-notes="ეს ცოცხალი დემოა — 15 წუთის ნაცვლად წამებში. ჯერ არაფერს ეხე, დაუტოვე 0-მდე ჩავიდეს, აჩვენე warning ფაზა და locked overlay. მერე Reset და აჩვენე, როგორ არღვევს activity ღილაკი countdown-ს.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-4">
@@ -902,7 +985,7 @@
   </div>
 </section>
 
-<!-- 11 ───────────────────────────────────────────────────────────── -->
+<!-- 12 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Silent Refresh" data-notes="ეს ყველაზე ხშირად არასწორად დაწერილი ნაწილია. კითხვა დარბაზს: რა მოხდება, თუ ერთდროულად 5 request გავა და ყველა 401-ს მიიღებს — ხუთივე გამოიძახებს /refresh-ს? სწორედ ეს არის race condition. გამოსავალი ერთი საერთო Promise-ია: პირველი 401 მას ქმნის, დანარჩენები იმავეს await-ით ელოდებიან.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
@@ -1001,7 +1084,7 @@
   </div>
 </section>
 
-<!-- 12 ───────────────────────────────────────────────────────────── -->
+<!-- 13 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Identity State" data-notes="ხაზი გაუსვი: getUser() ერთი წყაროა მთელი აპლიკაციისთვის — აღარაფერი იკითხება localStorage-დან ფაილების შუაში. subscribe() არის observer pattern — იგივე იდეა, რაზეც React-ის, Vue-ს და Angular-ის state დგას, ოღონდ აქ ხელით, 15 ხაზში.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
@@ -1076,14 +1159,14 @@
   </div>
 </section>
 
-<!-- 13 ───────────────────────────────────────────────────────────── -->
+<!-- 14 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Guards" data-notes="ხაზი გაუსვი: guard-ი თავად არ იძახებს navigate()-ს და არ ეხება location-ს — მხოლოდ აბრუნებს true-ს ან redirect-ის მისამართს, გადაწყვეტს router-ი. ასე guard-ი სუფთა ფუნქციაა და ადვილად ტესტდება. returnUrl დამატებით მიანიშნე — login-ის შემდეგ იქ დაბრუნდება.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
       <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>route guards</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">Route-ის<br>კარიბჭე</h2>
       <p class="mt-6 text-ink-2">Guard არის ბოლო ჩეკპოინტი, სანამ router გვერდს დაარენდერებს. Vanilla JS-ში router-საც და guard-საც თავად ვწერთ — guard უბრალო ფუნქციაა: აბრუნებს <code class="font-mono text-[13px]">true</code>-ს ან redirect-ის მისამართს.</p>
-      <p class="mt-4 border-l-2 border-live pl-5 text-sm text-ink-2">Guard მალავს route-ს UI-დან. API-ის საკუთარი შემოწმება მაინც აუცილებელია — ამაზე მე-16 სლაიდზე დავბრუნდებით.</p>
+      <p class="mt-4 border-l-2 border-live pl-5 text-sm text-ink-2">Guard მალავს route-ს UI-დან. API-ის საკუთარი შემოწმება მაინც აუცილებელია — ამაზე მე-17 სლაიდზე დავბრუნდებით.</p>
       <figure class="mt-6 border border-rule bg-panel p-4">
         <svg class="dia guard" viewBox="0 0 340 160" role="img" aria-label="guard ჯერ /login-ზე აბრუნებს, login-ის შემდეგ კი /admin-ში უშვებს">
           <g font-size="11" text-anchor="middle">
@@ -1139,7 +1222,7 @@
   </div>
 </section>
 
-<!-- 14 ───────────────────────────────────────────────────────────── -->
+<!-- 15 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="RBAC" data-notes="ეს ყველაზე მნიშვნელოვანი წესია დღევანდელ ლექციაში: არასდროს დაწერო if (role === 'admin') ბიზნეს ლოგიკაში. Role მხოლოდ სახელია, permissions-ის კონტეინერი — შემდეგ სლაიდზე ცოცხლად ვნახავთ, რატომ.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-4">
@@ -1206,7 +1289,7 @@
   </div>
 </section>
 
-<!-- 15 ───────────────────────────────────────────────────────────── -->
+<!-- 16 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Permission UI" data-notes="მთავარი დემო სლაიდი — გაატარე დარბაზს ღილაკები, ერთმანეთის მიყოლებით (Guest → Viewer → Editor → Admin). ყოველ ცვლილებაზე ხმამაღლა წაიკითხე, რომელი toolbar ღილაკი გაითიშა/ჩაირთო და რატომ — ეს ხდება პირდაპირ იმ permission matrix-ის მიხედვით, რაც წინა სლაიდზე ვნახეთ.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12" data-lab>
     <div class="col-span-4">
@@ -1254,7 +1337,7 @@
   </div>
 </section>
 
-<!-- 16 ───────────────────────────────────────────────────────────── -->
+<!-- 17 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="data-permission" data-notes="ეს ერთადერთი ყველაზე მნიშვნელოვანი წინადადება დღეს: UI-ის დამალვა არ არის usage security. ეს ცალკე გამეორე — API-ს ყოველთვის თავისი შემოწმება სჭირდება, სულ ერთია რამდენად ლამაზად მალავს frontend ღილაკს. ცოცხლად აჩვენე DevTools-ში: hidden ატრიბუტის წაშლა ერთი კლიკია — და ღილაკი ისევ ჩანს.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
@@ -1314,7 +1397,7 @@ subscribe(() =&gt; applyPermissions());</code></pre>
   </div>
 </section>
 
-<!-- 17 ───────────────────────────────────────────────────────────── -->
+<!-- 18 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="სურათი" data-notes="ეს არის მთელი დღევანდელი ლექციის ერთ ხაზად ჩაწერა. გაატარე მარცხნიდან მარჯვნივ და ხმამაღლა დაასახელე თითოეული ეტაპი, ერთი წინადადებით.">
   <div class="flex h-full flex-col justify-center px-14 py-12">
     <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>დიდი სურათი</p>
@@ -1340,7 +1423,7 @@ subscribe(() =&gt; applyPermissions());</code></pre>
   </div>
 </section>
 
-<!-- 18 ───────────────────────────────────────────────────────────── -->
+<!-- 19 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="შეცდომები" data-notes="თითოეულ პუნქტზე იკითხე: ვისთვის ჰგავს ეს ნაცნობს? საკუთარი პროექტიდან პირადი მაგალითი, თუ გაქვს, აქ ყველაზე მეტად მუშაობს.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-4">
@@ -1360,7 +1443,7 @@ subscribe(() =&gt; applyPermissions());</code></pre>
   </div>
 </section>
 
-<!-- 19 ───────────────────────────────────────────────────────────── -->
+<!-- 20 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="შეჯამება" data-notes="დაასრულე ერთი წინადადებით. მერე დაავალე: აიღონ საკუთარი პროექტის ერთი guarded route, დაწერონ მისთვის permission-ზე დაფუძნებული toolbar — ისე, როგორც დღეს ვნახეთ RBAC დემოში.">
   <div class="flex h-full flex-col justify-between px-14 py-12">
     <div class="flex items-start justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-ink-2">
@@ -1385,7 +1468,7 @@ subscribe(() =&gt; applyPermissions());</code></pre>
   </div>
 </section>
 
-<!-- 20 ───────────────────────────────────────────────────────────── ინვერსიული -->
+<!-- 21 ───────────────────────────────────────────────────────────── ინვერსიული -->
 <section class="slide h-full bg-ink text-paper" data-dark data-section="მადლობა" data-notes="ეს სლაიდი მთელი Q&A-ის განმავლობაში დატოვე გახსნილი. თუ არავინ იწყებს, ექვსი ჩიპიდან ერთი თვითონ აიღე და ხმამაღლა უპასუხე. O-თი ნებისმიერ სლაიდზე დაბრუნდები.">
   <div class="relative flex h-full flex-col justify-between px-14 py-12">
     <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">

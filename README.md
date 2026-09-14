@@ -4,13 +4,15 @@ A 21-slide, single-file HTML lecture (in Georgian) about authentication in plain
 
 This is the framework-free version of the Angular auth lecture. The design and the order of the slides are the same. The code and the framework-specific explanations are rewritten for vanilla JS.
 
+**▶ Live deck: [thothcher.github.io/js-auth](https://thothcher.github.io/js-auth/)**
+
 ![Deck tour](docs/deck-tour.gif)
 
 ---
 
 ## Quick start
 
-1. Open [index.html](index.html) in a modern browser (Chrome, Edge, Firefox or Safari).
+1. Open the live deck at **[thothcher.github.io/js-auth](https://thothcher.github.io/js-auth/)**, or open [index.html](index.html) locally in a modern browser (Chrome, Edge, Firefox or Safari).
 2. Press **F** for fullscreen and **→** to begin.
 
 There is no build step. Tailwind v4 and the fonts load from CDNs, so the machine needs internet the first time. After that the browser cache is usually enough.
@@ -113,6 +115,7 @@ If Chrome is installed somewhere else, set `CHROME=/path/to/chrome`.
 auth-js/
 ├── index.html             the whole presentation
 ├── README.md
+├── sitemap.xml            one-page sitemap for search engines
 ├── docs/                  GIFs and the cover image used above
 └── tools/record-gifs.js   records docs/*.gif from the deck
 ```

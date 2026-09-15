@@ -152,6 +152,7 @@
 
   /* 02 · გეგმა: ჯაჭვი, რომლის რგოლები რიგრიგობით ინთება */
   .chain text { font-size: 11px; fill: #545378; }
+  .chain-node { --c: var(--color-live); }
   .chain-node circle { fill: #fff; stroke: var(--c); stroke-width: 2.5; transform-box: fill-box; transform-origin: center;
                        animation: node-on 6s ease infinite; animation-delay: calc(var(--k) * .6s); }
   @keyframes node-on { 0%, 100% { fill: #fff; transform: scale(1); } 6% { fill: var(--c); transform: scale(1.35); } 12%, 60% { fill: var(--c); transform: scale(1); } 72% { fill: #fff; } }
@@ -160,8 +161,7 @@
   ol[data-plan] li { transition: background-color .25s ease; }
   ol[data-plan] li:hover { background: #fff; }
   ol[data-plan] li > span:first-child { color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); border-color: color-mix(in srgb, var(--c) 40%, transparent); }
-  ol[data-plan] li:nth-child(1) { --c: #0b2997; } ol[data-plan] li:nth-child(2) { --c: #0ea5e9; } ol[data-plan] li:nth-child(3) { --c: #10b981; }
-  ol[data-plan] li:nth-child(4) { --c: #f59e0b; } ol[data-plan] li:nth-child(5) { --c: #ec4899; } ol[data-plan] li:nth-child(6) { --c: #8b5cf6; }
+  ol[data-plan] li { --c: var(--color-live); }
 
   /* 03 · HTTP-ს არაფერი ახსოვს: ორი request, სერვერი მეორეს უკვე ვერ ცნობს (8s ციკლი) */
   .stateless .pkt1 { animation: pkt1 8s ease-in-out infinite; }
@@ -391,7 +391,7 @@
         <h1 class="display text-[6.4vw] leading-[0.95] font-semibold">Auth, Authorization<br>&amp; <span class="grad-text">Session Lifecycle</span></h1>
       </div>
       <div class="mt-8 h-1 w-32 rounded-full" style="background:linear-gradient(90deg,#0b2997,#2f5fe8,#6aa5ff)"></div>
-      <p class="mt-6 max-w-2xl text-lg text-ink-2">ვინ ხარ, რისი უფლება გაქვს და რამდენ ხანს — სამი კითხვა, რომელსაც ყოველი authenticated request პასუხობს. ფრეიმვორკის გარეშე: მხოლოდ <code class="font-mono text-[15px]">fetch</code>, ES modules და DOM.</p>
+      <p class="mt-6 max-w-2xl text-lg text-ink-2">ვინ ხარ, რისი უფლება გაქვს და რამდენ ხანს — სამი კითხვა, რომელსაც ყოველი authenticated request პასუხობს.</p>
     </div>
   </div>
 </section>
@@ -407,14 +407,13 @@
       <figure class="max-w-sm">
         <svg class="dia chain" viewBox="0 0 360 70" aria-hidden="true">
           <line x1="24" y1="26" x2="336" y2="26" stroke="#e3e1f3" stroke-width="3" stroke-linecap="round"/>
-          <line class="chain-line" x1="24" y1="26" x2="336" y2="26" stroke="url(#chainGrad)" stroke-width="3" stroke-linecap="round"/>
-          <defs><linearGradient id="chainGrad"><stop offset="0" stop-color="#0b2997"/><stop offset=".5" stop-color="#10b981"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs>
-          <g class="chain-node" style="--k:0;--c:#0b2997"><circle cx="24"  cy="26" r="11"/><text x="24"  y="60" text-anchor="middle">01</text></g>
-          <g class="chain-node" style="--k:1;--c:#0ea5e9"><circle cx="86"  cy="26" r="11"/><text x="86"  y="60" text-anchor="middle">02</text></g>
-          <g class="chain-node" style="--k:2;--c:#10b981"><circle cx="149" cy="26" r="11"/><text x="149" y="60" text-anchor="middle">03</text></g>
-          <g class="chain-node" style="--k:3;--c:#f59e0b"><circle cx="211" cy="26" r="11"/><text x="211" y="60" text-anchor="middle">04</text></g>
-          <g class="chain-node" style="--k:4;--c:#ec4899"><circle cx="274" cy="26" r="11"/><text x="274" y="60" text-anchor="middle">05</text></g>
-          <g class="chain-node" style="--k:5;--c:#8b5cf6"><circle cx="336" cy="26" r="11"/><text x="336" y="60" text-anchor="middle">06</text></g>
+          <line class="chain-line" x1="24" y1="26" x2="336" y2="26" stroke="#0b2997" stroke-width="3" stroke-linecap="round"/>
+          <g class="chain-node" style="--k:0"><circle cx="24"  cy="26" r="11"/><text x="24"  y="60" text-anchor="middle">01</text></g>
+          <g class="chain-node" style="--k:1"><circle cx="86"  cy="26" r="11"/><text x="86"  y="60" text-anchor="middle">02</text></g>
+          <g class="chain-node" style="--k:2"><circle cx="149" cy="26" r="11"/><text x="149" y="60" text-anchor="middle">03</text></g>
+          <g class="chain-node" style="--k:3"><circle cx="211" cy="26" r="11"/><text x="211" y="60" text-anchor="middle">04</text></g>
+          <g class="chain-node" style="--k:4"><circle cx="274" cy="26" r="11"/><text x="274" y="60" text-anchor="middle">05</text></g>
+          <g class="chain-node" style="--k:5"><circle cx="336" cy="26" r="11"/><text x="336" y="60" text-anchor="middle">06</text></g>
         </svg>
         <figcaption class="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-2">ექვსი თემა — ერთი ჯაჭვი</figcaption>
       </figure>
@@ -606,7 +605,7 @@
         </svg>
       </div>
       <div class="p-6">
-        <p class="text-ink-2">ვინაობის დადასტურება — პაროლი, OTP, biometric, SSO. შედეგი ერთია: <span class="text-ink">ცნობილი მომხმარებელი</span> თუ <span class="text-ink">უცნობი</span>.</p>
+        <p class="text-ink-2">ვინაობის დადასტურება — პაროლი, OTP, biometric, SSO. შედეგი ერთია: <span class="text-ink">ცნობილია მომხმარებელი</span> თუ <span class="text-ink">უცნობი</span>.</p>
         <p class="mt-4 border-l-2 border-live pl-4 text-sm text-ink-2">ანალოგია: პასპორტის შემოწმება საზღვარზე — ადასტურებს ვინაობას, არაფერს ამბობს სად შეგიძლია შესვლა.</p>
         <div class="mt-6 border border-rule bg-paper p-4 font-mono text-[12px] text-ink-2">
           <p>POST /auth/login</p>
@@ -663,8 +662,8 @@
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">სამი ნაწილი,<br>წერტილით გაყოფილი</h2>
       <p class="mt-6 text-ink-2">JSON Web Token არის სამი base64url ბლოკი, წერტილებით შეერთებული: <code class="font-mono text-[13px]">header.payload.signature</code>.</p>
       <div class="mt-6 space-y-3 text-sm text-ink-2">
-        <div class="flex gap-3"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-box-c"></span><span><span class="text-ink">header</span> — algoritmi, JWT ტიპი. საჯაროა.</span></div>
-        <div class="flex gap-3"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-box-p"></span><span><span class="text-ink">payload</span> — claims: ვინ, როდის, რამდე ხანს. <span class="font-medium text-ink">დაშიფრული არაა — ვინც წაიკითხავს, დაინახავს.</span></span></div>
+        <div class="flex gap-3"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-box-c"></span><span><span class="text-ink">header</span> — ალგორითმი, JWT ტიპი. საჯაროა.</span></div>
+        <div class="flex gap-3"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-box-p"></span><span><span class="text-ink">payload</span> — claims: ვინ, როდის, რამდენ ხანს. <span class="font-medium text-ink">დაშიფრული არაა — ვინც წაიკითხავს, დაინახავს.</span></span></div>
         <div class="flex gap-3"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-box-m"></span><span><span class="text-ink">signature</span> — header+payload-ის HMAC. ადასტურებს, რომ არავის შეუცვლია.</span></div>
       </div>
       <p class="mt-6 border-l-2 border-live pl-5 text-sm text-ink-2">ესე იგი: JWT არის <span class="text-ink">signed</span>, არა <span class="text-ink">encrypted</span>. ის იცავს მთლიანობას (tamper-proof), არა კონფიდენციალურობას.</p>
@@ -847,7 +846,7 @@
   <div class="grid grid-cols-12 gap-10 px-14 pt-12 pb-8">
     <div class="col-span-4">
       <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>შენახვა</p>
-      <h2 class="display mt-4 text-5xl leading-[1] font-semibold">სად ვინახოთ<br>token-ები?</h2>
+      <h2 class="display mt-4 text-5xl leading-[1] font-semibold">სად ვინახავთ<br>token-ებს?</h2>
       <p class="mt-6 text-ink-2">ოთხი ვარიანტი, ოთხი ტრეიდ-ოფი — XSS-ის (მოპარვა JS-ით) და CSRF-ის (browser-ის თვითნებური გაგზავნა) რისკებს შორის.</p>
       <figure class="mt-6 border border-rule bg-panel p-4">
         <svg class="dia xss" viewBox="0 0 340 214" role="img" aria-label="XSS სკრიპტი token-ს ეძებს ოთხივე საცავში">
@@ -889,7 +888,7 @@
       </div>
       <div class="grid grid-cols-[9rem_1fr] gap-6 bg-paper p-5">
         <span class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-ink-2"><span class="h-1.5 w-1.5 rounded-full bg-box-m"></span>sessionStorage</span>
-        <span>იგივე XSS რისკი, oღონდ მხოლოდ ერთი tab-ისთვის — იკეტება tab-ის დახურვაზე.</span>
+        <span>იგივე XSS რისკი, ოღონდ მხოლოდ ერთი tab-ისთვის — იკეტება tab-ის დახურვაზე.</span>
       </div>
       <div class="grid grid-cols-[9rem_1fr] gap-6 bg-paper p-5">
         <span class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em]" style="color:#059669"><span class="h-1.5 w-1.5 rounded-full bg-box-p"></span>მეხსიერება (ცვლადი)</span>

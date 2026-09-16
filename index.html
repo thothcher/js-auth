@@ -205,7 +205,7 @@
   @keyframes bub2 { 0%, 75% { opacity: 0; transform: translateY(6px); } 79%, 95% { opacity: 1; transform: none; } 99%, 100% { opacity: 0; } }
   @keyframes srv  { 0%, 25%, 34%, 73%, 82%, 100% { stroke: #0b2997; } 28% { stroke: #10b981; } 76% { stroke: #f43f5e; } }
 
-  /* 05 · Authn: ID ბარათის სკანირება ✓ · Authz: ბარათი ერთ კარს აღებს, მეორეს — ვერა */
+  /* 09 · Authn: ID ბარათის სკანირება ✓ · Authz: ბარათი ერთ კარს აღებს, მეორეს — ვერა */
   .id-scan .scan { animation: scan 3s ease-in-out infinite; }
   @keyframes scan { 0% { transform: translateY(0); opacity: 0; } 8% { opacity: 1; } 42% { transform: translateY(45px); } 60% { transform: translateY(0); opacity: 1; } 66%, 100% { transform: translateY(0); opacity: 0; } }
   .id-scan .ok { transform-box: fill-box; transform-origin: center; animation: pop-ok 3s ease infinite; }
@@ -219,7 +219,7 @@
   .doors .deny { animation: pop-deny 4s ease infinite; }
   @keyframes pop-deny { 0%, 58% { opacity: 0; } 62%, 88% { opacity: 1; } 96%, 100% { opacity: 0; } }
 
-  /* 07 · token-ების ვადა: playhead მარცხნიდან მარჯვნივ, უკან რჩება ნაცოცხლები დრო */
+  /* 11 · token-ების ვადა: playhead მარცხნიდან მარჯვნივ, უკან რჩება ნაცოცხლები დრო */
   .tl .tl-reveal { transform-box: fill-box; transform-origin: 0 0; animation: tl-reveal 9s linear infinite; }
   @keyframes tl-reveal { 0% { transform: scaleX(0); } 88%, 100% { transform: scaleX(1); } }
   .tl .tl-head { animation: tl-head 9s linear infinite; }
@@ -227,10 +227,10 @@
   .tl .tl-end { animation: tl-end 9s ease infinite; }
   @keyframes tl-end { 0%, 87% { opacity: 0; } 90%, 100% { opacity: 1; } }
 
-  /* 08 · sequence diagram: ისრის წერტილი მოძრაობს მხოლოდ მიმდინარე ნაბიჯზე */
+  /* 12 · sequence diagram: ისრის წერტილი მოძრაობს მხოლოდ მიმდინარე ნაბიჯზე */
   .dia .travel { opacity: 0; }
 
-  /* 09 · XSS „ხოჭო" ოთხ საცავს სტუმრობს (8s ციკლი) */
+  /* 13 · XSS „ხოჭო" ოთხ საცავს სტუმრობს (8s ციკლი) */
   .xss .bug { animation: bug 8s ease-in-out infinite; }
   @keyframes bug {
     0%       { transform: translate(170px, 105px); }
@@ -253,7 +253,7 @@
   .xss .shield-box { animation: shield 8s ease infinite; }
   @keyframes shield { 0%, 76%, 94%, 100% { stroke-width: 2; stroke: #059669; } 80%, 88% { stroke-width: 5; stroke: #10b981; } }
 
-  /* 10 · fetch wrapper: წერილი შედის უბრალოდ, გამოდის Bearer „შტამპით" (5s ციკლი) */
+  /* 14 · fetch wrapper: წერილი შედის უბრალოდ, გამოდის Bearer „შტამპით" (5s ციკლი) */
   .icp .env1 { animation: env1 5s ease-in-out infinite; }
   @keyframes env1 { 0% { transform: translateX(0); opacity: 0; } 6% { opacity: 1; } 32% { transform: translateX(100px); opacity: 1; } 36%, 100% { transform: translateX(100px); opacity: 0; } }
   .icp .icp-box { animation: icp-box 5s ease infinite; }
@@ -265,7 +265,7 @@
   .icp .icp-ok { animation: icp-ok 5s ease infinite; }
   @keyframes icp-ok { 0%, 80% { opacity: 0; } 84%, 96% { opacity: 1; } 100% { opacity: 0; } }
 
-  /* 12 · silent refresh: ოთხი 401 — lock-ის გარეშე vs lock-ით (7s ციკლი, რეჟიმს JS ცვლის) */
+  /* 16 · silent refresh: ოთხი 401 — lock-ის გარეშე vs lock-ით (7s ციკლი, რეჟიმს JS ცვლის) */
   .sr-fig[data-mode="bad"] .good-only, .sr-fig[data-mode="good"] .bad-only { display: none; }
   .sr-btn { border-color: #e3e1f3; background: #fff; color: #545378; }
   .sr-btn:hover { border-color: #17153b; }
@@ -284,7 +284,7 @@
   .sr .sr-diag { animation: sr-diag 7s ease-in infinite; }
   @keyframes sr-diag { 0%, 26% { transform: translate(0, 0); opacity: 0; } 28% { opacity: 1; } 50% { transform: translate(var(--tx), var(--ty)); opacity: 1; } 53%, 100% { transform: translate(var(--tx), var(--ty)); opacity: 0; } }
 
-  /* 13 · auth store: setUser() → user → getter-ები → UI (6s ციკლი) */
+  /* 17 · auth store: setUser() → user → getter-ები → UI (6s ციკლი) */
   .sig .pill-set { animation: pill-set 6s ease infinite; }
   @keyframes pill-set { 0%, 16% { opacity: 0; transform: translateY(4px); } 20%, 34% { opacity: 1; transform: none; } 38%, 100% { opacity: 0; } }
   .sig .pill-out { animation: pill-out 6s ease infinite; }
@@ -303,7 +303,7 @@
   @keyframes v1c { 0%, 50% { opacity: 0; } 54%, 92% { opacity: 1; } 96%, 100% { opacity: 0; } }
   @keyframes v0c { 0%, 50% { opacity: 1; } 54%, 92% { opacity: 0; } 96%, 100% { opacity: 1; } }
 
-  /* 14 · guard: უცნობი → /login, შემდეგ login-ით → /admin (10s ციკლი) */
+  /* 18 · guard: უცნობი → /login, შემდეგ login-ით → /admin (10s ციკლი) */
   .guard .walker { animation: walker 10s ease-in-out infinite; }
   @keyframes walker {
     0%       { transform: translate(24px, 70px); opacity: 0; }
@@ -328,7 +328,7 @@
   .guard .admin-door { animation: g-door 10s ease infinite; }
   @keyframes g-door { 0%, 76%, 96%, 100% { fill: #ebefff; stroke-width: 1.5; } 80%, 92% { fill: #d6dfff; stroke-width: 3.5; } }
 
-  /* 17 · ღილაკი დამალულია, curl კი მაინც მიდის — backend პასუხობს 403 (7s ციკლი) */
+  /* 21 · ღილაკი დამალულია, curl კი მაინც მიდის — backend პასუხობს 403 (7s ციკლი) */
   .curl .del-btn { animation: del-btn 7s ease infinite; }
   @keyframes del-btn { 0%, 16% { opacity: 1; } 24%, 94% { opacity: 0; } 100% { opacity: 1; } }
   .curl .ghost { animation: ghost 7s ease infinite; }
@@ -342,7 +342,7 @@
   .curl .resp { animation: curl-resp 7s ease infinite; }
   @keyframes curl-resp { 0%, 64% { opacity: 0; transform: translateY(4px); } 68%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
 
-  /* 18 · დიდი სურათი: request „მოგზაურობს" ჯაჭვში, ყოველი რგოლი რიგრიგობით ინთება */
+  /* 22 · დიდი სურათი: request „მოგზაურობს" ჯაჭვში, ყოველი რგოლი რიგრიგობით ინთება */
   .flow > :nth-child(1) { --k: 0; } .flow > :nth-child(2) { --k: .5; } .flow > :nth-child(3) { --k: 1; } .flow > :nth-child(4) { --k: 1.5; }
   .flow > :nth-child(5) { --k: 2; } .flow > :nth-child(6) { --k: 2.5; } .flow > :nth-child(7) { --k: 3; } .flow > :nth-child(8) { --k: 3.5; }
   .flow > :nth-child(9) { --k: 4; } .flow > :nth-child(10) { --k: 4.5; } .flow > :nth-child(11) { --k: 5; } .flow > :nth-child(12) { --k: 5.5; }
@@ -352,7 +352,7 @@
   @keyframes flow-on { 0%, 14%, 100% { transform: none; box-shadow: none; } 4%, 10% { transform: translateY(-6px) scale(1.04); box-shadow: 0 0 0 3px #0b299740, 0 16px 30px -12px #0b2997; } }
   @keyframes flow-arrow { 0%, 12%, 100% { color: #545378; transform: none; } 5% { color: #0b2997; transform: translateX(5px) scale(1.4); } }
 
-  /* 21 · auth flow: 3D „კუბი" ხუთი ფორმით (ბრუნავს მარცხნივ) · login-ის request → response → token-ების შენახვა · REST endpoint-ები */
+  /* 25 · auth flow: 3D „კუბი" ხუთი ფორმით (ბრუნავს მარცხნივ) · login-ის request → response → token-ების შენახვა · REST endpoint-ები */
   .af-scene { --cw: 360px; --ch: 460px; --apo: calc(var(--cw) * .6882); width: var(--cw); height: var(--ch); }   /* 5 წახნაგი: apothem = w / (2·tan 36°) */
   /* perspective lift-ზე (არა scene-ზე): ერთი 3D-შრე ნაკლები — Chrome-ი ბრუნვის შემდეგ click-ს სწორ ფორმას აწვდის */
   .af-lift { width: 100%; height: 100%; perspective: 750px; }
@@ -493,9 +493,9 @@
   .af-auth.ck { color: #b45309; border-color: #fbbf2466; background: #fbbf2414; }
   .af-auth.br { color: #0b2997; border-color: #0b299733; background: #0b29970d; }
 
-  /* 22 · ბნელ სლაიდზე ჩიპები */
+  /* 26 · ბნელ სლაიდზე ჩიპები */
   .chip.dark { background: #ffffff0f; box-shadow: 0 12px 30px -16px var(--c); }
-  /* 22 · ფონის ფოტო (Unsplash): მარჯვნივ, ink-ში ჩაიძირება, ნელა მიახლოვდება */
+  /* 26 · ფონის ფოტო (Unsplash): მარჯვნივ, ink-ში ჩაიძირება, ნელა მიახლოვდება */
   .end-photo { position: absolute; top: 0; right: 0; width: 64%; height: 100%; object-fit: cover; object-position: 30% 50%;
                opacity: .5; filter: grayscale(1) brightness(.85) contrast(1.1); }
   .end-fade { position: absolute; inset: 0;
@@ -505,7 +505,7 @@
   .end-credit a { text-decoration: underline; text-decoration-color: #f7f6fd4d; text-underline-offset: 3px; }
   .end-credit a:hover { color: #f7f6fd; }
 
-  /* 11 · session demo: გაფრთხილების ფაზა */
+  /* 15 · session demo: გაფრთხილების ფაზა */
   #sessionDemo.warn #sessionBar { animation: blink 1s ease-in-out infinite; }
   @keyframes blink { 50% { opacity: .45; } }
   #sessionOverlay.flex { animation: fade-in .35s ease both; }
@@ -513,7 +513,7 @@
   @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
   @keyframes lock-snap { from { transform: scale(.4) rotate(-20deg); opacity: 0; } to { transform: none; opacity: 1; } }
 
-  /* 16 · RBAC: ღილაკი „ცოცხლდება" როცა უფლება ეძლევა */
+  /* 20 · RBAC: ღილაკი „ცოცხლდება" როცა უფლება ეძლევა */
   .rbac-toolbar-btn { border-radius: 10px; }
   .rbac-toolbar-btn.just-on  { animation: perm-on .45s cubic-bezier(.3,1.6,.5,1); }
   .rbac-toolbar-btn.just-off { animation: perm-off .4s ease; }
@@ -522,7 +522,7 @@
   .rbac-role-btn { border-radius: 999px; }
   #rbacOutput p { transition: color .3s ease; }
 
-  /* 06 · JWT: აქტიური ნაწილი „სუნთქავს" */
+  /* 10 · JWT: აქტიური ნაწილი „სუნთქავს" */
   .jwt-part.is-on { animation: jwt-glow 1.6s ease-in-out infinite; }
   @keyframes jwt-glow { 50% { filter: brightness(1.08) saturate(1.3); } }
   [data-jwt-decoded] { transition: border-color .3s ease, transform .3s ease; }
@@ -532,6 +532,188 @@
   .ill { display: block; height: auto; user-select: none; pointer-events: none; animation: ill-float 7s ease-in-out infinite; }
   .ill-hero { position: absolute; right: 4%; bottom: 8%; width: min(23vw, 420px); }
   @keyframes ill-float { 50% { transform: translateY(-8px); } }
+
+  /* 04 · auth სხემები: stateful (session → ბაზაში lookup) vs stateless (token → ხელმოწერის შემოწმება), 4s ციკლი */
+  .fam .dot { animation: fam-dot 4s cubic-bezier(.5,0,.3,1) infinite; }
+  @keyframes fam-dot { 0% { transform: translateX(0); opacity: 0; } 6% { opacity: 1; } 40% { transform: translateX(126px); opacity: 1; } 46%, 100% { transform: translateX(126px); opacity: 0; } }
+  .fam .db { animation: fam-db 4s ease infinite; }
+  @keyframes fam-db { 0%, 42%, 82%, 100% { stroke: #c9c6e6; fill: #fff; } 50%, 72% { stroke: #ff6b35; fill: #fff1eb; } }
+  .fam .look { animation: fam-look 4s ease infinite; }
+  @keyframes fam-look { 0%, 40%, 80%, 100% { opacity: 0; } 46%, 72% { opacity: 1; } }
+  .fam .ok { transform-box: fill-box; transform-origin: center; animation: fam-ok 4s ease infinite; }
+  @keyframes fam-ok { 0%, 42% { transform: scale(0); } 50% { transform: scale(1.2); } 56%, 86% { transform: scale(1); } 94%, 100% { transform: scale(0); } }
+  .as-row { display: grid; grid-template-columns: 10.5rem minmax(0, 1fr) 10rem 7rem; align-items: center; gap: 14px; padding: 9px 16px; background: #fff; }
+  .as-head { padding-block: 8px; background: #f7f6fd; font: 500 10.5px/1.2 "IBM Plex Mono", "Noto Sans Georgian", monospace; letter-spacing: .12em; text-transform: uppercase; color: #545378; }
+  .as-name { font: 600 14px/1.25 "Noto Sans Georgian", sans-serif; color: #17153b; }
+  .as-tag { display: inline-block; margin-top: 3px; padding: 0 6px; border-radius: 5px; background: #f0eff9; font: 500 10px/1.6 "IBM Plex Mono", monospace; color: #545378; }
+  .as-code { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 500 12px/1.4 "IBM Plex Mono", monospace; color: #17153b; }
+  .as-code b { font-weight: 500; color: #c2410c; }   /* credential-ი თავად */
+  .as-desc { margin-top: 2px; font-size: 12px; line-height: 1.35; color: #545378; }
+  .as-use { font-size: 12.5px; line-height: 1.35; color: #545378; }
+  .as-status { justify-self: start; padding: 2px 9px; border-radius: 999px; font: 500 11.5px/1.5 "Noto Sans Georgian", sans-serif; white-space: nowrap; }
+  .as-status.ok { color: #059669; background: #05966914; }
+  .as-status.mid { color: #0284c7; background: #0284c714; }
+  .as-status.old { color: #b45309; background: #fbbf2426; }
+  .as-foot { font-size: 12.5px; line-height: 1.5; color: #545378; }
+  .as-foot b { font-weight: 600; color: #17153b; }
+
+  /* 05 · encoding / encryption / hashing / signing + HTTP ↔ HTTPS: შუაში მყოფი request-ს ინტერცეპტავს (7.5s ციკლი, რეჟიმს JS ცვლის) */
+  .ec-row { display: grid; grid-template-columns: minmax(0, 1fr) 4.8rem 5.8rem; align-items: center; gap: 10px; padding: 9px 14px; background: #fff; }
+  .ec-head { padding-block: 7px; background: #f7f6fd; font: 500 10.5px/1.2 "IBM Plex Mono", "Noto Sans Georgian", monospace; letter-spacing: .1em; text-transform: uppercase; color: #545378; }
+  .ec-name { font: 600 14px/1.25 "Noto Sans Georgian", sans-serif; color: #17153b; }
+  .ec-name span { margin-left: 6px; font: 500 10.5px "IBM Plex Mono", monospace; color: #8a89a8; }
+  .ec-desc { margin-top: 2px; font-size: 12px; line-height: 1.35; color: #545378; }
+  .ec-key { font: 600 13px "IBM Plex Mono", monospace; text-align: center; }
+  .ec-key.y { color: #0b2997; }
+  .ec-key.n { color: #b3b1cf; }
+  .ec-read { justify-self: start; padding: 2px 8px; border-radius: 999px; font: 500 11.5px/1.5 "Noto Sans Georgian", sans-serif; white-space: nowrap; }
+  .ec-read.bad  { color: #e11d48; background: #e11d4814; }
+  .ec-read.ok   { color: #059669; background: #05966914; }
+  .ec-read.none { color: #545378; background: #f0eff9; }
+  .ec-read.warn { color: #b45309; background: #fbbf2426; }
+
+  .mitm-btn { padding: 6px 12px; border: 1px solid #e3e1f3; border-radius: 999px; background: #fff; color: #545378; font: 500 12px "IBM Plex Mono", "Noto Sans Georgian", monospace; cursor: pointer; transition: background-color .2s ease, border-color .2s ease, color .2s ease; }
+  .mitm-btn:hover { border-color: #17153b; color: #17153b; }
+  .mitm-btn[aria-pressed="true"][data-mitm="http"]  { background: #e11d48; border-color: #e11d48; color: #fff; }
+  .mitm-btn[aria-pressed="true"][data-mitm="https"] { background: #059669; border-color: #059669; color: #fff; }
+  .mitm-btn:focus-visible { outline: 2px solid #0b2997; outline-offset: 2px; }
+  .mitm { padding: 18px 20px 16px; border: 1px solid #e3e1f3; border-radius: 16px; background: #fff; box-shadow: 0 1px 2px #17153b0d, 0 14px 34px -16px #0b299740; }
+  .mitm[data-mode="http"] .https-only, .mitm[data-mode="https"] .http-only { display: none; }
+  .mt-stage { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr) 9.5rem; grid-template-rows: 84px auto; row-gap: 26px; }
+  .mt-node { display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: 8px 12px; border: 1px solid #e3e1f3; border-radius: 12px; background: #fff; }
+  .mt-node-h { display: flex; align-items: center; gap: 8px; font: 600 13px "Noto Sans Georgian", sans-serif; color: #17153b; }
+  .mt-node-h svg { width: 18px; height: 18px; flex: none; color: #0b2997; }
+  .mt-sub { font: 11px/1.3 "IBM Plex Mono", monospace; color: #545378; white-space: nowrap; }
+  .mt-ok { font: 600 11px/1.3 "IBM Plex Mono", monospace; color: #059669; white-space: nowrap; }
+  .mt-wire { position: relative; align-self: center; height: 36px; margin-inline: 10px; }
+  .mt-wire::before { content: ''; position: absolute; top: 17px; left: 0; right: 0; height: 2px; background: repeating-linear-gradient(90deg, #c9c6e6 0 6px, transparent 6px 11px); }
+  .mt-wire::after { content: ''; position: absolute; top: 18px; left: 50%; height: 68px; border-left: 2px dashed #fda4af; }   /* ბაიტების „ასლი" შუაში მყოფისკენ */
+  .mitm[data-mode="https"] .mt-wire::after { border-left-color: #c9c6e6; }
+  .mt-wire-label { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); font: 500 10px "IBM Plex Mono", "Noto Sans Georgian", monospace; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+  .mt-wire-label.http-only { color: #e11d48; }
+  .mt-wire-label.https-only { color: #059669; }
+  .mt-packet { position: absolute; top: 18px; left: 12%; z-index: 1; display: flex; align-items: center; gap: 5px; padding: 3px 9px; border: 1px solid; border-radius: 999px; transform: translate(-50%, -50%); font: 600 11px "IBM Plex Mono", monospace; white-space: nowrap; }
+  .mt-packet svg { width: 12px; height: 12px; }
+  .mitm[data-mode="http"]  .mt-packet { color: #e11d48; background: #fff1f2; border-color: #fda4af; }
+  .mitm[data-mode="https"] .mt-packet { color: #059669; background: #ecfdf5; border-color: #6ee7b7; }
+  .mitm.run .mt-packet { animation: mt-packet 2.8s cubic-bezier(.45,0,.3,1) both; }
+  @keyframes mt-packet { 0% { left: 12%; opacity: 0; } 8% { opacity: 1; } 42%, 58% { left: 50%; } 92% { opacity: 1; } 100% { left: 88%; opacity: 0; } }
+  .mt-copy { position: absolute; top: 18px; left: 50%; width: 10px; height: 10px; margin: -5px 0 0 -4px; border-radius: 50%; opacity: 0; }
+  .mitm[data-mode="http"]  .mt-copy { background: #e11d48; box-shadow: 0 0 0 4px #e11d4826; }
+  .mitm[data-mode="https"] .mt-copy { background: #8a89a8; box-shadow: 0 0 0 4px #8a89a826; }
+  .mitm.run .mt-copy { animation: mt-copy .8s 1.25s ease-in both; }
+  @keyframes mt-copy { 0% { transform: translateY(0); opacity: 0; } 15%, 85% { opacity: 1; } 100% { transform: translateY(64px); opacity: 0; } }
+  .mt-spy { grid-column: 2; justify-self: center; min-width: 12rem; border-style: dashed; }
+  .mitm[data-mode="http"]  .mt-spy { border-color: #fda4af; background: #fff5f7; }
+  .mitm[data-mode="https"] .mt-spy { border-color: #c9c6e6; background: #f7f6fd; }
+  .mt-spy .mt-node-h svg { color: #e11d48; }
+  .mitm[data-mode="https"] .mt-spy .mt-node-h svg { color: #8a89a8; }
+  .mitm.run[data-mode="http"] .mt-spy { animation: mt-alert .9s 2s ease-out both; }
+  @keyframes mt-alert { from { box-shadow: 0 0 0 0 #e11d4866; } to { box-shadow: 0 0 0 12px #e11d4800; } }
+  .mitm .vsc { margin-top: 14px; box-shadow: none; }
+  .mt-term { padding: 10px 18px 12px; font: 12.5px/1.8 "IBM Plex Mono", "Noto Sans Georgian", monospace; color: #d4d4d4; }
+  .mt-term p { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mt-leak  { padding: 0 5px; border-radius: 4px; background: #e11d4833; color: #ff9aa8; }
+  .mt-noise { color: #8b8b8b; }
+  .mt-note { margin-left: 10px; font: 500 12px "Noto Sans Georgian", sans-serif; }
+  .mt-note.bad { color: #ff9aa8; }
+  .mt-note.ok  { color: #6ee7b7; }
+  .mt-verdict { min-height: 2.9em; margin-top: 12px; font-size: 13.5px; line-height: 1.45; }   /* ორივე რეჟიმში ერთი სიმაღლა — toggle-ი არ „ხტება" */
+  .mt-verdict.http-only  { color: #be123c; }
+  .mt-verdict.https-only { color: #047857; }
+  .mitm.run .mt-line, .mitm.run .mt-ok, .mitm.run .mt-verdict { animation: mt-line .35s ease both; animation-delay: var(--d, 0s); }
+  @keyframes mt-line { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+  /* 06 · opaque token vs JWT: 5 ნაბიჯი ღილაკით — 1 სერვერი ✓ → 3 სერვერი ✕ → JWT → მისი ნაწილები → 3 სერვერი ✓ */
+  .bj-btn { padding: 9px 16px; border: 1px solid #17153b; border-radius: 999px; background: #17153b; color: #f7f6fd; font: 500 13px "Noto Sans Georgian", sans-serif; cursor: pointer; transition: background-color .2s ease, border-color .2s ease, opacity .2s ease; }
+  .bj-btn:hover { background: #0b2997; border-color: #0b2997; }
+  .bj-btn.ghost { background: #fff; border-color: #e3e1f3; color: #545378; }
+  .bj-btn.ghost:hover { border-color: #17153b; color: #17153b; background: #fff; }
+  .bj-btn:disabled { opacity: .35; cursor: default; }
+  .bj-btn:focus-visible { outline: 2px solid #0b2997; outline-offset: 2px; }
+  .bj-dots { display: flex; gap: 6px; }
+  .bj-dots i { width: 22px; height: 4px; border-radius: 2px; background: #e3e1f3; transition: background-color .3s ease; }
+  .bj-dots i.is-on { background: #ff6b35; }
+  .bj-panel { display: flex; flex-direction: column; gap: 10px; min-width: 0; padding: 16px 18px; border: 1px solid #e3e1f3; border-radius: 16px; background: #fff; box-shadow: 0 1px 2px #17153b0d, 0 14px 34px -16px #0b299740; transition: opacity .5s ease, filter .5s ease; }
+  .bj-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .bj-title { font: 600 16px/1.2 "Noto Sans Georgian", sans-serif; color: #17153b; }
+  .bj-badge { padding: 2px 9px; border-radius: 999px; font: 500 10.5px/1.5 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+  .bj-left .bj-badge { color: #545378; background: #f0eff9; }
+  .bj-right .bj-badge { color: #059669; background: #05966914; }
+  .bj-token { display: flex; flex-direction: column; justify-content: center; gap: 5px; height: 80px; padding: 10px 12px; border-radius: 12px; background: #f7f6fd; }
+  .bj-code { font: 500 12px/1.45 "IBM Plex Mono", monospace; color: #17153b; word-break: break-all; }
+  .bj-code b { font-weight: 500; }
+  .bj-note { font-size: 12px; line-height: 1.35; color: #545378; }
+  .bj-net { display: block; width: 100%; height: 230px; overflow: visible; }
+  .bj-net text { font-family: "IBM Plex Mono", "Noto Sans Georgian", monospace; }
+  .bj-net .ln { stroke: #c9c6e6; stroke-width: 2; stroke-dasharray: 5 5; fill: none; }
+  .bj-net .pk { opacity: 0; animation: bj-pk 2.4s ease-in-out infinite; }
+  .bj-net .pk.t { --dy: -75px; animation-delay: .8s; }
+  .bj-net .pk.m { --dy: 0px; }
+  .bj-net .pk.b { --dy: 75px; animation-delay: 1.6s; }
+  @keyframes bj-pk { 0% { transform: translate(0, 0); opacity: 0; } 12% { opacity: 1; } 62% { transform: translate(-222px, var(--dy)); opacity: 1; } 72%, 100% { transform: translate(-222px, var(--dy)); opacity: 0; } }
+  .bj-net .mark { transform-box: fill-box; transform-origin: center; animation: bj-pop .45s cubic-bezier(.3,1.6,.5,1) 1.3s both; }
+  @keyframes bj-pop { from { transform: scale(0); } to { transform: scale(1); } }
+  .bj-cap { min-height: 2.9em; font-size: 13.5px; line-height: 1.45; color: #545378; }
+  .bj-cap .ok { color: #047857; }
+  .bj-cap .bad { color: #be123c; }
+  .jw-string span { animation: jw-in .5s ease both; }
+  .jw-string .p { animation-delay: .35s; }
+  .jw-string .s { animation-delay: .7s; }
+  @keyframes jw-in { from { opacity: 0; filter: blur(4px); } to { opacity: 1; filter: none; } }
+  .jw-parts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .jw-part { min-width: 0; padding: 6px 9px; border-radius: 9px; font: 500 10.5px/1.45 "IBM Plex Mono", monospace; color: #17153b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; animation: jw-split .6s cubic-bezier(.2,.8,.2,1) both; }
+  .jw-part b { display: block; font-weight: 600; font-size: 10px; letter-spacing: .12em; }
+  .jw-part.h { background: #7cc4ff26; } .jw-part.h b { color: #0284c7; }
+  .jw-part.p { background: #34d39926; animation-delay: .08s; } .jw-part.p b { color: #059669; }
+  .jw-part.s { background: #fbbf2433; animation-delay: .16s; } .jw-part.s b { color: #b45309; }
+  @keyframes jw-split { from { opacity: 0; transform: translateX(var(--from, 0)) scale(.85); } to { opacity: 1; transform: none; } }
+  .jw-wait { align-items: center; gap: 8px; font: 500 12px "IBM Plex Mono", monospace; color: #8a89a8; }
+  /* ნაბიჯების ხილვადობა */
+  .bj-cap > .c, .bj .multi, .bj-right .live, .jw-string, .jw-parts, .jw-wait { display: none; }
+  .bj[data-step="1"] .c-single, .bj:not([data-step="1"]) .c-multi,
+  .bj[data-step="1"] .c-wait, .bj[data-step="2"] .c-wait, .bj[data-step="3"] .c-token, .bj[data-step="4"] .c-parts, .bj[data-step="5"] .c-verify { display: inline; }
+  .bj:not([data-step="1"]) .bj-left .multi, .bj[data-step="5"] .bj-right .live { display: inline; }
+  .bj[data-step="1"] .jw-wait, .bj[data-step="2"] .jw-wait { display: flex; }
+  .bj[data-step="3"] .jw-string { display: block; }
+  .bj[data-step="4"] .jw-parts, .bj[data-step="5"] .jw-parts { display: grid; }
+  .bj[data-step="1"] .bj-right, .bj[data-step="2"] .bj-right { opacity: .4; filter: grayscale(.8); }
+  .bj[data-step="3"] .bj-left, .bj[data-step="4"] .bj-left, .bj[data-step="5"] .bj-left { opacity: .55; }
+
+  /* 07 · HTTP vs HTTPS: ცხრილი + სკანერი — packet-ები lens-ის ქვეშ, chip-ი ინთება როცა მისი packet გადის (6s ციკლი) */
+  .hh-row { display: grid; grid-template-columns: 12rem minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 16px; padding: 8px 18px; background: #fff; font-size: 13.5px; line-height: 1.4; }
+  .hh-head { padding-block: 9px; background: #f7f6fd; font: 600 12px/1.2 "IBM Plex Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
+  .hh-head span { display: inline-flex; align-items: center; gap: 7px; }
+  .hh-head svg { width: 15px; height: 15px; }
+  .hh-label { font-weight: 600; color: #17153b; }
+  .hh-bad { color: #be123c; }
+  .hh-ok { color: #047857; }
+  .hh-row code { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; }
+  .scan { --hit-bg: #e11d48; --hit-fg: #fff; --chip-bg: #fff1f2; --chip-fg: #be123c; padding: 14px 18px; border: 1px solid #e3e1f3; border-radius: 16px; background: #fff; box-shadow: 0 1px 2px #17153b0d, 0 14px 34px -16px #0b299740; }
+  .scan[data-mode="https"] { --hit-bg: #059669; --chip-bg: #f0eff9; --chip-fg: #545378; }
+  .scan[data-mode="http"] .https-only, .scan[data-mode="https"] .http-only { display: none; }
+  .scan-grid { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 7.5rem auto; align-items: center; gap: 14px; }
+  .scan-node { display: flex; align-items: center; gap: 8px; font: 600 13px "Noto Sans Georgian", sans-serif; color: #17153b; white-space: nowrap; }
+  .scan-node svg { width: 18px; height: 18px; flex: none; color: #0b2997; }
+  .scan-lane { position: relative; height: 46px; overflow: hidden; border-radius: 10px; background: #f7f6fd; }
+  .scan-lane::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: repeating-linear-gradient(90deg, #c9c6e6 0 6px, transparent 6px 11px); }
+  .scan-pk { position: absolute; top: 50%; left: -12%; padding: 3px 9px; border: 1px solid; border-radius: 999px; transform: translateY(-50%); font: 600 11px "IBM Plex Mono", monospace; white-space: nowrap; animation: scan-flow 6s linear infinite; animation-delay: calc(var(--k) * -1.5s); }
+  .scan[data-mode="http"] .scan-pk { color: #be123c; background: #fff1f2; border-color: #fda4af; }
+  .scan[data-mode="https"] .scan-pk { color: #047857; background: #ecfdf5; border-color: #6ee7b7; letter-spacing: .08em; }
+  @keyframes scan-flow { from { left: -12%; } to { left: 100%; } }
+  .scan-lens { position: absolute; top: 50%; left: 50%; z-index: 2; width: 40px; height: 40px; border: 2.5px solid #17153b; border-radius: 50%; background: #ffffff66; transform: translate(-50%, -50%); box-shadow: 0 0 0 3px #ffffffaa; }
+  .scan-lens::after { content: ''; position: absolute; top: 4px; bottom: 4px; left: 50%; width: 2px; margin-left: -1px; background: var(--hit-bg); opacity: .7; animation: scan-beam 1.5s ease-in-out infinite; }
+  @keyframes scan-beam { 50% { opacity: .15; } }
+  .scan-btn { padding: 9px 16px; border: 1px solid #17153b; border-radius: 999px; background: #17153b; color: #f7f6fd; font: 500 13px "Noto Sans Georgian", sans-serif; white-space: nowrap; cursor: pointer; transition: background-color .2s ease, border-color .2s ease; }
+  .scan-btn:hover { background: #0b2997; border-color: #0b2997; }
+  .scan[data-mode="https"] .scan-btn { background: #059669; border-color: #059669; }
+  .scan-btn:focus-visible { outline: 2px solid #0b2997; outline-offset: 2px; }
+  .scan-read { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: 10px 0 0 calc(7.5rem + 14px); }
+  .scan-read-label { font: 500 10.5px "IBM Plex Mono", "Noto Sans Georgian", monospace; letter-spacing: .12em; text-transform: uppercase; color: #545378; }
+  .scan-chip { padding: 2px 9px; border-radius: 999px; font: 500 12px "IBM Plex Mono", monospace; white-space: nowrap; animation: scan-hit 6s linear infinite; animation-delay: calc(var(--k) * -1.5s); }
+  .scan-chip { background: var(--chip-bg); color: var(--chip-fg); }
+  /* packet-ის ცენტრი lens-ის ქვეშ ≈ ციკლის 44–54% — ფერი ყოველ keyframe-ზე, რომ interpolation-ი არ „გაიწელოს" */
+  @keyframes scan-hit { 0%, 40%, 58%, 100% { background: var(--chip-bg); color: var(--chip-fg); } 44%, 54% { background: var(--hit-bg); color: var(--hit-fg); } }
 
   /* diagrams-end */
 
@@ -685,6 +867,272 @@
 </section>
 
 <!-- 04 ───────────────────────────────────────────────────────────── -->
+<section class="slide h-full" data-section="Auth სხემები" data-notes="ამნეზიის წამალი: ყოველ request-ს თავად ერთვის „ვინ ვარ“. ორი ოჯახი — stateful (სერვერი ინახავს სესიას, cookie-ში მხოლოდ id) და stateless (token-ი თავად ატარებს ინფორმაციას, სერვერი ხელმოწერას ამოწმებს). ხაზი გაუსვი: OAuth 2.0 authorization-ის ფრეიმვორკია, არა login-ის — login-ისთვის მის თავზე OpenID Connect-ი მოდის. Basic auth ყოველ request-ზე user:password-ს base64-ით აგზავნის — შემდეგ სლაიდზე ნავ, რატომ არ არის ეს დაცვა.">
+  <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
+    <div class="col-span-4 flex flex-col">
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>გადაწყვეტა</p>
+      <h2 class="display mt-4 text-5xl leading-[1] font-semibold">ამნეზიის<br>წამალი</h2>
+      <p class="mt-6 text-ink-2">სერვერს მეხსიერება არ აქვს — ამიტომ <span class="text-ink">ყოველ request-ს</span> ერთვის „ვინ ვარ“-ის მტკიცებულება. სხემები ორ ოჯახზე იყოფა: <span class="text-ink">ვინ ინახავს state-ს</span> — სერვერი თუ token-ი.</p>
+      <figure class="mt-6">
+        <svg class="dia fam" viewBox="0 0 360 196" role="img" aria-label="stateful: cookie-ს session id → სერვერი ბაზაში ეძებს. stateless: bearer token → სერვერი ხელმოწერას ამოწმებს ბაზის გარეშე.">
+          <text x="0" y="11" font-size="10" letter-spacing="1.2" fill="#545378">STATEFUL · სერვერი ახსოვს</text>
+          <rect x="0.5" y="24.5" width="58" height="40" rx="9" fill="#fff" stroke="#e3e1f3"/>
+          <path d="M0.5 35.5h58" stroke="#e3e1f3"/><circle cx="8" cy="30" r="1.8" fill="#c9c6e6"/><circle cx="14" cy="30" r="1.8" fill="#c9c6e6"/>
+          <rect x="10" y="42" width="38" height="5" rx="2.5" fill="#e3e1f3"/><rect x="10" y="51" width="24" height="6" rx="3" fill="#17153b"/>
+          <path d="M62 44.5h134" stroke="#c9c6e6" stroke-width="2" stroke-dasharray="5 5"/>
+          <text x="129" y="36" font-size="10" text-anchor="middle" fill="#0b2997">Cookie: sid=8f3c</text>
+          <circle class="dot" cx="66" cy="44.5" r="4" fill="#0b2997"/>
+          <rect x="200.5" y="24.5" width="62" height="40" rx="9" fill="#fff" stroke="#0b2997" stroke-width="1.5"/>
+          <rect x="210" y="32" width="42" height="6" rx="3" fill="#ebefff"/><rect x="210" y="42" width="42" height="6" rx="3" fill="#ebefff"/><rect x="210" y="52" width="26" height="6" rx="3" fill="#ebefff"/><circle cx="246" cy="55" r="2" fill="#059669"/>
+          <path class="look" d="M266 44.5h36" stroke="#ff6b35" stroke-width="1.8" stroke-dasharray="3 3"/>
+          <path class="db" d="M308 31v25c0 3.3 9.8 6 22 6s22-2.7 22-6V31" fill="#fff" stroke="#c9c6e6" stroke-width="1.5"/>
+          <ellipse class="db" cx="330" cy="31" rx="22" ry="6" fill="#fff" stroke="#c9c6e6" stroke-width="1.5"/>
+          <path d="M308 44c0 3.3 9.8 6 22 6s22-2.7 22-6" fill="none" stroke="#e3e1f3" stroke-width="1.2"/>
+          <text x="0" y="82" font-size="10.5" fill="#545378">ყოველ request-ზე — lookup ბაზაში</text>
+
+          <text x="0" y="115" font-size="10" letter-spacing="1.2" fill="#545378">STATELESS · token-ი ახსოვს</text>
+          <rect x="0.5" y="128.5" width="58" height="40" rx="9" fill="#fff" stroke="#e3e1f3"/>
+          <path d="M0.5 139.5h58" stroke="#e3e1f3"/><circle cx="8" cy="134" r="1.8" fill="#c9c6e6"/><circle cx="14" cy="134" r="1.8" fill="#c9c6e6"/>
+          <rect x="10" y="146" width="38" height="5" rx="2.5" fill="#e3e1f3"/><rect x="10" y="155" width="24" height="6" rx="3" fill="#17153b"/>
+          <path d="M62 148.5h134" stroke="#c9c6e6" stroke-width="2" stroke-dasharray="5 5"/>
+          <text x="129" y="140" font-size="10" text-anchor="middle" fill="#0b2997">Bearer eyJhbGci…</text>
+          <circle class="dot" cx="66" cy="148.5" r="4" fill="#0b2997"/>
+          <rect x="200.5" y="128.5" width="62" height="40" rx="9" fill="#fff" stroke="#0b2997" stroke-width="1.5"/>
+          <rect x="210" y="136" width="42" height="6" rx="3" fill="#ebefff"/><rect x="210" y="146" width="42" height="6" rx="3" fill="#ebefff"/><rect x="210" y="156" width="26" height="6" rx="3" fill="#ebefff"/><circle cx="246" cy="159" r="2" fill="#059669"/>
+          <g class="ok"><circle cx="318" cy="148.5" r="14" fill="#059669"/><path d="m311.5 148.5 4.5 4.5 8.5-9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+          <text x="0" y="187" font-size="10.5" fill="#545378">ხელმოწერის შემოწმება — ბაზის გარეშე</text>
+        </svg>
+      </figure>
+    </div>
+
+    <div class="col-span-8 flex min-w-0 flex-col justify-center gap-3">
+      <div data-stagger style="--step:55ms; align-self:stretch" class="flex flex-col gap-px bg-rule" role="table" aria-label="authentication-ის სხემები">
+        <div class="as-row as-head" role="row"><span role="columnheader">სხემა</span><span role="columnheader">რა ერთვის request-ს</span><span role="columnheader">სად — დღეს</span><span role="columnheader">სტატუსი</span></div>
+        <div class="as-row" role="row"><div role="cell"><p class="as-name">Session + Cookie</p><span class="as-tag">stateful</span></div><div role="cell" class="min-w-0"><p class="as-code">Cookie: <b>sid=8f3c…</b></p><p class="as-desc">სერვერი ინახავს სესიას — cookie-ში მხოლოდ id</p></div><p role="cell" class="as-use">SSR აპები: Django, Rails, Laravel</p><p role="cell"><span class="as-status ok">✓ სტანდარტი</span></p></div>
+        <div class="as-row" role="row"><div role="cell"><p class="as-name">Bearer · JWT</p><span class="as-tag">stateless</span></div><div role="cell" class="min-w-0"><p class="as-code">Authorization: Bearer <b>eyJhbGci…</b></p><p class="as-desc">token-ი თავად ამბობს ვინ ხარ — ბაზის გარეშე</p></div><p role="cell" class="as-use">SPA, mobile, microservices</p><p role="cell"><span class="as-status ok">✓ სტანდარტი</span></p></div>
+        <div class="as-row" role="row"><div role="cell"><p class="as-name">OAuth 2.0</p><span class="as-tag">delegated</span></div><div role="cell" class="min-w-0"><p class="as-code">Authorization: Bearer <b>ya29.a0Af…</b></p><p class="as-desc">სხვა აპს წვდომა — პაროლის გადაცემის გარეშე</p></div><p role="cell" class="as-use">„Connect GitHub“, third-party API</p><p role="cell"><span class="as-status ok">✓ სტანდარტი</span></p></div>
+        <div class="as-row" role="row"><div role="cell"><p class="as-name">OpenID Connect</p><span class="as-tag">identity</span></div><div role="cell" class="min-w-0"><p class="as-code">id_token: <b>eyJraWQi…</b></p><p class="as-desc">ვინ ხარ — Google-ის, Apple-ის მეშვეობით</p></div><p role="cell" class="as-use">Sign in with Google · SSO</p><p role="cell"><span class="as-status ok">✓ სტანდარტი</span></p></div>
+        <div class="as-row" role="row"><div role="cell"><p class="as-name">API Key</p><span class="as-tag">machine</span></div><div role="cell" class="min-w-0"><p class="as-code">X-API-Key: <b>sk_live_4eC3…</b></p><p class="as-desc">აპლიკაციის (არა ადამიანის) იდენტიფიკაცია</p></div><p role="cell" class="as-use">Stripe, OpenAI · server ↔ server</p><p role="cell"><span class="as-status mid">◐ მანქანები</span></p></div>
+        <div class="as-row" role="row"><div role="cell"><p class="as-name">mTLS</p><span class="as-tag">transport</span></div><div role="cell" class="min-w-0"><p class="as-code">TLS handshake: <b>client certificate</b></p><p class="as-desc">ორივე მხარე სერტიფიკატს ადასტურებს</p></div><p role="cell" class="as-use">ბანკები · service mesh · zero trust</p><p role="cell"><span class="as-status mid">◐ ნიშა</span></p></div>
+        <div class="as-row" role="row"><div role="cell"><p class="as-name">Basic Auth</p><span class="as-tag">legacy</span></div><div role="cell" class="min-w-0"><p class="as-code">Authorization: Basic <b>dXNlcjpwYXNz</b></p><p class="as-desc">user:password ყოველ request-ზე — base64, არა შიფრი</p></div><p role="cell" class="as-use">internal tools, CI, ძველი API</p><p role="cell"><span class="as-status old">✕ legacy</span></p></div>
+      </div>
+      <p class="as-foot"><b>Passkeys (WebAuthn)</b> პაროლს ცვლის login-ის მომენტში — login-ის შემდეგ მაინც session ან token-ი მოდის. <b>Digest, NTLM</b> — ✕ ნუ ვიყენებთ.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 ───────────────────────────────────────────────────────────── -->
+<section class="slide h-full" data-section="Encoding vs Encryption" data-notes="ყველაზე ხშირი მითი: „JWT დაშიფრულია“. ჩვენე: base64-ს atob() ერთ ხაზში დეკოდირებს — ეს encoding-ია, არა encryption. შემდეგ HTTPS-ზე გადართე: იგივე request, მაგრამ შუაში მყოფი მხოლოდ ბაიტების ხმაურს ხედავს. ოთხივე ცნება მიზნით განსხვავდება: encoding — ფორმატი, encryption — საიდუმლოება, hashing — ცალმხრივი შემოწმება (პაროლი), signing — მთლიანობა (JWT signature).">
+  <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
+    <div class="col-span-5 flex flex-col">
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>encoding ≠ encryption</p>
+      <h2 class="display mt-4 text-5xl leading-[1] font-semibold">Base64 —<br>არა შიფრი</h2>
+      <p class="mt-6 text-ink-2">Encoding ცვლის <span class="text-ink">ფორმას</span>, encryption მალავს <span class="text-ink">შინაარსს</span>. Base64-ის დეკოდირებას გასაღები არ სჭირდება — <code class="font-mono text-[13px]">atob()</code> ყველა ბრაუზერში არის. JWT-ის payload-იც base64-ა.</p>
+      <div data-stagger style="align-self:stretch" class="mt-6 flex flex-col gap-px bg-rule" role="table" aria-label="encoding, encryption, hashing, signing">
+        <div class="ec-row ec-head" role="row"><span role="columnheader"></span><span role="columnheader" class="text-center">გასაღები</span><span role="columnheader">წაიკითხავს</span></div>
+        <div class="ec-row" role="row"><div role="cell"><p class="ec-name">Encoding<span>Base64 · URL</span></p><p class="ec-desc">ფორმატი: ბაიტები → ტექსტი (JWT, Basic)</p></div><p role="cell" class="ec-key n">✕</p><p role="cell"><span class="ec-read bad">ყველა</span></p></div>
+        <div class="ec-row" role="row"><div role="cell"><p class="ec-name">Encryption<span>TLS · AES</span></p><p class="ec-desc">საიდუმლოება: HTTPS-ი მთელ request-ს შიფრავს</p></div><p role="cell" class="ec-key y">✓</p><p role="cell"><span class="ec-read ok">გასაღებით</span></p></div>
+        <div class="ec-row" role="row"><div role="cell"><p class="ec-name">Hashing<span>argon2 · bcrypt</span></p><p class="ec-desc">ცალმხრივი: პაროლი ბაზაში, უკან — არასდროს</p></div><p role="cell" class="ec-key n">✕</p><p role="cell"><span class="ec-read none">არავინ</span></p></div>
+        <div class="ec-row" role="row"><div role="cell"><p class="ec-name">Signing<span>HS256 · RS256</span></p><p class="ec-desc">მთლიანობა: JWT-ს წაიკითხავს ყველა, შეცვლის — არა</p></div><p role="cell" class="ec-key y">✓</p><p role="cell"><span class="ec-read warn">ყველა</span></p></div>
+      </div>
+    </div>
+
+    <div class="col-span-7 flex min-w-0 flex-col justify-center gap-4">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <p class="af-cap">login request · public Wi-Fi</p>
+        <div class="flex gap-2">
+          <button type="button" class="mitm-btn" data-mitm="http" aria-pressed="true">HTTP · ღია ტექსტი</button>
+          <button type="button" class="mitm-btn" data-mitm="https" aria-pressed="false">HTTPS · TLS</button>
+        </div>
+      </div>
+
+      <figure id="mitmFig" class="mitm" data-mode="http">
+        <div class="mt-stage">
+          <div class="mt-node">
+            <p class="mt-node-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg>ბრაუზერი</p>
+            <p class="mt-sub">nino@example.ge</p>
+            <p class="mt-sub">POST /login</p>
+          </div>
+          <div class="mt-wire">
+            <span class="mt-wire-label http-only">HTTP · ღია ტექსტი</span>
+            <span class="mt-wire-label https-only">TLS 1.3 · დაშიფრული</span>
+            <span class="mt-packet">
+              <span class="http-only flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg>Basic bmlub0Bl…</span>
+              <span class="https-only flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>17 03 03 00 d1…</span>
+            </span>
+            <span class="mt-copy" aria-hidden="true"></span>
+          </div>
+          <div class="mt-node">
+            <p class="mt-node-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>სერვერი</p>
+            <p class="mt-sub">api.example.ge</p>
+            <p class="mt-ok http-only" style="--d:2.8s">✓ 200 OK</p>
+            <p class="mt-ok https-only" style="--d:2.8s">✓ decrypt → 200</p>
+          </div>
+          <div class="mt-node mt-spy">
+            <p class="mt-node-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h18M5 11l2-6h10l2 6"/><circle cx="7.5" cy="16" r="3"/><circle cx="16.5" cy="16" r="3"/><path d="M10.5 16h3"/></svg>შუაში ვიღაც</p>
+            <p class="mt-sub">sniffer · იგივე Wi-Fi</p>
+          </div>
+        </div>
+
+        <div class="vsc">
+          <div class="vsc-bar"><span class="vsc-ptab">terminal</span><span class="vsc-desc">man-in-the-middle · wlan0</span></div>
+          <div class="mt-term">
+            <p class="mt-line" style="--d:1.9s"><span class="tk-pn">$</span> <span class="tk-fn">sniff</span> <span class="tk-var">--iface</span> wlan0</p>
+            <p class="mt-line http-only" style="--d:2.3s"><span class="tk-kw">POST</span> <span class="tk-str">/login</span> HTTP/1.1</p>
+            <p class="mt-line http-only" style="--d:2.7s"><span class="tk-var">Authorization</span>: Basic <span class="tk-str">bmlub0BleGFtcGxlLmdlOnNlY3JldDEyMw==</span></p>
+            <p class="mt-line http-only" style="--d:3.5s"><span class="tk-pn">$</span> <span class="tk-fn">atob</span>(<span class="tk-str">"bmlub0BleGFtcGxlLmdlOnNlY3JldDEyMw=="</span>)</p>
+            <p class="mt-line http-only" style="--d:4.3s"><span class="mt-leak">"nino@example.ge:secret123"</span><span class="mt-note bad">← პაროლი ღიაა</span></p>
+            <p class="mt-line https-only" style="--d:2.3s"><span class="tk-cm">TLS 1.3 · Application Data · 214 bytes</span></p>
+            <p class="mt-line https-only" style="--d:2.7s"><span class="mt-noise">17 03 03 00 d1 8e 4f c2 19 a7 0d 5b 93 e1 35 ff 6c 02 b8 …</span></p>
+            <p class="mt-line https-only" style="--d:3.5s"><span class="tk-pn">$</span> <span class="tk-fn">decode</span>(payload)</p>
+            <p class="mt-line https-only" style="--d:4.3s"><span class="mt-noise">"ŽOÂ§[“á5ÿl¸Ô…"</span><span class="mt-note ok">← ხმაური: გასაღების გარეშე არაფერი</span></p>
+          </div>
+        </div>
+
+        <p class="mt-verdict http-only" style="--d:4.8s">✕ Base64 ≠ დაცვა: შუაში მყოფი user:password-ს ერთ ბრძანებით კითხულობს.</p>
+        <p class="mt-verdict https-only" style="--d:4.8s">✓ TLS შიფრავს მთელ request-ს — header-ებს, cookie-ებს, token-ებს. შუაში ჩანს მხოლოდ domain (SNI) და ბაიტების ხმაური.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 06 ───────────────────────────────────────────────────────────── -->
+<section class="slide h-full" data-section="Opaque vs JWT" data-notes="ორივე token-ი Bearer-ით იგზავნება — სხვაობა token-ის შიგთავსშია. ნაბიჯებს ღილაკით „შემდეგ“ მართე: 1) ერთი სერვერი — opaque token-ი ok; 2) სამი სერვერი — load balancer-ი, token-ს ორი სერვერი არ იცნობს; 3) JWT; 4) მისი სამი ნაწილი; 5) ყოველი სერვერი ხელმოწერას თავად ამოწმებს. Trade-off-ი ნუ დაგავიწყდება: JWT-ს revoke რთულია — ამიტომ access token-ი ხანმოკლეა.">
+  <div class="flex h-full flex-col px-14 py-12">
+    <div class="flex items-end justify-between gap-8">
+      <div>
+        <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>bearer: opaque vs jwt</p>
+        <h2 class="display mt-3 text-5xl font-semibold">ვინ „ახსოვს“ token-ს?</h2>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="bj-dots" aria-hidden="true"><i data-bj-dot="1" class="is-on"></i><i data-bj-dot="2"></i><i data-bj-dot="3"></i><i data-bj-dot="4"></i><i data-bj-dot="5"></i></div>
+        <button id="bjPrev" type="button" class="bj-btn ghost" disabled>← უკან</button>
+        <button id="bjNext" type="button" class="bj-btn">შემდეგ →</button>
+      </div>
+    </div>
+
+    <div id="bjDemo" class="bj mt-6 grid min-h-0 flex-1 grid-cols-2 gap-6" data-step="1">
+      <figure class="bj-panel bj-left">
+        <div class="bj-head"><p class="bj-title">შემთხვევითი token-ი</p><span class="bj-badge">Bearer · opaque</span></div>
+        <div class="bj-token">
+          <p class="bj-code">Authorization: Bearer <b style="color:#b45309">8f3c9a2e71d44b0f5a6e9c1d</b></p>
+          <p class="bj-note">შემთხვევითი ID — შიგნით არაფერი. სერვერმა უნდა ახსოვდეს, ვის ეკუთვნის.</p>
+        </div>
+        <svg class="bj-net" viewBox="0 0 440 230" role="img" aria-label="opaque token: ერთი სერვერი token-ს იცნობს; სამი სერვერიდან ორი — არა">
+          <g class="multi">
+            <path class="ln" d="M340 115 106 40" style="stroke:#fda4af"/>
+            <path class="ln" d="M340 115 106 190" style="stroke:#fda4af"/>
+            <rect x="24.5" y="14.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="20" width="67" height="30" rx="3" fill="#fff1f2"/><path d="M64.5 60v7M50 67.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="64.5" y="33" font-size="9.5" text-anchor="middle" fill="#17153b">server 2</text><text x="64.5" y="45" font-size="9" text-anchor="middle" fill="#e11d48">8f3c → ∅</text>
+            <rect x="24.5" y="164.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="170" width="67" height="30" rx="3" fill="#fff1f2"/><path d="M64.5 210v7M50 217.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="64.5" y="183" font-size="9.5" text-anchor="middle" fill="#17153b">server 3</text><text x="64.5" y="195" font-size="9" text-anchor="middle" fill="#e11d48">8f3c → ∅</text>
+          </g>
+          <path class="ln" d="M340 115H106"/>
+          <rect x="24.5" y="89.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="95" width="67" height="30" rx="3" fill="#ecfdf5"/><path d="M64.5 135v7M50 142.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="64.5" y="108" font-size="9.5" text-anchor="middle" fill="#17153b">server 1</text><text x="64.5" y="120" font-size="9" text-anchor="middle" fill="#047857">8f3c → nino</text>
+          <g><circle cx="385" cy="99" r="13" fill="#0b2997"/><path d="M359 141a26 26 0 0 1 52 0z" fill="#0b2997"/><text x="385" y="160" font-size="10" text-anchor="middle" fill="#545378">nino</text></g>
+          <g class="pk m"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#d97706"/><text x="330" y="118.5" font-size="9.5" text-anchor="middle" fill="#b45309">8f3c…</text></g>
+          <g class="multi">
+            <g class="pk t"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#d97706"/><text x="330" y="118.5" font-size="9.5" text-anchor="middle" fill="#b45309">8f3c…</text></g>
+            <g class="pk b"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#d97706"/><text x="330" y="118.5" font-size="9.5" text-anchor="middle" fill="#b45309">8f3c…</text></g>
+            <g class="mark"><circle cx="223" cy="77.5" r="11" fill="#e11d48"/><path d="m218.5 73 9 9m0-9-9 9" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></g>
+            <g class="mark"><circle cx="223" cy="152.5" r="11" fill="#e11d48"/><path d="m218.5 148 9 9m0-9-9 9" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></g>
+          </g>
+          <g class="mark"><circle cx="223" cy="115" r="11" fill="#059669"/><path d="m218 115 3.5 3.5 6.5-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+        </svg>
+        <p class="bj-cap">
+          <span class="c c-single"><span class="ok">✓ ერთი სერვერი:</span> token-ი მის მეხსიერებაშია — ერთი lookup და მორჩა.</span>
+          <span class="c c-multi"><span class="bad">✕ სამი სერვერი:</span> load balancer-ი request-ს ნებისმიერზე აგზავნის — 2 და 3 token-ს არ იცნობს → 401. საერთო Redis-ი შველის, მაგრამ ყოველ request = ქსელის lookup.</span>
+        </p>
+      </figure>
+
+      <figure class="bj-panel bj-right">
+        <div class="bj-head"><p class="bj-title">ხელმოწერილი token-ი</p><span class="bj-badge">Bearer · JWT</span></div>
+        <div class="bj-token">
+          <div class="jw-wait">eyJ… · JWT — შემდეგ ნაბიჯზე →</div>
+          <p class="bj-code jw-string">Authorization: Bearer <span class="h" style="color:#0284c7">eyJhbGciOiJIUzI1NiJ9</span>.<span class="p" style="color:#059669">eyJzdWIiOiI0MiIsInJvbGUiOiJlZGl0b3IifQ</span>.<span class="s" style="color:#b45309">Zk3pQ9xR2LwT8mV1nB4cE7</span></p>
+          <div class="jw-parts">
+            <p class="jw-part h" style="--from:100%"><b>HEADER</b>{"alg":"HS256",<br>"typ":"JWT"}</p>
+            <p class="jw-part p"><b>PAYLOAD</b>{"sub":"42",<br>"role":"editor"}</p>
+            <p class="jw-part s" style="--from:-100%"><b>SIGNATURE</b>HMACSHA256(<br>h.p, secret)</p>
+          </div>
+        </div>
+        <svg class="bj-net" viewBox="0 0 440 230" role="img" aria-label="JWT: სამივე სერვერი ხელმოწერას ერთი და იმავე გასაღებით ამოწმებს">
+          <path class="ln" d="M340 115 106 40"/><path class="ln" d="M340 115H106"/><path class="ln" d="M340 115 106 190"/>
+          <rect x="24.5" y="14.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="20" width="67" height="30" rx="3" fill="#ebefff"/><path d="M64.5 60v7M50 67.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="64.5" y="33" font-size="9.5" text-anchor="middle" fill="#17153b">server 2</text><text x="64.5" y="45" font-size="9" text-anchor="middle" fill="#b45309">key K</text>
+          <rect x="24.5" y="89.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="95" width="67" height="30" rx="3" fill="#ebefff"/><path d="M64.5 135v7M50 142.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="64.5" y="108" font-size="9.5" text-anchor="middle" fill="#17153b">server 1</text><text x="64.5" y="120" font-size="9" text-anchor="middle" fill="#b45309">key K</text>
+          <rect x="24.5" y="164.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="170" width="67" height="30" rx="3" fill="#ebefff"/><path d="M64.5 210v7M50 217.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="64.5" y="183" font-size="9.5" text-anchor="middle" fill="#17153b">server 3</text><text x="64.5" y="195" font-size="9" text-anchor="middle" fill="#b45309">key K</text>
+          <g><circle cx="385" cy="99" r="13" fill="#0b2997"/><path d="M359 141a26 26 0 0 1 52 0z" fill="#0b2997"/><text x="385" y="160" font-size="10" text-anchor="middle" fill="#545378">nino</text></g>
+          <g class="live">
+            <g class="pk t"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#17153b"/><rect x="309" y="111" width="12" height="8" rx="2" fill="#7cc4ff"/><rect x="324" y="111" width="12" height="8" rx="2" fill="#34d399"/><rect x="339" y="111" width="12" height="8" rx="2" fill="#fbbf24"/></g>
+            <g class="pk m"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#17153b"/><rect x="309" y="111" width="12" height="8" rx="2" fill="#7cc4ff"/><rect x="324" y="111" width="12" height="8" rx="2" fill="#34d399"/><rect x="339" y="111" width="12" height="8" rx="2" fill="#fbbf24"/></g>
+            <g class="pk b"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#17153b"/><rect x="309" y="111" width="12" height="8" rx="2" fill="#7cc4ff"/><rect x="324" y="111" width="12" height="8" rx="2" fill="#34d399"/><rect x="339" y="111" width="12" height="8" rx="2" fill="#fbbf24"/></g>
+            <g class="mark"><circle cx="223" cy="77.5" r="11" fill="#059669"/><path d="m218 77.5 3.5 3.5 6.5-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <g class="mark"><circle cx="223" cy="115" r="11" fill="#059669"/><path d="m218 115 3.5 3.5 6.5-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <g class="mark"><circle cx="223" cy="152.5" r="11" fill="#059669"/><path d="m218 152.5 3.5 3.5 6.5-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+          </g>
+        </svg>
+        <p class="bj-cap">
+          <span class="c c-wait">JWT-ს ნავ მე-3 ნაბიჯიდან — ჯერ მარცხენა მხარე.</span>
+          <span class="c c-token">JWT — token-ი, რომელიც ინფორმაციას თავად ატარებს: სამი base64url ბლოკი, წერტილებით.</span>
+          <span class="c c-parts">header — ალგორითმი · payload — ვინ ხარ და რა უფლება გაქვს · signature — ხელმოწერა, რომელიც გაყალბებას არ დაუშვებს.</span>
+          <span class="c c-verify"><span class="ok">✓ ყოველი სერვერი</span> ხელმოწერას თავად ამოწმებს იმავე გასაღებით — ბაზა არ სჭირდება. Trade-off: revoke რთულია → access token-ი ხანმოკლე.</span>
+        </p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 07 ───────────────────────────────────────────────────────────── -->
+<section class="slide h-full" data-section="HTTP vs HTTPS" data-notes="S — TLS: შიფრაცია, მთლიანობა და სერვერის ვინაობა ერთად. ღილაკით ჩვენე, რა ჩანს შუაში: HTTP-ზე — URL, cookie, პაროლი; HTTPS-ზე — მხოლოდ IP, domain (SNI) და ზომა. HSTS-ი ბრაუზერს ეუბნევა: ამ საიტზე HTTP-ზე საერთოდ ნუ მიდიხარ.">
+  <div class="flex h-full flex-col justify-center px-14 py-12">
+    <div class="flex items-end justify-between gap-10">
+      <div>
+        <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>http vs https</p>
+        <h2 class="display mt-3 text-5xl font-semibold">S = Secure: რა იცვლება?</h2>
+      </div>
+      <p class="max-w-md text-sm text-ink-2">HTTPS = HTTP + TLS. Request-ი იგივეა — ოღონდ ბრაუზერსა და სერვერს შორის <span class="text-ink">დაშიფრული გვირაბი</span> ჩნდება, და სერვერი სერტიფიკატით ამტკიცებს, ვინ არის.</p>
+    </div>
+
+    <div data-stagger style="--step:60ms; align-self:stretch" class="mt-6 flex flex-col gap-px bg-rule" role="table" aria-label="HTTP vs HTTPS">
+      <div class="hh-row hh-head" role="row"><span role="columnheader"></span><span role="columnheader" class="hh-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg>HTTP</span><span role="columnheader" class="hh-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>HTTPS</span></div>
+      <div class="hh-row" role="row"><p role="cell" class="hh-label">პორტი</p><p role="cell"><code>http://</code> · :80</p><p role="cell"><code>https://</code> · :443</p></div>
+      <div class="hh-row" role="row"><p role="cell" class="hh-label">შიფრაცია</p><p role="cell" class="hh-bad">✕ ღია ტექსტი — ყველა ხედავს</p><p role="cell" class="hh-ok">✓ TLS 1.3 · AES-GCM / ChaCha20</p></div>
+      <div class="hh-row" role="row"><p role="cell" class="hh-label">მთლიანობა</p><p role="cell" class="hh-bad">✕ გზაში შეცვლადია: რეკლამა, malware</p><p role="cell" class="hh-ok">✓ ყოველი ბაიტი MAC-ით — ცვლილება ჩანს</p></div>
+      <div class="hh-row" role="row"><p role="cell" class="hh-label">სერვერის ვინაობა</p><p role="cell" class="hh-bad">✕ ნებისმიერი „ვითომ“ სერვერი უპასუხებს</p><p role="cell" class="hh-ok">✓ სერტიფიკატი (CA) — ბრაუზერში საკეტი</p></div>
+      <div class="hh-row" role="row"><p role="cell" class="hh-label">cookie · token</p><p role="cell" class="hh-bad">✕ Secure cookie არ იგზავნება, token-ი ღიაა</p><p role="cell" class="hh-ok">✓ Secure cookie + HSTS — HTTP-ზე დაბრუნება ✕</p></div>
+      <div class="hh-row" role="row"><p role="cell" class="hh-label">ბრაუზერი</p><p role="cell" class="hh-bad">⚠ „Not secure“, HTTP/2-ის გარეშე</p><p role="cell" class="hh-ok">✓ HTTP/2 და HTTP/3 — მხოლოდ TLS-ით</p></div>
+    </div>
+
+    <figure id="scanDemo" class="scan mt-5" data-mode="http">
+      <div class="scan-grid">
+        <p class="scan-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg>ბრაუზერი</p>
+        <div class="scan-lane" aria-hidden="true">
+          <span class="scan-pk" style="--k:0"><span class="http-only">POST /login</span><span class="https-only">TLS 9f2c e17a</span></span>
+          <span class="scan-pk" style="--k:1"><span class="http-only">Host: bank.ge</span><span class="https-only">TLS 04b8 77d1</span></span>
+          <span class="scan-pk" style="--k:2"><span class="http-only">Cookie: sid=8f3c</span><span class="https-only">TLS c3a0 5e92</span></span>
+          <span class="scan-pk" style="--k:3"><span class="http-only">password=secret123</span><span class="https-only">TLS 1b6f d04c</span></span>
+          <span class="scan-lens"></span>
+        </div>
+        <p class="scan-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>bank.ge</p>
+        <button id="scanToggle" type="button" class="scan-btn" aria-pressed="false">HTTPS-ზე გადართვა →</button>
+      </div>
+      <div class="scan-read">
+        <span class="scan-read-label">შუაში ჩანს</span>
+        <!-- chip-ი ერთია ორივე რეჟიმისთვის (იცვლება მხოლოდ ტექსტი), რომ ანიმაცია packet-ებთან სინქრონში დარჩეს -->
+        <span class="scan-chip" style="--k:0"><span class="http-only">POST /login</span><span class="https-only">IP 93.184.216.34:443</span></span>
+        <span class="scan-chip" style="--k:1"><span class="http-only">Host: bank.ge</span><span class="https-only">SNI: bank.ge</span></span>
+        <span class="scan-chip" style="--k:2"><span class="http-only">Cookie: sid=8f3c…</span><span class="https-only">≈ 1.4 KB</span></span>
+        <span class="scan-chip" style="--k:3"><span class="http-only">password: secret123</span><span class="https-only">9f 2c e1 7a … ciphertext</span></span>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- 08 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="სტატუს კოდები" data-notes="კოდებს ზეპირად ნუ ასწავლი — მთავარი პირველი ციფრია: 2 — წარმატება, 3 — სხვაგან წადი, 4 — კლიენტის ბრალი, 5 — სერვერის ბრალი. დღევანდელი ლექციისთვის ორი კოდია მთავარი, 401 და 403 — შემდეგ სლაიდზე სწორედ ამ ორ ცნებას გავარჩევთ. ბოლოს აჩვენე fetch-ის ხაფანგი: 404-ზე და 500-ზე fetch არ აგდებს error-ს, ამიტომ res.ok ყოველთვის უნდა შემოწმდეს. (ვალიდაციის შეცდომაზე ზოგი API 400-ის ნაცვლად 422-ს აბრუნებს.)">
   <div class="grid h-full grid-cols-12 grid-rows-[auto_1fr_auto] gap-x-6 gap-y-4 px-14 py-12">
     <div class="col-span-12 flex items-end justify-between gap-10">
@@ -767,7 +1215,7 @@
   </div>
 </section>
 
-<!-- 05 ───────────────────────────────────────────────────────────── -->
+<!-- 09 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Authn vs Authz" data-notes="ეს ორი სიტყვა ინგლისურადაც ჰგავს ერთმანეთს — swap-ის რისკი მაღალია interview-ზეც კი. ბარათი ბოლოს დააკლიკე მხოლოდ მას შემდეგ, რაც დარბაზმა თავად სცადა პასუხის გამოცნობა.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-12">
@@ -840,7 +1288,7 @@
   </div>
 </section>
 
-<!-- 06 ───────────────────────────────────────────────────────────── -->
+<!-- 10 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="JWT" data-notes="დააკლიკინე დარბაზს სამივე ფერადი ბლოკი — highlight გადადის შესაბამის decoded ველზე. ხაზი გაუსვი: signature არ ნიშნავს დაშიფვრას. Payload ნებისმიერს შეუძლია წაიკითხოს base64-დან — არასდროს ჩადოთ იქ პაროლი თუ საიდუმლო.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
@@ -890,7 +1338,7 @@
   </div>
 </section>
 
-<!-- 07 ───────────────────────────────────────────────────────────── -->
+<!-- 11 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Tokens" data-notes="ცხრილს ხმამაღლა კითხულობდე მწკრივ-მწკრივ. ხაზი გაუსვი ბოლო მწკრივს: access token-ის მოპარვა 15 წუთის პრობლემაა, refresh token-ის მოპარვა კვირების პრობლემა — სწორედ ამიტომ საჭიროებს refresh token ყველაზე მაღალ დაცვას (შემდეგ სლაიდზე გავაგრძელებთ).">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
@@ -964,7 +1412,7 @@
   </div>
 </section>
 
-<!-- 08 ───────────────────────────────────────────────────────────── -->
+<!-- 12 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Lifecycle" data-notes="გაატარე თითოეულ ნაბიჯზე ხმამაღლა. მე-4 და მე-5 ნაბიჯი ერთად წარმოადგინე — სწორედ ეს არის Silent Refresh, რომელსაც ცალკე სლაიდზე დავაგრძელებთ.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12" data-player data-interval="2600">
     <div class="col-span-4">
@@ -1027,7 +1475,7 @@
   </div>
 </section>
 
-<!-- 09 ───────────────────────────────────────────────────────────── -->
+<!-- 13 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="შენახვა" data-notes="ეს ხშირად დასმული interview კითხვაა — არავითარი „ერთადერთი სწორი პასუხი" არ არსებობს, ტრეიდ-ოფია. ხაზი გაუსვი httpOnly cookie-ს: JavaScript-ს საერთოდ არ შეუძლია მისი წაკითხვა — ესე იგი XSS-ითაც ვერ მოიპარავენ.">
   <div class="grid grid-cols-12 gap-10 px-14 pt-12 pb-8">
     <div class="col-span-4">
@@ -1095,7 +1543,7 @@
   </div>
 </section>
 
-<!-- 10 ───────────────────────────────────────────────────────────── -->
+<!-- 14 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="fetch wrapper" data-notes="ხაზი გაუსვი: wrapper ერთხელ იწერება და ყველა request-ს ეხმარება — არც ერთ ფაილში აღარ დაგვჭირდება ხელით token-ის მიბმა. წესი: აპლიკაციის კოდში fetch() პირდაპირ აღარსად იწერება, მხოლოდ apiFetch().">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
@@ -1155,7 +1603,7 @@
 
       <div class="vsc">
         <div class="vsc-bar"><span class="vsc-tab"><span class="vsc-ico">≡</span>ფენები</span><span class="vsc-desc">აპლიკაცია მხოლოდ apiFetch()-ს იძახებს</span></div>
-        <pre class="text-[12.5px] leading-[1.8]"><code><span class="tk-fn">apiFetch</span>(<span class="tk-var">url</span>)         <span class="tk-cm">// 401 → refresh → retry (სლაიდი 12)</span>
+        <pre class="text-[12.5px] leading-[1.8]"><code><span class="tk-fn">apiFetch</span>(<span class="tk-var">url</span>)         <span class="tk-cm">// 401 → refresh → retry (სლაიდი 16)</span>
   <span class="tk-pn">└─</span> <span class="tk-fn">authFetch</span>(<span class="tk-var">url</span>)   <span class="tk-cm">// + Authorization: Bearer</span>
        <span class="tk-pn">└─</span> <span class="tk-fn">fetch</span>(<span class="tk-var">url</span>)</code></pre>
       </div>
@@ -1163,7 +1611,7 @@
   </div>
 </section>
 
-<!-- 11 ───────────────────────────────────────────────────────────── -->
+<!-- 15 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Session" data-notes="ეს ცოცხალი დემოა — 15 წუთის ნაცვლად წამებში. ჯერ არაფერს ეხე, დაუტოვე 0-მდე ჩავიდეს, აჩვენე warning ფაზა და locked overlay. მერე Reset და აჩვენე, როგორ არღვევს activity ღილაკი countdown-ს.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-4">
@@ -1205,7 +1653,7 @@
   </div>
 </section>
 
-<!-- 12 ───────────────────────────────────────────────────────────── -->
+<!-- 16 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Silent Refresh" data-notes="ეს ყველაზე ხშირად არასწორად დაწერილი ნაწილია. კითხვა დარბაზს: რა მოხდება, თუ ერთდროულად 5 request გავა და ყველა 401-ს მიიღებს — ხუთივე გამოიძახებს /refresh-ს? სწორედ ეს არის race condition. გამოსავალი ერთი საერთო Promise-ია: პირველი 401 მას ქმნის, დანარჩენები იმავეს await-ით ელოდებიან.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
@@ -1304,7 +1752,7 @@
   </div>
 </section>
 
-<!-- 13 ───────────────────────────────────────────────────────────── -->
+<!-- 17 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Identity State" data-notes="ხაზი გაუსვი: getUser() ერთი წყაროა მთელი აპლიკაციისთვის — აღარაფერი იკითხება localStorage-დან ფაილების შუაში. subscribe() არის observer pattern — იგივე იდეა, რაზეც React-ის, Vue-ს და Angular-ის state დგას, ოღონდ აქ ხელით, 15 ხაზში.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
@@ -1379,14 +1827,14 @@
   </div>
 </section>
 
-<!-- 14 ───────────────────────────────────────────────────────────── -->
+<!-- 18 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Guards" data-notes="ხაზი გაუსვი: guard-ი თავად არ იძახებს navigate()-ს და არ ეხება location-ს — მხოლოდ აბრუნებს true-ს ან redirect-ის მისამართს, გადაწყვეტს router-ი. ასე guard-ი სუფთა ფუნქციაა და ადვილად ტესტდება. returnUrl დამატებით მიანიშნე — login-ის შემდეგ იქ დაბრუნდება.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
       <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>route guards</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">Route-ის<br>კარიბჭე</h2>
       <p class="mt-6 text-ink-2">Guard არის ბოლო ჩეკპოინტი, სანამ router გვერდს დაარენდერებს. Vanilla JS-ში router-საც და guard-საც თავად ვწერთ — guard უბრალო ფუნქციაა: აბრუნებს <code class="font-mono text-[13px]">true</code>-ს ან redirect-ის მისამართს.</p>
-      <p class="mt-4 border-l-2 border-flame pl-5 text-sm text-ink-2">Guard მალავს route-ს UI-დან. API-ის საკუთარი შემოწმება მაინც აუცილებელია — ამაზე მე-17 სლაიდზე დავბრუნდებით.</p>
+      <p class="mt-4 border-l-2 border-flame pl-5 text-sm text-ink-2">Guard მალავს route-ს UI-დან. API-ის საკუთარი შემოწმება მაინც აუცილებელია — ამაზე მე-21 სლაიდზე დავბრუნდებით.</p>
       <figure class="mt-6 border border-rule bg-panel p-4">
         <svg class="dia guard" viewBox="0 0 340 160" role="img" aria-label="guard ჯერ /login-ზე აბრუნებს, login-ის შემდეგ კი /admin-ში უშვებს">
           <g font-size="11" text-anchor="middle">
@@ -1442,7 +1890,7 @@
   </div>
 </section>
 
-<!-- 15 ───────────────────────────────────────────────────────────── -->
+<!-- 19 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="RBAC" data-notes="ეს ყველაზე მნიშვნელოვანი წესია დღევანდელ ლექციაში: არასდროს დაწერო if (role === 'admin') ბიზნეს ლოგიკაში. Role მხოლოდ სახელია, permissions-ის კონტეინერი — შემდეგ სლაიდზე ცოცხლად ვნახავთ, რატომ.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-4">
@@ -1509,7 +1957,7 @@
   </div>
 </section>
 
-<!-- 16 ───────────────────────────────────────────────────────────── -->
+<!-- 20 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Permission UI" data-notes="მთავარი დემო სლაიდი — გაატარე დარბაზს ღილაკები, ერთმანეთის მიყოლებით (Guest → Viewer → Editor → Admin). ყოველ ცვლილებაზე ხმამაღლა წაიკითხე, რომელი toolbar ღილაკი გაითიშა/ჩაირთო და რატომ — ეს ხდება პირდაპირ იმ permission matrix-ის მიხედვით, რაც წინა სლაიდზე ვნახეთ.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12" data-lab>
     <div class="col-span-4">
@@ -1558,7 +2006,7 @@
   </div>
 </section>
 
-<!-- 17 ───────────────────────────────────────────────────────────── -->
+<!-- 21 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="data-permission" data-notes="ეს ერთადერთი ყველაზე მნიშვნელოვანი წინადადება დღეს: UI-ის დამალვა არ არის usage security. ეს ცალკე გამეორე — API-ს ყოველთვის თავისი შემოწმება სჭირდება, სულ ერთია რამდენად ლამაზად მალავს frontend ღილაკს. ცოცხლად აჩვენე DevTools-ში: hidden ატრიბუტის წაშლა ერთი კლიკია — და ღილაკი ისევ ჩანს.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
@@ -1619,7 +2067,7 @@
   </div>
 </section>
 
-<!-- 18 ───────────────────────────────────────────────────────────── -->
+<!-- 22 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="სურათი" data-notes="ეს არის მთელი დღევანდელი ლექციის ერთ ხაზად ჩაწერა. გაატარე მარცხნიდან მარჯვნივ და ხმამაღლა დაასახელე თითოეული ეტაპი, ერთი წინადადებით.">
   <div class="flex h-full flex-col justify-center px-14 py-12">
     <div class="flex items-end justify-between gap-10">
@@ -1650,7 +2098,7 @@
   </div>
 </section>
 
-<!-- 19 ───────────────────────────────────────────────────────────── -->
+<!-- 23 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="შეცდომები" data-notes="თითოეულ პუნქტზე იკითხე: ვისთვის ჰგავს ეს ნაცნობს? საკუთარი პროექტიდან პირადი მაგალითი, თუ გაქვს, აქ ყველაზე მეტად მუშაობს.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-4">
@@ -1671,7 +2119,7 @@
   </div>
 </section>
 
-<!-- 20 ───────────────────────────────────────────────────────────── -->
+<!-- 24 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="შეჯამება" data-notes="დაასრულე ერთი წინადადებით. მერე დაავალე: აიღონ საკუთარი პროექტის ერთი guarded route, დაწერონ მისთვის permission-ზე დაფუძნებული toolbar — ისე, როგორც დღეს ვნახეთ RBAC დემოში.">
   <div class="flex h-full flex-col justify-between px-14 py-12">
     <div class="flex items-start justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-ink-2">
@@ -1697,7 +2145,7 @@
   </div>
 </section>
 
-<!-- 21 ───────────────────────────────────────────────────────────── -->
+<!-- 25 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Auth flow" data-notes="კუბი თავად ბრუნავს მარცხნივ: ხუთი ფორმა, და ყოველ ფორმის endpoint ქვემოთ ინთება. ვალიდაციის საჩვენებლად წაშალე ველი ან შეიყვანე კოდი 000000. დააკლიკე ფორმას ან ღილაკს, რომ ბრუნვა შეჩერდეს. ხაზი გაუსვი: login-ის პასუხში accessToken body-ში მოდის და მხოლოდ მეხსიერებაში ინახება, refresh token-ს სერვერი Set-Cookie-თი httpOnly cookie-ში ჩადებს — JS-ი მას საერთოდ ვერ ხედავს. forgot-password ყოველთვის 202-ს აბრუნებს, რომ არ ჩანდეს, email რეგისტრირებულია თუ არა. ხაზი გაუსვი: client-ის ვალიდაცია UX-ისთვისაა — სერვერი ყველაფერს თავიდან ამოწმებს.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5 flex min-w-0 flex-col">
@@ -1862,7 +2310,7 @@
   </div>
 </section>
 
-<!-- 22 ───────────────────────────────────────────────────────────── ინვერსიული -->
+<!-- 26 ───────────────────────────────────────────────────────────── ინვერსიული -->
 <section class="slide h-full bg-night text-paper" data-dark data-section="მადლობა" data-notes="ეს სლაიდი მთელი Q&A-ის განმავლობაში დატოვე გახსნილი. თუ არავინ იწყებს, ექვსი ჩიპიდან ერთი თვითონ აიღე და ხმამაღლა უპასუხე. O-თი ნებისმიერ სლაიდზე დაბრუნდები.">
   <div class="relative flex h-full flex-col justify-between px-14 py-12">
     <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -2385,6 +2833,58 @@
       play() { stopAuto(); auto = setInterval(() => go((cur + 1) % faces.length), 3800); },
       stop: stopAuto,
     });
+  }
+
+  // ── encoding vs encryption: HTTP ↔ HTTPS, შუაში მყოფი base64-ს დეკოდირებს (ყოველ ციკლზე ენაცვლება) ──
+  const mitmFig = document.getElementById('mitmFig');
+  if (mitmFig) {
+    const btns = [...document.querySelectorAll('[data-mitm]')];
+    let auto = null;
+    const setMode = m => {
+      mitmFig.dataset.mode = m;
+      btns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mitm === m)));
+      mitmFig.classList.remove('run');
+      void mitmFig.offsetWidth;   // CSS ანიმაცია თავიდან იწყება
+      mitmFig.classList.add('run');
+    };
+    const stop = () => { clearInterval(auto); auto = null; };
+    btns.forEach(b => b.addEventListener('click', () => { stop(); setMode(b.dataset.mitm); }));
+    players.push({
+      root: mitmFig,
+      play() { stop(); setMode('http'); auto = setInterval(() => setMode(mitmFig.dataset.mode === 'http' ? 'https' : 'http'), 7500); },
+      stop() { stop(); mitmFig.classList.remove('run'); },
+    });
+  }
+
+  // ── opaque token vs JWT: ნაბიჯ-ნაბიჯ, „შემდეგ" / „უკან" ──
+  const bjDemo = document.getElementById('bjDemo');
+  if (bjDemo) {
+    const MAX = 5;
+    const next = document.getElementById('bjNext');
+    const prev = document.getElementById('bjPrev');
+    const dots = [...document.querySelectorAll('[data-bj-dot]')];
+    const set = n => {
+      bjDemo.dataset.step = n;
+      dots.forEach(d => d.classList.toggle('is-on', +d.dataset.bjDot <= n));
+      prev.disabled = n === 1;
+      next.textContent = n === MAX ? '↺ თავიდან' : 'შემდეგ →';
+    };
+    next.addEventListener('click', () => set(+bjDemo.dataset.step >= MAX ? 1 : +bjDemo.dataset.step + 1));
+    prev.addEventListener('click', () => set(Math.max(1, +bjDemo.dataset.step - 1)));
+    players.push({ root: bjDemo, play() { set(1); }, stop() {} });
+  }
+
+  // ── HTTP vs HTTPS: სკანერი — ღილაკი რეჟიმს ცვლის ──
+  const scanDemo = document.getElementById('scanDemo');
+  if (scanDemo) {
+    const btn = document.getElementById('scanToggle');
+    const set = m => {
+      scanDemo.dataset.mode = m;
+      btn.setAttribute('aria-pressed', String(m === 'https'));
+      btn.textContent = m === 'http' ? 'HTTPS-ზე გადართვა →' : '← HTTP-ზე დაბრუნება';
+    };
+    btn.addEventListener('click', () => set(scanDemo.dataset.mode === 'http' ? 'https' : 'http'));
+    players.push({ root: scanDemo, play() { set('http'); }, stop() {} });
   }
 
   // ── data-player: ნაბიჯების ავტომატური ჩვენება (sequence diagram) ──────

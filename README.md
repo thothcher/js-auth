@@ -1,6 +1,6 @@
 # Auth, Authorization & Session Lifecycle — Vanilla JS
 
-A 21-slide, single-file HTML lecture (in Georgian) about authentication in plain JavaScript, with no framework. It covers JWT, access and refresh tokens, a `fetch` wrapper that attaches the token, silent refresh with one shared Promise, a small auth store with `subscribe()`, a hand-written route guard and RBAC. Animated diagrams explain how things work step by step, and several slides have live demos you can click through with the audience.
+A 22-slide, single-file HTML lecture (in Georgian) about authentication in plain JavaScript, with no framework. It covers JWT, access and refresh tokens, a `fetch` wrapper that attaches the token, silent refresh with one shared Promise, a small auth store with `subscribe()`, a hand-written route guard and RBAC. Animated diagrams explain how things work step by step, and several slides have live demos you can click through with the audience.
 
 This is the framework-free version of the Angular auth lecture. The design and the order of the slides are the same. The code and the framework-specific explanations are rewritten for vanilla JS.
 
@@ -57,7 +57,8 @@ There is no build step. Tailwind v4 and the fonts load from CDNs, so the machine
 | 18 | Big picture | a request lights up every stage of the chain |
 | 19 | Common mistakes | the mistake cards appear one after another |
 | 20 | Summary | gradient key phrases |
-| 21 | Thank you / Q&A | solid dark slide with drifting chips |
+| 21 | Auth flow | **live demo**: a 3D cube turns right through login, register, recover and new-password forms; the login request → response → token storage animates step by step; 8 REST endpoints, with the current form's endpoint lit |
+| 22 | Thank you / Q&A | near-black slide with a black-and-white padlock photo and drifting chips |
 
 ## The code on the slides
 

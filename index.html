@@ -350,9 +350,124 @@
   @keyframes flow-on { 0%, 14%, 100% { transform: none; box-shadow: none; } 4%, 10% { transform: translateY(-6px) scale(1.04); box-shadow: 0 0 0 3px #0b299740, 0 16px 30px -12px #0b2997; } }
   @keyframes flow-arrow { 0%, 12%, 100% { color: #545378; transform: none; } 5% { color: #0b2997; transform: translateX(5px) scale(1.4); } }
 
-  /* 21 · ბნელ სლაიდზე ჩიპები */
+  /* 21 · auth flow: 3D კუბი ოთხი ფორმით (ბრუნავს მარჯვნივ) · login-ის request → response → token-ების შენახვა · REST endpoint-ები */
+  .af-scene { --cw: 300px; --ch: 372px; width: var(--cw); height: var(--ch); perspective: 1200px; }
+  .af-lift { width: 100%; height: 100%; transform-style: preserve-3d; }
+  .af-scene.is-turning .af-lift { animation: af-dip 1s cubic-bezier(.65,0,.25,1); }
+  .af-scene.is-turning + .af-shadow { animation: af-shadow 1s cubic-bezier(.65,0,.25,1); }
+  @keyframes af-dip { 50% { transform: translateY(-8px) scale(.93); } }
+  @keyframes af-shadow { 50% { transform: scaleX(.78); opacity: .55; } }
+  .af-cube { position: relative; width: 100%; height: 100%; transform-style: preserve-3d;
+             transform: translateZ(calc(var(--cw) / -2)) rotateY(var(--turn, 0deg)); transition: transform 1s cubic-bezier(.65,0,.25,1); }
+  .af-face { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 12px; padding: 20px 22px 16px;
+             background: #fff; border: 1px solid #e3e1f3; border-radius: 18px; backface-visibility: hidden;
+             box-shadow: 0 1px 2px #17153b0d, 0 22px 44px -26px #0b299759;
+             transform: rotateY(var(--a)) translateZ(calc(var(--cw) / 2)); }
+  .af-face > * { flex-shrink: 0; }
+  .af-face::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: #17153b; opacity: 0; transition: opacity 1s ease; pointer-events: none; }
+  .af-face[inert]::after { opacity: .2; }
+  .af-shadow { width: 230px; height: 18px; margin-top: -6px; border-radius: 50%; background: radial-gradient(closest-side, #17153b2e, transparent); }
+  .af-head { display: flex; align-items: center; gap: 12px; margin-bottom: auto; }   /* ფორმის ველები ვერტიკალურად ცენტრში */
+  .af-remember { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #545378; cursor: pointer; }
+  .af-remember input { width: 15px; height: 15px; margin: 0; accent-color: #0b2997; cursor: pointer; }
+  .af-icon { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 11px; background: #ebefff; color: #0b2997; }
+  .af-icon svg { width: 18px; height: 18px; }
+  .af-title { font: 600 17px/1.2 "Noto Sans Georgian", sans-serif; color: #17153b; }
+  .af-sub { font-size: 12px; line-height: 1.35; color: #545378; }
+  .af-field { display: grid; gap: 5px; }
+  .af-label { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font: 500 10px/1.2 "IBM Plex Mono", "Noto Sans Georgian", monospace; letter-spacing: .12em; text-transform: uppercase; color: #545378; }
+  .af-input { width: 100%; height: 36px; padding: 0 12px; border: 1px solid #e3e1f3; border-radius: 10px; background: #f7f6fd; color: #17153b;
+              font: 13.5px "Noto Sans Georgian", sans-serif; transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease; }
+  .af-input:hover { border-color: #c9c6e6; }
+  .af-input:focus { outline: none; background: #fff; border-color: #0b2997; box-shadow: 0 0 0 4px #0b29971f; }
+  .af-pass { position: relative; display: block; }
+  .af-pass .af-input { padding-right: 38px; }
+  .af-eye { position: absolute; top: 0; right: 0; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; color: #8a89a8; cursor: pointer; }
+  .af-eye:hover, .af-eye[aria-pressed="true"] { color: #17153b; }
+  .af-eye svg { width: 16px; height: 16px; }
+  .af-link { font: 500 11.5px "Noto Sans Georgian", sans-serif; letter-spacing: 0; text-transform: none; color: #0b2997; cursor: pointer; }
+  .af-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .af-meter { display: flex; align-items: center; gap: 3px; letter-spacing: 0; text-transform: none; color: #059669; }
+  .af-meter i { width: 14px; height: 3px; border-radius: 2px; background: #e3e1f3; }
+  .af-meter i.on { background: #059669; }
+  .af-meter em { margin-left: 4px; font: 500 11px "Noto Sans Georgian", sans-serif; font-style: normal; }
+  .af-note { padding: 8px 10px; border-radius: 10px; background: #f7f6fd; font-size: 11.5px; line-height: 1.45; color: #545378; }
+  .af-btn { display: flex; align-items: center; justify-content: center; gap: 8px; height: 40px; border-radius: 10px; background: #17153b; color: #f7f6fd;
+            font: 600 13.5px "Noto Sans Georgian", sans-serif; cursor: pointer; transition: background-color .2s ease, transform .15s ease; }
+  .af-btn:hover { background: #0b2997; }
+  .af-btn:active { transform: scale(.98); }
+  .af-btn.is-busy { background: #0b2997; }
+  .af-btn.is-busy::after { content: ''; width: 16px; height: 16px; border-radius: 50%; border: 2px solid #f7f6fd59; border-top-color: #f7f6fd; animation: af-spin .7s linear infinite; }
+  .af-btn.is-done { background: #059669; }
+  @keyframes af-spin { to { transform: rotate(360deg); } }
+  .af-btn:focus-visible, .af-eye:focus-visible, .af-link:focus-visible, .af-tab:focus-visible { outline: 2px solid #0b2997; outline-offset: 2px; }
+  .af-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 10px; border-top: 1px solid #efeef8; }
+  .af-route { font: 500 10.5px "IBM Plex Mono", monospace; color: #545378; white-space: nowrap; }
+  .af-route b { font-weight: 600; color: #0b2997; }
+  .af-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+  .af-tab { padding: 6px 12px; border: 1px solid #e3e1f3; border-radius: 999px; background: #fff; color: #545378; font: 500 11.5px "Noto Sans Georgian", sans-serif;
+            cursor: pointer; transition: background-color .25s ease, border-color .25s ease, color .25s ease; }
+  .af-tab:hover { border-color: #17153b; color: #17153b; }
+  .af-tab[aria-selected="true"] { background: #17153b; border-color: #17153b; color: #f7f6fd; }
+
+  .af-cap { font: 500 10.5px/1.2 "IBM Plex Mono", "Noto Sans Georgian", monospace; letter-spacing: .16em; text-transform: uppercase; color: #545378; }
+  .af-flow [data-step] { opacity: .3; transition: opacity .45s ease, border-color .45s ease, box-shadow .45s ease; }
+  .af-flow [data-step].seen { opacity: 1; }
+  .af-lane { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr) 12rem; align-items: stretch; }
+  .af-node { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; border: 1px solid #e3e1f3; border-radius: 14px; background: #fff; }
+  .af-node.now { border-color: #0b2997; box-shadow: 0 0 0 4px #0b29971a; }
+  .af-node-h { display: flex; align-items: center; gap: 8px; font: 600 13px "Noto Sans Georgian", sans-serif; color: #17153b; }
+  .af-node-h svg { width: 18px; height: 18px; flex: none; color: #0b2997; }
+  .af-mini { display: grid; gap: 5px; padding: 8px; border-radius: 8px; background: #f7f6fd; }
+  .af-mini i { height: 7px; border-radius: 3px; background: #e3e1f3; }
+  .af-mini i:last-child { height: 10px; margin-top: 2px; background: #17153b; }
+  .af-check { display: flex; align-items: center; gap: 6px; font: 11px/1.35 "IBM Plex Mono", "Noto Sans Georgian", monospace; color: #545378; white-space: nowrap; }
+  .af-check svg { width: 12px; height: 12px; flex: none; color: #059669; }
+  .af-node.now .af-check { animation: af-tick .45s cubic-bezier(.3,1.6,.5,1) both; animation-delay: calc(var(--k) * .35s); }
+  @keyframes af-tick { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
+  .af-wire { display: flex; flex-direction: column; justify-content: center; gap: 20px; min-width: 0; padding: 0 14px; }
+  .af-msg { display: grid; gap: 6px; }
+  .af-msg-t { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; font: 11px/1.35 "IBM Plex Mono", monospace; color: #545378; }
+  .af-msg-t strong { font-weight: 500; color: #17153b; }
+  .af-pill { padding: 1px 6px; border-radius: 5px; font: 600 10px/1.5 "IBM Plex Mono", monospace; }
+  .af-pill.post { color: #0b2997; background: #0b299714; }
+  .af-pill.ok { color: #059669; background: #05966914; }
+  .af-track { position: relative; height: 10px; }
+  .af-track::before { content: ''; position: absolute; top: 4px; left: 0; right: 6px; height: 2px; background: repeating-linear-gradient(90deg, #c9c6e6 0 6px, transparent 6px 11px); }
+  .af-track::after { content: ''; position: absolute; top: 0; right: 0; border-block: 5px solid transparent; border-left: 7px solid #c9c6e6; }
+  .af-track.back::before { left: 6px; right: 0; }
+  .af-track.back::after { left: 0; right: auto; border-left: 0; border-right: 7px solid #c9c6e6; }
+  .af-dot { position: absolute; top: 0; left: 0; width: 10px; height: 10px; border-radius: 50%; background: #0b2997; box-shadow: 0 0 0 4px #0b299726; opacity: 0; }
+  .af-track.back .af-dot { left: auto; right: 0; background: #059669; box-shadow: 0 0 0 4px #05966926; }
+  .af-msg.now .af-dot { animation: af-go 1.3s cubic-bezier(.5,0,.3,1) infinite; }
+  .af-msg.now .af-track.back .af-dot { animation-name: af-back; }
+  @keyframes af-go   { 0% { left: 0; opacity: 0; } 12%, 80% { opacity: 1; } 100% { left: calc(100% - 10px); opacity: 0; } }
+  @keyframes af-back { 0% { right: 0; opacity: 0; } 12%, 80% { opacity: 1; } 100% { right: calc(100% - 10px); opacity: 0; } }
+  .af-land { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: stretch; }
+  .af-store { display: grid; gap: 8px; align-content: space-between; }
+  .af-slot { display: grid; grid-template-columns: 30px minmax(0, 1fr); align-items: center; gap: 2px 10px; padding: 8px 12px; border: 1px solid #e3e1f3; border-radius: 12px; background: #fff; }
+  .af-slot.now { border-color: var(--c); box-shadow: 0 0 0 4px color-mix(in srgb, var(--c) 14%, transparent); }
+  .af-slot-i { grid-row: span 2; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); }
+  .af-slot-i svg { width: 16px; height: 16px; }
+  .af-slot-t { font: 500 12px/1.3 "IBM Plex Mono", monospace; color: #17153b; }
+  .af-slot-t span { color: #8a89a8; }
+  .af-slot-d { font-size: 11.5px; line-height: 1.35; color: #545378; }
+  .af-api-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .af-ep { display: grid; grid-template-columns: 2.9rem minmax(0, 1fr) auto; align-items: center; gap: 1px 8px; padding: 7px 12px; background: #fff; transition: background-color .35s ease, box-shadow .35s ease; }
+  .af-ep.is-now { background: #ebefff; box-shadow: inset 3px 0 0 #0b2997; }
+  .af-ep p { grid-column: 2 / -1; font-size: 11.5px; line-height: 1.35; color: #545378; }
+  .af-m { padding: 1px 0; border-radius: 5px; font: 600 10px/1.5 "IBM Plex Mono", monospace; text-align: center; }
+  .af-m.post { color: #0b2997; background: #0b299714; }
+  .af-m.get { color: #059669; background: #05966914; }
+  .af-path { min-width: 0; font: 500 12px/1.4 "IBM Plex Mono", monospace; color: #17153b; }
+  .af-auth { padding: 0 7px; border: 1px solid; border-radius: 999px; font: 500 10px/1.6 "IBM Plex Mono", monospace; }
+  .af-auth.pub { color: #8a89a8; border-color: #e3e1f3; }
+  .af-auth.ck { color: #b45309; border-color: #fbbf2466; background: #fbbf2414; }
+  .af-auth.br { color: #0b2997; border-color: #0b299733; background: #0b29970d; }
+
+  /* 22 · ბნელ სლაიდზე ჩიპები */
   .chip.dark { background: #ffffff0f; box-shadow: 0 12px 30px -16px var(--c); }
-  /* 21 · ფონის ფოტო (Unsplash): მარჯვნივ, ink-ში ჩაიძირება, ნელა მიახლოვდება */
+  /* 22 · ფონის ფოტო (Unsplash): მარჯვნივ, ink-ში ჩაიძირება, ნელა მიახლოვდება */
   .end-photo { position: absolute; top: 0; right: 0; width: 64%; height: 100%; object-fit: cover; object-position: 30% 50%;
                opacity: .5; filter: grayscale(1) brightness(.85) contrast(1.1); }
   .end-fade { position: absolute; inset: 0;
@@ -1540,7 +1655,132 @@
   </div>
 </section>
 
-<!-- 21 ───────────────────────────────────────────────────────────── ინვერსიული -->
+<!-- 21 ───────────────────────────────────────────────────────────── -->
+<section class="slide h-full" data-section="Auth flow" data-notes="კუბი თავად ბრუნავს მარჯვნივ: ოთხი ფორმა — ოთხი endpoint, და ქვემოთ შესაბამისი ხაზი ინთება. დააკლიკე ფორმას ან ღილაკს, რომ ბრუნვა შეჩერდეს. ხაზი გაუსვი: login-ის პასუხში accessToken body-ში მოდის და მხოლოდ მეხსიერებაში ინახება, refresh token-ს სერვერი Set-Cookie-თი httpOnly cookie-ში ჩადებს — JS-ი მას საერთოდ ვერ ხედავს. forgot-password ყოველთვის 202-ს აბრუნებს, რომ არ ჩანდეს, email რეგისტრირებულია თუ არა.">
+  <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
+    <div class="col-span-5 flex min-w-0 flex-col">
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>auth flow</p>
+      <h2 class="display mt-4 text-[2.6rem] leading-[1.02] font-semibold">ფორმიდან<br>cookie-მდე</h2>
+      <div class="mt-6 flex flex-1 flex-col items-center justify-center gap-4">
+        <div id="authScene" class="af-scene">
+          <div class="af-lift">
+            <div id="authCube" class="af-cube">
+
+              <form class="af-face" data-face="login" style="--a:0deg" novalidate>
+                <div class="af-head"><span class="af-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><div><p class="af-title">შესვლა</p><p class="af-sub">კეთილი იყოს შენი დაბრუნება</p></div></div>
+                <label class="af-field"><span class="af-label">ელ-ფოსტა</span><input class="af-input" type="email" name="email" value="nino@example.ge" autocomplete="email"></label>
+                <div class="af-field">
+                  <span class="af-label"><label for="afLoginPass">პაროლი</label><button type="button" class="af-link" data-goto="forgot">დაგავიწყდა?</button></span>
+                  <span class="af-pass"><input id="afLoginPass" class="af-input" type="password" name="password" value="correct-horse" autocomplete="current-password"><button type="button" class="af-eye" aria-label="პაროლის ჩვენება" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button></span>
+                </div>
+                <label class="af-remember"><input type="checkbox" name="remember" checked>დამიმახსოვრე ამ მოწყობილობაზე</label>
+                <button class="af-btn" data-done="✓ შესული ხარ">შესვლა</button>
+                <div class="af-foot"><span class="af-route"><b>POST</b> /auth/login</span><button type="button" class="af-link" data-goto="register">რეგისტრაცია →</button></div>
+              </form>
+
+              <form class="af-face" data-face="register" style="--a:-90deg" novalidate>
+                <div class="af-head"><span class="af-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M19 8v6M16 11h6"/></svg></span><div><p class="af-title">რეგისტრაცია</p><p class="af-sub">ახალი ანგარიში — ერთ წუთში</p></div></div>
+                <label class="af-field"><span class="af-label">სახელი</span><input class="af-input" type="text" name="name" value="ნინო ბერიძე" autocomplete="name"></label>
+                <label class="af-field"><span class="af-label">ელ-ფოსტა</span><input class="af-input" type="email" name="email" value="nino@example.ge" autocomplete="email"></label>
+                <label class="af-field"><span class="af-label">პაროლი<span class="af-meter" aria-label="პაროლი ძლიერია"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><em>ძლიერი</em></span></span><input class="af-input" type="password" name="password" value="Tb1l1s!-2026" autocomplete="new-password"></label>
+                <button class="af-btn" data-done="✓ ანგარიში შეიქმნა">ანგარიშის შექმნა</button>
+                <div class="af-foot"><span class="af-route"><b>POST</b> /auth/register</span><button type="button" class="af-link" data-goto="login">შესვლა →</button></div>
+              </form>
+
+              <form class="af-face" data-face="forgot" style="--a:-180deg" novalidate>
+                <div class="af-head"><span class="af-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><p class="af-title">პაროლის აღდგენა</p><p class="af-sub">აღდგენის ბმულს გამოგიგზავნით ელ-ფოსტაზე</p></div></div>
+                <label class="af-field"><span class="af-label">ელ-ფოსტა</span><input class="af-input" type="email" name="email" value="nino@example.ge" autocomplete="email"></label>
+                <p class="af-note">პასუხი ყოველთვის ერთნაირია — ასე არავინ გაიგებს, ეს ელ-ფოსტა რეგისტრირებულია თუ არა.</p>
+                <button class="af-btn" data-done="✓ ბმული გაიგზავნა">ბმულის გაგზავნა</button>
+                <div class="af-foot"><span class="af-route"><b>POST</b> /auth/forgot-password</span><button type="button" class="af-link" data-goto="login">შესვლა →</button></div>
+              </form>
+
+              <form class="af-face" data-face="reset" style="--a:-270deg" novalidate>
+                <div class="af-head"><span class="af-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 9.3-9.3M17 6l3 3M14.5 8.5l2 2"/></svg></span><div><p class="af-title">ახალი პაროლი</p><p class="af-sub">ერთჯერადი ბმული · 15 წუთი</p></div></div>
+                <label class="af-field"><span class="af-label">ახალი პაროლი</span><input class="af-input" type="password" name="password" value="n3w-Passw0rd!" autocomplete="new-password"></label>
+                <label class="af-field"><span class="af-label">გაიმეორე პაროლი</span><input class="af-input" type="password" name="confirm" value="n3w-Passw0rd!" autocomplete="new-password"></label>
+                <p class="af-note"><span class="font-mono text-[11px] text-ink">?token=7f3a9c…</span> ბმულიდან მოდის, სერვერი ერთხელ ამოწმებს</p>
+                <button class="af-btn" data-done="✓ პაროლი შეიცვალა">პაროლის შეცვლა</button>
+                <div class="af-foot"><span class="af-route"><b>POST</b> /auth/reset-password</span><button type="button" class="af-link" data-goto="login">შესვლა →</button></div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        <div class="af-shadow" aria-hidden="true"></div>
+        <div class="af-tabs" role="tablist" aria-label="ავტორიზაციის ფორმები">
+          <button type="button" class="af-tab" role="tab" data-cube-tab="login" aria-selected="true">შესვლა</button>
+          <button type="button" class="af-tab" role="tab" data-cube-tab="register" aria-selected="false">რეგისტრაცია</button>
+          <button type="button" class="af-tab" role="tab" data-cube-tab="forgot" aria-selected="false">აღდგენა</button>
+          <button type="button" class="af-tab" role="tab" data-cube-tab="reset" aria-selected="false">ახალი პაროლი</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-span-7 flex min-w-0 flex-col justify-center gap-5">
+      <div class="af-flow flex flex-col gap-3" data-player data-interval="2300">
+        <p class="af-cap">login · request → response → token-ების შენახვა</p>
+        <div class="af-lane">
+          <div class="af-node" data-step="1">
+            <p class="af-node-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg>ბრაუზერი</p>
+            <div class="af-mini" aria-hidden="true"><i></i><i></i><i></i></div>
+            <p class="af-route">&lt;form&gt; · fetch()</p>
+          </div>
+          <div class="af-wire">
+            <div class="af-msg" data-step="1">
+              <p class="af-msg-t"><span class="af-pill post">POST</span><strong>/auth/login</strong></p>
+              <div class="af-track"><span class="af-dot"></span></div>
+              <p class="af-msg-t">{ email, password }</p>
+            </div>
+            <div class="af-msg" data-step="3">
+              <div class="af-track back"><span class="af-dot"></span></div>
+              <p class="af-msg-t"><span class="af-pill ok">200</span><strong>{ accessToken, user }</strong></p>
+              <p class="af-msg-t">Set-Cookie: refresh_token · HttpOnly</p>
+            </div>
+          </div>
+          <div class="af-node" data-step="2">
+            <p class="af-node-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>სერვერი</p>
+            <p class="af-check" style="--k:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>argon2.verify()</p>
+            <p class="af-check" style="--k:1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>sign JWT · 15 წთ</p>
+            <p class="af-check" style="--k:2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>refresh → DB</p>
+          </div>
+        </div>
+        <div class="af-land">
+          <div class="vsc is-compact" data-step="3">
+            <div class="vsc-bar"><span class="vsc-tab"><span class="vsc-ico js">{}</span>response.json</span><span class="vsc-desc">200 OK</span></div>
+            <pre class="text-[11.5px] leading-[1.6]"><code>{
+  <span class="tk-var">"accessToken"</span>: <span class="tk-str">"eyJhbGciOi…"</span>,
+  <span class="tk-var">"expiresIn"</span>: <span class="tk-num">900</span>,
+  <span class="tk-var">"user"</span>: { <span class="tk-var">"id"</span>: <span class="tk-num">42</span>, <span class="tk-var">"name"</span>: <span class="tk-str">"Nino"</span>,
+            <span class="tk-var">"roles"</span>: [<span class="tk-str">"editor"</span>] }
+}</code></pre>
+          </div>
+          <div class="af-store">
+            <div class="af-slot" data-step="4" style="--c:#0b2997"><span class="af-slot-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span><p class="af-slot-t">accessToken <span>→</span> მეხსიერება</p><p class="af-slot-d">JS ცვლადი auth.js-ში · reload-ზე ქრება</p></div>
+            <div class="af-slot" data-step="4" style="--c:#d97706"><span class="af-slot-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.5A9 9 0 1 1 11.5 3a3 3 0 0 0 3.5 3.5 3 3 0 0 0 3.5 3.5 3 3 0 0 0 2.5 2.5Z"/><path d="M8.5 9.5h.01M15.5 15.5h.01M11 16h.01M8 14h.01"/></svg></span><p class="af-slot-t">refresh_token <span>→</span> httpOnly cookie</p><p class="af-slot-d">JS-ი ვერ კითხულობს · მხოლოდ /auth-ზე იგზავნება</p></div>
+            <div class="af-slot" data-step="4" style="--c:#059669"><span class="af-slot-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><p class="af-slot-t">user <span>→</span> setUser()</p><p class="af-slot-d">store-ი UI-ს subscribe()-ით ატყობინებს</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <div class="af-api-head"><p class="af-cap">REST API · 8 endpoint</p><p class="af-cap" style="letter-spacing:0;text-transform:none">ინთება კუბზე ნაჩვენები ფორმის endpoint</p></div>
+        <div class="grid grid-cols-2 gap-px bg-rule">
+          <div class="af-ep" data-ep="register"><span class="af-m post">POST</span><span class="af-path">/auth/register</span><span class="af-auth pub">public</span><p>ანგარიშის შექმნა → 201 + ბმული მეილზე</p></div>
+          <div class="af-ep" data-ep="verify"><span class="af-m post">POST</span><span class="af-path">/auth/verify-email</span><span class="af-auth pub">public</span><p>ბმულის token → ანგარიში აქტიური</p></div>
+          <div class="af-ep" data-ep="login"><span class="af-m post">POST</span><span class="af-path">/auth/login</span><span class="af-auth pub">public</span><p>email + password → token-ები</p></div>
+          <div class="af-ep" data-ep="me"><span class="af-m get">GET</span><span class="af-path">/auth/me</span><span class="af-auth br">bearer</span><p>ვინ ვარ? → user, reload-ის შემდეგ</p></div>
+          <div class="af-ep" data-ep="refresh"><span class="af-m post">POST</span><span class="af-path">/auth/refresh</span><span class="af-auth ck">cookie</span><p>cookie → ახალი accessToken + rotation</p></div>
+          <div class="af-ep" data-ep="logout"><span class="af-m post">POST</span><span class="af-path">/auth/logout</span><span class="af-auth ck">cookie</span><p>refresh-ის revoke + cookie-ს წაშლა</p></div>
+          <div class="af-ep" data-ep="forgot"><span class="af-m post">POST</span><span class="af-path">/auth/forgot-password</span><span class="af-auth pub">public</span><p>email → ყოველთვის 202</p></div>
+          <div class="af-ep" data-ep="reset"><span class="af-m post">POST</span><span class="af-path">/auth/reset-password</span><span class="af-auth pub">public</span><p>token + ახალი პაროლი → 204</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 22 ───────────────────────────────────────────────────────────── ინვერსიული -->
 <section class="slide h-full bg-night text-paper" data-dark data-section="მადლობა" data-notes="ეს სლაიდი მთელი Q&A-ის განმავლობაში დატოვე გახსნილი. თუ არავინ იწყებს, ექვსი ჩიპიდან ერთი თვითონ აიღე და ხმამაღლა უპასუხე. O-თი ნებისმიერ სლაიდზე დაბრუნდები.">
   <div class="relative flex h-full flex-col justify-between px-14 py-12">
     <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -1885,6 +2125,62 @@
 
     roleBtns.forEach(b => b.addEventListener('click', () => { role = b.dataset.role; render(); }));
     render();
+  }
+
+  // ── auth flow: კუბი ბრუნავს მარჯვნივ, ყოველ ფორმას თავისი endpoint ინთება ──
+  const authCube = document.getElementById('authCube');
+  if (authCube) {
+    const scene = document.getElementById('authScene');
+    const faces = [...authCube.querySelectorAll('[data-face]')];
+    const names = faces.map(f => f.dataset.face);
+    const tabs = [...document.querySelectorAll('[data-cube-tab]')];
+    const endpoints = [...document.querySelectorAll('[data-ep]')];
+    let cur = 0, turn = 0, auto = null;
+
+    function go(k, animate = true) {
+      if (animate && k === cur) return;
+      turn += ((k - cur + 4) % 4) * 90;   // ყოველთვის მარჯვნივ, არასდროს უკან
+      cur = k;
+      authCube.style.setProperty('--turn', turn + 'deg');
+      faces.forEach((f, j) => { f.inert = j !== k; });   // Tab-ი მხოლოდ წინა ფორმაზე
+      tabs.forEach(t => t.setAttribute('aria-selected', String(t.dataset.cubeTab === names[k])));
+      endpoints.forEach(e => e.classList.toggle('is-now', e.dataset.ep === names[k]));
+      if (animate) { scene.classList.remove('is-turning'); void scene.offsetWidth; scene.classList.add('is-turning'); }
+    }
+    const stopAuto = () => { clearInterval(auto); auto = null; };
+
+    tabs.forEach(t => t.addEventListener('click', () => { stopAuto(); go(names.indexOf(t.dataset.cubeTab)); }));
+    authCube.addEventListener('pointerdown', stopAuto);
+    authCube.addEventListener('focusin', stopAuto);
+    authCube.addEventListener('click', e => {
+      const link = e.target.closest('[data-goto]');
+      if (link) { go(names.indexOf(link.dataset.goto)); return; }
+      const eye = e.target.closest('.af-eye');
+      if (eye) {
+        const input = eye.previousElementSibling;
+        const show = input.type === 'password';
+        input.type = show ? 'text' : 'password';
+        eye.setAttribute('aria-pressed', String(show));
+      }
+    });
+    // submit: spinner → ✓ → საწყისი ტექსტი (request-ი არ იგზავნება, მხოლოდ UI)
+    authCube.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = e.target.querySelector('.af-btn');
+      if (btn.classList.contains('is-busy') || btn.classList.contains('is-done')) return;
+      const label = btn.textContent;
+      btn.textContent = '';
+      btn.classList.add('is-busy');
+      setTimeout(() => { btn.classList.replace('is-busy', 'is-done'); btn.textContent = btn.dataset.done; }, 800);
+      setTimeout(() => { btn.classList.remove('is-done'); btn.textContent = label; }, 2400);
+    });
+
+    go(0, false);
+    players.push({
+      root: authCube,
+      play() { stopAuto(); auto = setInterval(() => go((cur + 1) % 4), 3800); },
+      stop: stopAuto,
+    });
   }
 
   // ── data-player: ნაბიჯების ავტომატური ჩვენება (sequence diagram) ──────

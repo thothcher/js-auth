@@ -57,7 +57,7 @@ There is no build step. Tailwind v4 and the fonts load from CDNs, so the machine
 | 18 | Big picture | a request lights up every stage of the chain |
 | 19 | Common mistakes | the mistake cards appear one after another |
 | 20 | Summary | gradient key phrases |
-| 21 | Auth flow | **live demo**: a 3D cube turns right through login, register, recover and new-password forms; the login request → response → token storage animates step by step; 8 REST endpoints, with the current form's endpoint lit |
+| 21 | Auth flow | **live demo**: a five-sided 3D "cube" turns left through login, register, 6-digit code, recover and new-password forms, each with live validation; the login request → response → token storage animates step by step; 8 REST endpoints, with the current form's endpoint lit |
 | 22 | Thank you / Q&A | near-black slide with a black-and-white padlock photo and drifting chips |
 
 ## The code on the slides
@@ -91,7 +91,7 @@ All snippets belong to one small set of ES modules, so the names match from slid
 ## How it's built
 
 - **One file.** All markup, CSS and JS live in `index.html`. The diagrams are inline SVG animated with CSS `@keyframes`, so they stay sharp on any projector and need no image files.
-- **Palette.** The colour tokens are at the top of the file, in the `@theme` block (`--color-live`, `--color-box-p`, and so on). Change them there and every slide follows.
+- **Palette.** The colour tokens are at the top of the file, in the `@theme` block (`--color-live` blue, `--color-flame` tangerine accent, `--color-box-p`, and so on). Change them there and every slide follows.
 - **Background.** One solid colour, set on `body` in the hand-written `<style>` block. There are no gradients or patterns behind the slides.
 - **Diagrams.** Each diagram's CSS sits in the `/* ── ანიმირებული დიაგრამები ── */` block, labelled with its slide number (`/* 09 · XSS … */`).
 - **Players.** Animations that should run only while their slide is visible register in `players` with `play()` and `stop()`. Examples are the step-by-step sequence diagram, the silent-refresh toggle, the JWT highlight cycle and the idle-session countdown.
@@ -118,5 +118,11 @@ auth-js/
 ├── README.md
 ├── sitemap.xml            one-page sitemap for search engines
 ├── docs/                  GIFs and the cover image used above
+├── img/storyset/          illustrations from Storyset, recoloured to the accent
 └── tools/record-gifs.js   records docs/*.gif from the deck
 ```
+
+## Credits
+
+- Illustrations: [Storyset](https://storyset.com/) (Amico style), recoloured from purple to the deck's tangerine accent `#ff6b35`. Free use requires this credit; it is also on the last slide.
+- Last-slide photo: [Patrick Szalewicz](https://unsplash.com/@fachinformatiker) on [Unsplash](https://unsplash.com/photos/Hk-C576NPfk).

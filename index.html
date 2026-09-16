@@ -56,6 +56,8 @@
     --color-night:   #0a0a0d; /* ბოლო (ბნელი) სლაიდის ფონი */
     --color-rule:    #e3e1f3;
     --color-live:    #0b2997;
+    --color-flame:   #ff6b35; /* მეორე accent: ილუსტრაციები, სექციის label-ები */
+    --color-flame-d: #c2410c; /* იგივე, ღია ფონზე წაკითხვადი ტექსტისთვის */
     --color-box-c:   #7cc4ff; /* header / neutral */
     --color-box-p:   #34d399; /* granted / positive */
     --color-box-m:   #fbbf24; /* warning / margin of risk */
@@ -350,60 +352,86 @@
   @keyframes flow-on { 0%, 14%, 100% { transform: none; box-shadow: none; } 4%, 10% { transform: translateY(-6px) scale(1.04); box-shadow: 0 0 0 3px #0b299740, 0 16px 30px -12px #0b2997; } }
   @keyframes flow-arrow { 0%, 12%, 100% { color: #545378; transform: none; } 5% { color: #0b2997; transform: translateX(5px) scale(1.4); } }
 
-  /* 21 · auth flow: 3D კუბი ოთხი ფორმით (ბრუნავს მარჯვნივ) · login-ის request → response → token-ების შენახვა · REST endpoint-ები */
-  .af-scene { --cw: 300px; --ch: 372px; width: var(--cw); height: var(--ch); perspective: 1200px; }
-  .af-lift { width: 100%; height: 100%; transform-style: preserve-3d; }
+  /* 21 · auth flow: 3D „კუბი" ხუთი ფორმით (ბრუნავს მარცხნივ) · login-ის request → response → token-ების შენახვა · REST endpoint-ები */
+  .af-scene { --cw: 360px; --ch: 460px; --apo: calc(var(--cw) * .6882); width: var(--cw); height: var(--ch); }   /* 5 წახნაგი: apothem = w / (2·tan 36°) */
+  /* perspective lift-ზე (არა scene-ზე): ერთი 3D-შრე ნაკლები — Chrome-ი ბრუნვის შემდეგ click-ს სწორ ფორმას აწვდის */
+  .af-lift { width: 100%; height: 100%; perspective: 750px; }
+  .af-lift, .af-cube, .af-face { pointer-events: none; }
+  .af-face:not([inert]) { pointer-events: auto; }   /* click-ი მხოლოდ წინა ფორმას */
   .af-scene.is-turning .af-lift { animation: af-dip 1s cubic-bezier(.65,0,.25,1); }
   .af-scene.is-turning + .af-shadow { animation: af-shadow 1s cubic-bezier(.65,0,.25,1); }
-  @keyframes af-dip { 50% { transform: translateY(-8px) scale(.93); } }
+  @keyframes af-dip { 50% { transform: translateY(-10px) scale(.92); } }
   @keyframes af-shadow { 50% { transform: scaleX(.78); opacity: .55; } }
   .af-cube { position: relative; width: 100%; height: 100%; transform-style: preserve-3d;
-             transform: translateZ(calc(var(--cw) / -2)) rotateY(var(--turn, 0deg)); transition: transform 1s cubic-bezier(.65,0,.25,1); }
-  .af-face { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 12px; padding: 20px 22px 16px;
-             background: #fff; border: 1px solid #e3e1f3; border-radius: 18px; backface-visibility: hidden;
-             box-shadow: 0 1px 2px #17153b0d, 0 22px 44px -26px #0b299759;
-             transform: rotateY(var(--a)) translateZ(calc(var(--cw) / 2)); }
+             transform: translateZ(calc(var(--apo) * -1)) rotateY(var(--turn, 0deg)); transition: transform 1s cubic-bezier(.65,0,.25,1); }
+  .af-face { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 12px; padding: 24px 26px 18px;
+             background: #fff; border: 1px solid #e3e1f3; border-radius: 22px; backface-visibility: hidden;
+             box-shadow: 0 1px 2px #17153b0d, 0 26px 52px -30px #0b299759;
+             transform: rotateY(var(--a)) translateZ(var(--apo)); }
   .af-face > * { flex-shrink: 0; }
   .af-face::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: #17153b; opacity: 0; transition: opacity 1s ease; pointer-events: none; }
-  .af-face[inert]::after { opacity: .2; }
-  .af-shadow { width: 230px; height: 18px; margin-top: -6px; border-radius: 50%; background: radial-gradient(closest-side, #17153b2e, transparent); }
-  .af-head { display: flex; align-items: center; gap: 12px; margin-bottom: auto; }   /* ფორმის ველები ვერტიკალურად ცენტრში */
-  .af-remember { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #545378; cursor: pointer; }
-  .af-remember input { width: 15px; height: 15px; margin: 0; accent-color: #0b2997; cursor: pointer; }
-  .af-icon { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 11px; background: #ebefff; color: #0b2997; }
-  .af-icon svg { width: 18px; height: 18px; }
-  .af-title { font: 600 17px/1.2 "Noto Sans Georgian", sans-serif; color: #17153b; }
-  .af-sub { font-size: 12px; line-height: 1.35; color: #545378; }
-  .af-field { display: grid; gap: 5px; }
-  .af-label { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font: 500 10px/1.2 "IBM Plex Mono", "Noto Sans Georgian", monospace; letter-spacing: .12em; text-transform: uppercase; color: #545378; }
-  .af-input { width: 100%; height: 36px; padding: 0 12px; border: 1px solid #e3e1f3; border-radius: 10px; background: #f7f6fd; color: #17153b;
-              font: 13.5px "Noto Sans Georgian", sans-serif; transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease; }
+  .af-face[inert]::after { opacity: .42; }
+  .af-shadow { width: 300px; height: 20px; margin-top: -6px; border-radius: 50%; background: radial-gradient(closest-side, #17153b2e, transparent); }
+  .af-head { display: flex; align-items: center; gap: 14px; margin-bottom: auto; }   /* ველები ვერტიკალურად ცენტრში */
+  .af-icon { display: grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: 13px; background: #ebefff; color: #0b2997; }
+  .af-icon svg { width: 22px; height: 22px; }
+  .af-title { font: 600 20px/1.2 "Noto Sans Georgian", sans-serif; color: #17153b; }
+  .af-sub { font-size: 14px; line-height: 1.35; color: #545378; }
+  .af-field { display: grid; gap: 6px; }
+  .af-label { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 16px; font: 500 11.5px/1.2 "IBM Plex Mono", "Noto Sans Georgian", monospace; letter-spacing: .12em; text-transform: uppercase; color: #545378; }
+  .af-input { width: 100%; height: 44px; padding: 0 14px; border: 1px solid #e3e1f3; border-radius: 12px; background: #f7f6fd; color: #17153b;
+              font: 16px "Noto Sans Georgian", sans-serif; transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease; }
+  .af-input::placeholder { color: #b3b1cf; }
   .af-input:hover { border-color: #c9c6e6; }
   .af-input:focus { outline: none; background: #fff; border-color: #0b2997; box-shadow: 0 0 0 4px #0b29971f; }
   .af-pass { position: relative; display: block; }
-  .af-pass .af-input { padding-right: 38px; }
-  .af-eye { position: absolute; top: 0; right: 0; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; color: #8a89a8; cursor: pointer; }
+  .af-pass .af-input { padding-right: 46px; }
+  .af-eye { position: absolute; top: 0; right: 0; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; color: #8a89a8; cursor: pointer; }
   .af-eye:hover, .af-eye[aria-pressed="true"] { color: #17153b; }
-  .af-eye svg { width: 16px; height: 16px; }
-  .af-link { font: 500 11.5px "Noto Sans Georgian", sans-serif; letter-spacing: 0; text-transform: none; color: #0b2997; cursor: pointer; }
+  .af-eye svg { width: 19px; height: 19px; }
+  .af-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .af-row > * { white-space: nowrap; }
+  .af-link { font: 500 13.5px "Noto Sans Georgian", sans-serif; letter-spacing: 0; text-transform: none; color: #0b2997; cursor: pointer; }
   .af-link:hover { text-decoration: underline; text-underline-offset: 3px; }
-  .af-meter { display: flex; align-items: center; gap: 3px; letter-spacing: 0; text-transform: none; color: #059669; }
-  .af-meter i { width: 14px; height: 3px; border-radius: 2px; background: #e3e1f3; }
-  .af-meter i.on { background: #059669; }
-  .af-meter em { margin-left: 4px; font: 500 11px "Noto Sans Georgian", sans-serif; font-style: normal; }
-  .af-note { padding: 8px 10px; border-radius: 10px; background: #f7f6fd; font-size: 11.5px; line-height: 1.45; color: #545378; }
-  .af-btn { display: flex; align-items: center; justify-content: center; gap: 8px; height: 40px; border-radius: 10px; background: #17153b; color: #f7f6fd;
-            font: 600 13.5px "Noto Sans Georgian", sans-serif; cursor: pointer; transition: background-color .2s ease, transform .15s ease; }
+  .af-link:disabled { color: #8a89a8; cursor: default; text-decoration: none; }
+  .af-remember { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #545378; cursor: pointer; }
+  .af-remember input { width: 18px; height: 18px; margin: 0; accent-color: #0b2997; cursor: pointer; }
+  .af-note { padding: 10px 12px; border-radius: 12px; background: #f7f6fd; font-size: 13.5px; line-height: 1.45; color: #545378; }
+  .af-btn { display: flex; align-items: center; justify-content: center; gap: 10px; height: 48px; border-radius: 12px; background: #17153b; color: #f7f6fd;
+            font: 600 16px "Noto Sans Georgian", sans-serif; cursor: pointer; transition: background-color .2s ease, transform .15s ease; }
   .af-btn:hover { background: #0b2997; }
   .af-btn:active { transform: scale(.98); }
   .af-btn.is-busy { background: #0b2997; }
-  .af-btn.is-busy::after { content: ''; width: 16px; height: 16px; border-radius: 50%; border: 2px solid #f7f6fd59; border-top-color: #f7f6fd; animation: af-spin .7s linear infinite; }
+  .af-btn.is-busy::after { content: ''; width: 19px; height: 19px; border-radius: 50%; border: 2px solid #f7f6fd59; border-top-color: #f7f6fd; animation: af-spin .7s linear infinite; }
   .af-btn.is-done { background: #059669; }
   @keyframes af-spin { to { transform: rotate(360deg); } }
   .af-btn:focus-visible, .af-eye:focus-visible, .af-link:focus-visible, .af-tab:focus-visible { outline: 2px solid #0b2997; outline-offset: 2px; }
-  .af-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 10px; border-top: 1px solid #efeef8; }
-  .af-route { font: 500 10.5px "IBM Plex Mono", monospace; color: #545378; white-space: nowrap; }
+  .af-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 12px; border-top: 1px solid #efeef8; }
+  .af-route { font: 500 12.5px "IBM Plex Mono", monospace; color: #545378; white-space: nowrap; }
   .af-route b { font-weight: 600; color: #0b2997; }
+
+  /* ვალიდაცია: შეცდომა label-ის მარჯვნივ (ფორმის სიმაღლა არ იცვლება), ჩანს blur-ის ან submit-ის შემდეგ, მერე — ყოველ input-ზე */
+  .af-err { display: flex; align-items: center; gap: 6px; font: 500 12.5px/1.2 "Noto Sans Georgian", sans-serif; letter-spacing: 0; text-transform: none; color: #e11d48; white-space: nowrap; }
+  .af-err:empty { display: none; }
+  .af-err::before { content: '!'; display: grid; place-items: center; flex: none; width: 15px; height: 15px; border-radius: 50%; background: #e11d48; color: #fff; font: 700 10px/1 "IBM Plex Mono", monospace; }
+  .af-field.is-invalid .af-input { border-color: #e11d48; background: #fff5f7; }
+  .af-field.is-invalid .af-input:focus { box-shadow: 0 0 0 4px #e11d4824; }
+  .af-field.is-invalid .af-meter { display: none; }
+  .af-shake { animation: af-shake .4s cubic-bezier(.36,.07,.19,.97); }
+  @keyframes af-shake { 20%, 60% { transform: translateX(-5px); } 40%, 80% { transform: translateX(5px); } }
+  .af-meter { display: flex; align-items: center; gap: 4px; letter-spacing: 0; text-transform: none; color: #8a89a8; }
+  .af-meter i { width: 17px; height: 4px; border-radius: 2px; background: #e3e1f3; transition: background-color .25s ease; }
+  .af-meter em { margin-left: 5px; font: 500 12.5px "Noto Sans Georgian", sans-serif; font-style: normal; }
+  .af-meter[data-level="1"] { color: #e11d48; }
+  .af-meter[data-level="1"] i:nth-child(-n+1) { background: #e11d48; }
+  .af-meter[data-level="2"] { color: #d97706; }
+  .af-meter[data-level="2"] i:nth-child(-n+2) { background: #f59e0b; }
+  .af-meter[data-level="3"], .af-meter[data-level="4"] { color: #059669; }
+  .af-meter[data-level="3"] i:nth-child(-n+3), .af-meter[data-level="4"] i { background: #059669; }
+  .af-otp { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .af-otp .af-input { height: 54px; padding: 0; text-align: center; font: 600 22px "IBM Plex Mono", monospace; caret-color: #0b2997; }
+  .af-otp .af-input:not(:placeholder-shown) { background: #fff; border-color: #c9c6e6; }
+
   .af-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
   .af-tab { padding: 6px 12px; border: 1px solid #e3e1f3; border-radius: 999px; background: #fff; color: #545378; font: 500 11.5px "Noto Sans Georgian", sans-serif;
             cursor: pointer; transition: background-color .25s ease, border-color .25s ease, color .25s ease; }
@@ -500,6 +528,11 @@
   [data-jwt-decoded] { transition: border-color .3s ease, transform .3s ease; }
   [data-jwt-decoded].is-on { transform: translateY(-4px); }
 
+  /* Storyset-ის ილუსტრაციები (Amico), ფერი = --color-flame; ნაზად ტივტივავს */
+  .ill { display: block; height: auto; user-select: none; pointer-events: none; animation: ill-float 7s ease-in-out infinite; }
+  .ill-hero { position: absolute; right: 4%; bottom: 8%; width: min(23vw, 420px); }
+  @keyframes ill-float { 50% { transform: translateY(-8px); } }
+
   /* diagrams-end */
 
   @media (prefers-reduced-motion: reduce) {
@@ -520,12 +553,13 @@
 <section class="slide h-full" data-section="სათაური" data-notes="დაიწყე კითხვით: ვის დაუწერია კოდში if (user.role === 'admin')? ხელები აწიოს. სწორედ ეს ჩვევა გაგვირღვევია დღეს — ლექციის ბოლოს გავიგებთ, რატომ არის ეს პრობლემა.">
   <div class="relative flex h-full flex-col px-14 py-12">
     <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <img class="ill ill-hero" src="img/storyset/authentication.svg" alt="">
       <span class="chip" style="top:15%;left:50%;--c:#0b2997;--d:0s;--r:-3deg">Authorization: Bearer eyJhbGci…</span>
       <span class="chip" style="top:24%;left:82%;--c:#0284c7;--d:-1.5s;--r:4deg">JWT</span>
       <span class="chip" style="top:11%;left:28%;--c:#e11d48;--d:-3s;--r:2deg">401 Unauthorized</span>
       <span class="chip" style="bottom:21%;left:60%;--c:#059669;--d:-2s;--r:-2deg">can('delete') → true</span>
       <span class="chip" style="bottom:11%;left:80%;--c:#d97706;--d:-4s;--r:3deg">🍪 httpOnly; Secure</span>
-      <span class="chip" style="bottom:30%;left:86%;--c:#c026d3;--d:-.8s;--r:-4deg">↻ silent refresh</span>
+      <span class="chip" style="bottom:62%;left:76%;--c:#c2410c;--d:-.8s;--r:-4deg">↻ silent refresh</span>
       <span class="chip" style="bottom:8%;left:46%;--c:#0b2997;--d:-5s;--r:1deg">exp: 15m</span>
     </div>
     <div class="flex items-start justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-ink-2">
@@ -542,7 +576,7 @@
         </svg>
         <h1 class="display text-[6.4vw] leading-[0.95] font-semibold">Auth, Authorization<br>&amp; <span class="grad-text">Session Lifecycle</span></h1>
       </div>
-      <div class="mt-8 h-1 w-32 rounded-full" style="background:linear-gradient(90deg,#0b2997,#2f5fe8,#6aa5ff)"></div>
+      <div class="mt-8 h-1 w-32 rounded-full" style="background:linear-gradient(90deg,#0b2997 0 64%,#ff6b35 64%)"></div>
       <p class="mt-6 max-w-2xl text-lg text-ink-2">ვინ ხარ, რისი უფლება გაქვს და რამდენ ხანს — სამი კითხვა, რომელსაც ყოველი authenticated request პასუხობს.</p>
     </div>
   </div>
@@ -553,19 +587,19 @@
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5 flex flex-col justify-between">
       <div>
-        <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>გეგმა</p>
+        <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>გეგმა</p>
         <h2 class="display mt-4 text-6xl leading-[1] font-semibold">რაზე ვისაუბრებთ?</h2>
       </div>
       <figure class="max-w-sm">
         <svg class="dia chain" viewBox="0 0 360 70" aria-hidden="true">
           <line x1="24" y1="26" x2="336" y2="26" stroke="#e3e1f3" stroke-width="3" stroke-linecap="round"/>
           <line class="chain-line" x1="24" y1="26" x2="336" y2="26" stroke="#0b2997" stroke-width="3" stroke-linecap="round"/>
-          <g class="chain-node" style="--k:0"><circle cx="24"  cy="26" r="11"/><text x="24"  y="60" text-anchor="middle">01</text></g>
-          <g class="chain-node" style="--k:1"><circle cx="86"  cy="26" r="11"/><text x="86"  y="60" text-anchor="middle">02</text></g>
-          <g class="chain-node" style="--k:2"><circle cx="149" cy="26" r="11"/><text x="149" y="60" text-anchor="middle">03</text></g>
-          <g class="chain-node" style="--k:3"><circle cx="211" cy="26" r="11"/><text x="211" y="60" text-anchor="middle">04</text></g>
-          <g class="chain-node" style="--k:4"><circle cx="274" cy="26" r="11"/><text x="274" y="60" text-anchor="middle">05</text></g>
-          <g class="chain-node" style="--k:5"><circle cx="336" cy="26" r="11"/><text x="336" y="60" text-anchor="middle">06</text></g>
+          <g class="chain-node" style="--k:0"><circle cx="24"  cy="26" r="6"/><text x="24"  y="60" text-anchor="middle">01</text></g>
+          <g class="chain-node" style="--k:1"><circle cx="86"  cy="26" r="6"/><text x="86"  y="60" text-anchor="middle">02</text></g>
+          <g class="chain-node" style="--k:2"><circle cx="149" cy="26" r="6"/><text x="149" y="60" text-anchor="middle">03</text></g>
+          <g class="chain-node" style="--k:3"><circle cx="211" cy="26" r="6"/><text x="211" y="60" text-anchor="middle">04</text></g>
+          <g class="chain-node" style="--k:4"><circle cx="274" cy="26" r="6"/><text x="274" y="60" text-anchor="middle">05</text></g>
+          <g class="chain-node" style="--k:5"><circle cx="336" cy="26" r="6"/><text x="336" y="60" text-anchor="middle">06</text></g>
         </svg>
         <figcaption class="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-2">ექვსი თემა — ერთი ჯაჭვი</figcaption>
       </figure>
@@ -586,10 +620,10 @@
 <section class="slide h-full" data-section="პრობლემა" data-notes="ხაზი გაუსვი: HTTP უსახელმწიფოა (stateless) — სერვერს არ ახსოვს წინა request. ეს სამი კითხვა სწორედ ამიტომ უნდა დაისვას ყოველ request-ზე ცალკე, არა ერთხელ, login-ის დროს.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>პრობლემა</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>პრობლემა</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">HTTP-ს არაფერი<br>ახსოვს</h2>
       <p class="mt-6 text-ink-2">ყოველი request სერვერთან ახალი, დამოუკიდებელი შეხვედრაა. წინა request-ის ვინაობა — არაფრის მაჩვენებელი. ამიტომ SPA + API არქიტექტურაში „ვინ ხარ" ყოველ request-ს თან უნდა ახლდეს, არა მხოლოდ login-ს.</p>
-      <p class="mt-4 border-l-2 border-live pl-5 text-sm text-ink-2">სწორედ ამ ვაკუუმს ავსებს token — ის, რასაც კლიენტი ატარებს და სერვერს ყოველ request-ზე წარუდგენს.</p>
+      <p class="mt-4 border-l-2 border-flame pl-5 text-sm text-ink-2">სწორედ ამ ვაკუუმს ავსებს token — ის, რასაც კლიენტი ატარებს და სერვერს ყოველ request-ზე წარუდგენს.</p>
     </div>
 
     <div class="col-span-7 flex flex-col justify-center gap-6">
@@ -655,7 +689,7 @@
   <div class="grid h-full grid-cols-12 grid-rows-[auto_1fr_auto] gap-x-6 gap-y-4 px-14 py-12">
     <div class="col-span-12 flex items-end justify-between gap-10">
       <div>
-        <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>სერვერის პასუხი</p>
+        <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>სერვერის პასუხი</p>
         <h2 class="display mt-3 text-5xl font-semibold">HTTP სტატუს კოდები</h2>
       </div>
       <p class="max-w-md text-sm text-ink-2">სამნიშნა რიცხვი, რომლის <span class="text-ink">პირველი ციფრი კლასია</span> — ის ამბობს, რა მოხდა ზოგადად. დანარჩენი ორი მხოლოდ დეტალს აზუსტებს.</p>
@@ -737,14 +771,14 @@
 <section class="slide h-full" data-section="Authn vs Authz" data-notes="ეს ორი სიტყვა ინგლისურადაც ჰგავს ერთმანეთს — swap-ის რისკი მაღალია interview-ზეც კი. ბარათი ბოლოს დააკლიკე მხოლოდ მას შემდეგ, რაც დარბაზმა თავად სცადა პასუხის გამოცნობა.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-12">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>ორი ცნება</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>ორი ცნება</p>
       <h2 class="display mt-3 text-5xl font-semibold">Authentication vs Authorization</h2>
     </div>
 
     <div class="col-span-6 flex flex-col border border-rule bg-panel">
       <div class="flex items-center justify-between gap-4 border-b border-rule px-6 py-4">
         <div>
-          <p class="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>Authentication</p>
+          <p class="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>Authentication</p>
           <p class="mt-2 text-lg">პასუხობს: <span class="font-medium">ვინ ხარ?</span></p>
         </div>
         <svg class="id-scan h-16 w-auto shrink-0" viewBox="0 0 96 64" aria-hidden="true">
@@ -758,7 +792,7 @@
       </div>
       <div class="p-6">
         <p class="text-ink-2">ვინაობის დადასტურება — პაროლი, OTP, biometric, SSO. შედეგი ერთია: <span class="text-ink">ცნობილია მომხმარებელი</span> თუ <span class="text-ink">უცნობი</span>.</p>
-        <p class="mt-4 border-l-2 border-live pl-4 text-sm text-ink-2">ანალოგია: პასპორტის შემოწმება საზღვარზე — ადასტურებს ვინაობას, არაფერს ამბობს სად შეგიძლია შესვლა.</p>
+        <p class="mt-4 border-l-2 border-flame pl-4 text-sm text-ink-2">ანალოგია: პასპორტის შემოწმება საზღვარზე — ადასტურებს ვინაობას, არაფერს ამბობს სად შეგიძლია შესვლა.</p>
         <div class="mt-6 border border-rule bg-paper p-4 font-mono text-[12px] text-ink-2">
           <p>POST /auth/login</p>
           <p>{ email, password } → 200 OK + tokens</p>
@@ -810,7 +844,7 @@
 <section class="slide h-full" data-section="JWT" data-notes="დააკლიკინე დარბაზს სამივე ფერადი ბლოკი — highlight გადადის შესაბამის decoded ველზე. ხაზი გაუსვი: signature არ ნიშნავს დაშიფვრას. Payload ნებისმიერს შეუძლია წაიკითხოს base64-დან — არასდროს ჩადოთ იქ პაროლი თუ საიდუმლო.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>JWT</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>JWT</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">სამი ნაწილი,<br>წერტილით გაყოფილი</h2>
       <p class="mt-6 text-ink-2">JSON Web Token არის სამი base64url ბლოკი, წერტილებით შეერთებული: <code class="font-mono text-[13px]">header.payload.signature</code>.</p>
       <div class="mt-6 space-y-3 text-sm text-ink-2">
@@ -818,7 +852,7 @@
         <div class="flex gap-3"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-box-p"></span><span><span class="text-ink">payload</span> — claims: ვინ, როდის, რამდენ ხანს. <span class="font-medium text-ink">დაშიფრული არაა — ვინც წაიკითხავს, დაინახავს.</span></span></div>
         <div class="flex gap-3"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-box-m"></span><span><span class="text-ink">signature</span> — header+payload-ის HMAC. ადასტურებს, რომ არავის შეუცვლია.</span></div>
       </div>
-      <p class="mt-6 border-l-2 border-live pl-5 text-sm text-ink-2">ესე იგი: JWT არის <span class="text-ink">signed</span>, არა <span class="text-ink">encrypted</span>. ის იცავს მთლიანობას (tamper-proof), არა კონფიდენციალურობას.</p>
+      <p class="mt-6 border-l-2 border-flame pl-5 text-sm text-ink-2">ესე იგი: JWT არის <span class="text-ink">signed</span>, არა <span class="text-ink">encrypted</span>. ის იცავს მთლიანობას (tamper-proof), არა კონფიდენციალურობას.</p>
     </div>
 
     <div class="col-span-7 min-w-0 flex flex-col justify-center gap-6">
@@ -860,7 +894,7 @@
 <section class="slide h-full" data-section="Tokens" data-notes="ცხრილს ხმამაღლა კითხულობდე მწკრივ-მწკრივ. ხაზი გაუსვი ბოლო მწკრივს: access token-ის მოპარვა 15 წუთის პრობლემაა, refresh token-ის მოპარვა კვირების პრობლემა — სწორედ ამიტომ საჭიროებს refresh token ყველაზე მაღალ დაცვას (შემდეგ სლაიდზე გავაგრძელებთ).">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>ორი token</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>ორი token</p>
       <h2 class="display mt-3 text-5xl leading-[1.05] font-semibold">Access Token vs Refresh Token</h2>
     </div>
 
@@ -895,12 +929,12 @@
           <text x="560" y="116" font-size="11" fill="#17153b" text-anchor="end">7 დღე → logout</text>
         </g>
       </svg>
-      <figcaption class="mt-1 text-[13px] text-ink-2">Access token ცოცხლობს წუთებს და ჩუმად ახლდება <span style="color:#059669">↻</span> — refresh token ერთი გრძელი ინტერვალია; მისი ვადის ამოწურვა = logout.</figcaption>
+      <figcaption class="mt-1 text-[13px] text-ink-2">Access token ცოცხლობს წუთებს და ახლდება refresh token-ით <span style="color:#059669">↻</span> — refresh token ერთი გრძელი ინტერვალია; მისი ვადის ამოწურვა == logout.</figcaption>
     </figure>
 
     <div data-stagger style="--step:25ms" class="col-span-12 grid flex-1 grid-cols-[11rem_1fr_1fr] gap-px overflow-hidden bg-rule text-[14px]">
       <div class="bg-paper p-4"></div>
-      <div class="flex items-center gap-2 bg-paper p-4 font-mono text-[11px] uppercase tracking-[0.18em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>Access Token</div>
+      <div class="flex items-center gap-2 bg-paper p-4 font-mono text-[11px] uppercase tracking-[0.18em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>Access Token</div>
       <div class="flex items-center gap-2 bg-paper p-4 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-2"><span class="h-1.5 w-1.5 rounded-full bg-box-c"></span>Refresh Token</div>
 
       <div class="bg-panel p-4 font-medium">სიცოცხლის ხანგრძლივობა</div>
@@ -934,7 +968,7 @@
 <section class="slide h-full" data-section="Lifecycle" data-notes="გაატარე თითოეულ ნაბიჯზე ხმამაღლა. მე-4 და მე-5 ნაბიჯი ერთად წარმოადგინე — სწორედ ეს არის Silent Refresh, რომელსაც ცალკე სლაიდზე დავაგრძელებთ.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12" data-player data-interval="2600">
     <div class="col-span-4">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>lifecycle</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>lifecycle</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">Login-იდან<br>logout-მდე</h2>
       <p class="mt-6 text-ink-2">ერთი token-ის სასიცოცხლო ციკლი ექვს ნაბიჯად. მომხმარებელი მხოლოდ პირველ და ბოლო ნაბიჯს ხედავს — შუალედური ხუთი ავტომატურია.</p>
       <figure class="mt-6 border border-rule bg-panel p-4">
@@ -997,7 +1031,7 @@
 <section class="slide h-full" data-section="შენახვა" data-notes="ეს ხშირად დასმული interview კითხვაა — არავითარი „ერთადერთი სწორი პასუხი" არ არსებობს, ტრეიდ-ოფია. ხაზი გაუსვი httpOnly cookie-ს: JavaScript-ს საერთოდ არ შეუძლია მისი წაკითხვა — ესე იგი XSS-ითაც ვერ მოიპარავენ.">
   <div class="grid grid-cols-12 gap-10 px-14 pt-12 pb-8">
     <div class="col-span-4">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>შენახვა</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>შენახვა</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">სად ვინახავთ<br>token-ებს?</h2>
       <p class="mt-6 text-ink-2">ოთხი ვარიანტი, ოთხი ტრეიდ-ოფი — XSS-ის (მოპარვა JS-ით) და CSRF-ის (browser-ის თვითნებური გაგზავნა) რისკებს შორის.</p>
       <figure class="mt-6 border border-rule bg-panel p-4">
@@ -1065,7 +1099,7 @@
 <section class="slide h-full" data-section="fetch wrapper" data-notes="ხაზი გაუსვი: wrapper ერთხელ იწერება და ყველა request-ს ეხმარება — არც ერთ ფაილში აღარ დაგვჭირდება ხელით token-ის მიბმა. წესი: აპლიკაციის კოდში fetch() პირდაპირ აღარსად იწერება, მხოლოდ apiFetch().">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>JavaScript</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>JavaScript</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">fetch<br>wrapper</h2>
       <p class="mt-6 text-ink-2">Vanilla JS-ში interceptor არ არსებობს — მის როლს ასრულებს ერთი ფუნქცია, რომელიც <code class="font-mono text-[13px]">fetch</code>-ს ახვევს. ეს ერთადერთი ადგილია, სადაც Access Token ერთვის request-ს — ყველა მოდულმა ავტომატურად „იცის" ვინ ხარ.</p>
       <div class="mt-6 space-y-3 text-sm text-ink-2">
@@ -1133,10 +1167,10 @@
 <section class="slide h-full" data-section="Session" data-notes="ეს ცოცხალი დემოა — 15 წუთის ნაცვლად წამებში. ჯერ არაფერს ეხე, დაუტოვე 0-მდე ჩავიდეს, აჩვენე warning ფაზა და locked overlay. მერე Reset და აჩვენე, როგორ არღვევს activity ღილაკი countdown-ს.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-4">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>session</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>session</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">უმოქმედო<br>სესია</h2>
       <p class="mt-6 text-ink-2">Access token-ის ვადა და <span class="text-ink">idle timeout</span> ორი სხვადასხვა საათია. Idle timeout ითვლის არა token-ის ასაკს, არამედ — რამდენი ხანია მომხმარებელმა არაფერი გააკეთა.</p>
-      <p class="mt-4 border-l-2 border-live pl-5 text-sm text-ink-2">დემოში 15 წუთის ნაცვლად 15 წამს ვიყენებთ, რომ პასუხი დარბაზში დავინახოთ.</p>
+      <p class="mt-4 border-l-2 border-flame pl-5 text-sm text-ink-2">დემოში 15 წუთის ნაცვლად 15 წამს ვიყენებთ, რომ პასუხი დარბაზში დავინახოთ.</p>
       <div class="vsc mt-6">
         <div class="vsc-bar"><span class="vsc-tab"><span class="vsc-ico js">JS</span>session.js</span></div>
         <pre class="text-[12px] leading-[1.8]"><code><span class="tk-st">const</span> <span class="tk-cst">events</span> = [<span class="tk-str">'mousemove'</span>, <span class="tk-str">'keydown'</span>];
@@ -1166,6 +1200,7 @@
           <button id="sessionRelogin" class="pointer-events-auto mt-2 border border-paper/40 px-4 py-2 font-mono text-[12px] hover:border-box-p hover:text-box-p">ხელახლა შესვლა</button>
         </div>
       </div>
+      <img class="ill mt-5 ml-auto w-[15vw] max-w-[250px] -scale-x-100" src="img/storyset/time-management.svg" alt="">
     </div>
   </div>
 </section>
@@ -1174,7 +1209,7 @@
 <section class="slide h-full" data-section="Silent Refresh" data-notes="ეს ყველაზე ხშირად არასწორად დაწერილი ნაწილია. კითხვა დარბაზს: რა მოხდება, თუ ერთდროულად 5 request გავა და ყველა 401-ს მიიღებს — ხუთივე გამოიძახებს /refresh-ს? სწორედ ეს არის race condition. გამოსავალი ერთი საერთო Promise-ია: პირველი 401 მას ქმნის, დანარჩენები იმავეს await-ით ელოდებიან.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>Silent Refresh</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>Silent Refresh</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">ერთდროული<br>401-ები</h2>
       <p class="mt-6 text-ink-2">თუ 5 request ერთდროულად მიიღებს <code class="font-mono text-[13px]">401</code>-ს, არასწორი კოდი <span class="text-ink">ხუთჯერ</span> გამოიძახებს <code class="font-mono text-[13px]">/auth/refresh</code>-ს — race condition, ზოგი მარცხდება.</p>
 
@@ -1273,10 +1308,10 @@
 <section class="slide h-full" data-section="Identity State" data-notes="ხაზი გაუსვი: getUser() ერთი წყაროა მთელი აპლიკაციისთვის — აღარაფერი იკითხება localStorage-დან ფაილების შუაში. subscribe() არის observer pattern — იგივე იდეა, რაზეც React-ის, Vue-ს და Angular-ის state დგას, ოღონდ აქ ხელით, 15 ხაზში.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>auth state</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>auth state</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">იდენტობა,<br>ერთ ადგილას</h2>
       <p class="mt-6 text-ink-2">მთელი აპლიკაცია ერთ კითხვას სვამს: <span class="text-ink">ვინ ვარ ახლა?</span> პასუხი უნდა ცხოვრობდეს ერთ ES module-ში — არა თითო ფაილის localStorage read-ში.</p>
-      <p class="mt-4 border-l-2 border-live pl-5 text-sm text-ink-2"><code class="font-mono text-[12px]">subscribe()</code> — observer pattern: მომხმარებლის ცვლილებას store-ი თავად აცნობებს ყველას.</p>
+      <p class="mt-4 border-l-2 border-flame pl-5 text-sm text-ink-2"><code class="font-mono text-[12px]">subscribe()</code> — observer pattern: მომხმარებლის ცვლილებას store-ი თავად აცნობებს ყველას.</p>
       <figure class="mt-6 border border-rule bg-panel p-4">
         <svg class="dia sig" viewBox="0 0 340 190" role="img" aria-label="setUser() ცვლის store-ს, getter-ები და UI ავტომატურად ახლდება">
           <g font-size="11" text-anchor="middle">
@@ -1348,10 +1383,10 @@
 <section class="slide h-full" data-section="Guards" data-notes="ხაზი გაუსვი: guard-ი თავად არ იძახებს navigate()-ს და არ ეხება location-ს — მხოლოდ აბრუნებს true-ს ან redirect-ის მისამართს, გადაწყვეტს router-ი. ასე guard-ი სუფთა ფუნქციაა და ადვილად ტესტდება. returnUrl დამატებით მიანიშნე — login-ის შემდეგ იქ დაბრუნდება.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>route guards</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>route guards</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">Route-ის<br>კარიბჭე</h2>
       <p class="mt-6 text-ink-2">Guard არის ბოლო ჩეკპოინტი, სანამ router გვერდს დაარენდერებს. Vanilla JS-ში router-საც და guard-საც თავად ვწერთ — guard უბრალო ფუნქციაა: აბრუნებს <code class="font-mono text-[13px]">true</code>-ს ან redirect-ის მისამართს.</p>
-      <p class="mt-4 border-l-2 border-live pl-5 text-sm text-ink-2">Guard მალავს route-ს UI-დან. API-ის საკუთარი შემოწმება მაინც აუცილებელია — ამაზე მე-17 სლაიდზე დავბრუნდებით.</p>
+      <p class="mt-4 border-l-2 border-flame pl-5 text-sm text-ink-2">Guard მალავს route-ს UI-დან. API-ის საკუთარი შემოწმება მაინც აუცილებელია — ამაზე მე-17 სლაიდზე დავბრუნდებით.</p>
       <figure class="mt-6 border border-rule bg-panel p-4">
         <svg class="dia guard" viewBox="0 0 340 160" role="img" aria-label="guard ჯერ /login-ზე აბრუნებს, login-ის შემდეგ კი /admin-ში უშვებს">
           <g font-size="11" text-anchor="middle">
@@ -1411,10 +1446,10 @@
 <section class="slide h-full" data-section="RBAC" data-notes="ეს ყველაზე მნიშვნელოვანი წესია დღევანდელ ლექციაში: არასდროს დაწერო if (role === 'admin') ბიზნეს ლოგიკაში. Role მხოლოდ სახელია, permissions-ის კონტეინერი — შემდეგ სლაიდზე ცოცხლად ვნახავთ, რატომ.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-4">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>RBAC</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>RBAC</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">Role არის<br>უფლებების ყუთი</h2>
       <p class="mt-6 text-ink-2">Role არ არის string, რომელსაც adhoc ადარებ. Role არის <span class="text-ink">დასახელებული permissions-ის ნაკრები</span>.</p>
-      <div class="mt-6 border-l-2 border-live pl-5 text-sm text-ink-2">
+      <div class="mt-6 border-l-2 border-flame pl-5 text-sm text-ink-2">
         <p><code class="font-mono text-[12px] text-ink">if (user.role === 'admin')</code> — მყიფეა, ყოველი ახალი role მოითხოვს კოდის ცვლილებას ყველგან.</p>
         <p class="mt-2"><code class="font-mono text-[12px] text-ink">if (can('delete'))</code> — role-permission matrix იცვლება, კოდი — არა.</p>
       </div>
@@ -1478,7 +1513,7 @@
 <section class="slide h-full" data-section="Permission UI" data-notes="მთავარი დემო სლაიდი — გაატარე დარბაზს ღილაკები, ერთმანეთის მიყოლებით (Guest → Viewer → Editor → Admin). ყოველ ცვლილებაზე ხმამაღლა წაიკითხე, რომელი toolbar ღილაკი გაითიშა/ჩაირთო და რატომ — ეს ხდება პირდაპირ იმ permission matrix-ის მიხედვით, რაც წინა სლაიდზე ვნახეთ.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12" data-lab>
     <div class="col-span-4">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>ცოცხალი დემო</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>ცოცხალი დემო</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">Permission<br>Engine UI-ში</h2>
       <p class="mt-6 text-ink-2">გადართე role — იგივე toolbar სხვადასხვანაირად რეაგირებს, ერთი და იმავე <code class="font-mono text-[13px]">can()</code> ფუნქციის მეშვეობით.</p>
       <div class="vsc mt-6">
@@ -1527,7 +1562,7 @@
 <section class="slide h-full" data-section="data-permission" data-notes="ეს ერთადერთი ყველაზე მნიშვნელოვანი წინადადება დღეს: UI-ის დამალვა არ არის usage security. ეს ცალკე გამეორე — API-ს ყოველთვის თავისი შემოწმება სჭირდება, სულ ერთია რამდენად ლამაზად მალავს frontend ღილაკს. ცოცხლად აჩვენე DevTools-ში: hidden ატრიბუტის წაშლა ერთი კლიკია — და ღილაკი ისევ ჩანს.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>permissions</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>permissions</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">data-permission</h2>
       <p class="mt-6 text-ink-2">ერთი ფუნქცია გადის DOM-ში და მალავს ყველა <code class="whitespace-nowrap font-mono text-[13px]">[data-permission]</code> ელემენტს, რომლის უფლებაც არ გაქვს. role-ის ცვლილებაზე თავიდან ეშვება.</p>
 
@@ -1587,8 +1622,13 @@
 <!-- 18 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="სურათი" data-notes="ეს არის მთელი დღევანდელი ლექციის ერთ ხაზად ჩაწერა. გაატარე მარცხნიდან მარჯვნივ და ხმამაღლა დაასახელე თითოეული ეტაპი, ერთი წინადადებით.">
   <div class="flex h-full flex-col justify-center px-14 py-12">
-    <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>დიდი სურათი</p>
-    <h2 class="display mt-3 text-5xl font-semibold">ერთი მოთხოვნის მთელი გზა</h2>
+    <div class="flex items-end justify-between gap-10">
+      <div>
+        <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>დიდი სურათი</p>
+        <h2 class="display mt-3 text-5xl font-semibold">ერთი მოთხოვნის მთელი გზა</h2>
+      </div>
+      <img class="ill -mb-4 w-[15vw] max-w-[250px] shrink-0" src="img/storyset/secure-server.svg" alt="">
+    </div>
 
     <div class="flow mt-10 flex flex-wrap items-stretch gap-3 font-mono text-[13px]">
       <div class="flex min-w-[8.5rem] flex-1 flex-col justify-center border border-live bg-live/10 p-4 text-center"><p class="font-semibold text-live">Login</p><p class="mt-1 text-[11px] text-ink-2">credentials → tokens</p></div>
@@ -1614,9 +1654,10 @@
 <section class="slide h-full" data-section="შეცდომები" data-notes="თითოეულ პუნქტზე იკითხე: ვისთვის ჰგავს ეს ნაცნობს? საკუთარი პროექტიდან პირადი მაგალითი, თუ გაქვს, აქ ყველაზე მეტად მუშაობს.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-4">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>ხშირი შეცდომები</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>ხშირი შეცდომები</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">რაზე<br>ვცდებით</h2>
       <p class="mt-6 text-ink-2">ექვსი შეცდომა, რომელიც production-ში ყველაზე ხშირად გვხვდება — ცალ-ცალკე უწყინარია, ერთად კრიტიკულია.</p>
+      <img class="ill mt-8 w-full max-w-[235px]" src="img/storyset/hacker.svg" alt="">
     </div>
 
     <div data-stagger class="col-span-8 grid grid-cols-2 gap-px bg-rule">
@@ -1639,6 +1680,7 @@
 
     <div class="grid grid-cols-12 gap-10">
       <div class="col-span-7">
+        <img class="ill mb-5 w-[11vw] max-w-[190px]" src="img/storyset/key.svg" alt="">
         <h2 class="display text-[3.6vw] leading-[1.15] font-semibold">Authentication ამბობს<br><span class="grad-text">ვინ ხარ.</span><br>Authorization ამბობს<br><span class="grad-text">რისი უფლება გაქვს.</span></h2>
         <p class="mt-8 max-w-xl text-lg text-ink-2">
           Token-ის სასიცოცხლო ციკლი, silent refresh, RBAC UI — ეს ყველაფერი მხოლოდ ამ ორი კითხვის
@@ -1646,60 +1688,99 @@
         </p>
       </div>
       <div data-stagger style="--step:110ms" class="col-span-5 flex flex-col justify-end gap-px bg-rule">
-        <div class="bg-panel p-5"><p class="font-mono text-xs text-live">დასამახსოვრებელი</p><p class="mt-2">Access token მოკლეა განზრახ — რისკის ფანჯარა პატარაა.</p></div>
-        <div class="bg-panel p-5"><p class="font-mono text-xs text-live">დასამახსოვრებელი</p><p class="mt-2">Silent refresh მომხმარებელს არასდროს აჩვენებს login-ს, სანამ refresh token ცოცხალია.</p></div>
-        <div class="bg-panel p-5"><p class="font-mono text-xs text-live">დასამახსოვრებელი</p><p class="mt-2">Role არის permissions-ის კონტეინერი, არა <code class="font-mono text-[13px]">if</code>-ის პირობა.</p></div>
-        <div class="bg-panel p-5"><p class="font-mono text-xs text-live">დასამახსოვრებელი</p><p class="mt-2">Frontend-ის RBAC არის UX. Backend-ის RBAC არის უსაფრთხოება.</p></div>
+        <div class="bg-panel p-5"><p class="font-mono text-xs text-flame-d">დასამახსოვრებელი</p><p class="mt-2">Access token მოკლეა განზრახ — რისკის ფანჯარა პატარაა.</p></div>
+        <div class="bg-panel p-5"><p class="font-mono text-xs text-flame-d">დასამახსოვრებელი</p><p class="mt-2">Silent refresh მომხმარებელს არასდროს აჩვენებს login-ს, სანამ refresh token ცოცხალია.</p></div>
+        <div class="bg-panel p-5"><p class="font-mono text-xs text-flame-d">დასამახსოვრებელი</p><p class="mt-2">Role არის permissions-ის კონტეინერი, არა <code class="font-mono text-[13px]">if</code>-ის პირობა.</p></div>
+        <div class="bg-panel p-5"><p class="font-mono text-xs text-flame-d">დასამახსოვრებელი</p><p class="mt-2">Frontend-ის RBAC არის UX. Backend-ის RBAC არის უსაფრთხოება.</p></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- 21 ───────────────────────────────────────────────────────────── -->
-<section class="slide h-full" data-section="Auth flow" data-notes="კუბი თავად ბრუნავს მარჯვნივ: ოთხი ფორმა — ოთხი endpoint, და ქვემოთ შესაბამისი ხაზი ინთება. დააკლიკე ფორმას ან ღილაკს, რომ ბრუნვა შეჩერდეს. ხაზი გაუსვი: login-ის პასუხში accessToken body-ში მოდის და მხოლოდ მეხსიერებაში ინახება, refresh token-ს სერვერი Set-Cookie-თი httpOnly cookie-ში ჩადებს — JS-ი მას საერთოდ ვერ ხედავს. forgot-password ყოველთვის 202-ს აბრუნებს, რომ არ ჩანდეს, email რეგისტრირებულია თუ არა.">
+<section class="slide h-full" data-section="Auth flow" data-notes="კუბი თავად ბრუნავს მარცხნივ: ხუთი ფორმა, და ყოველ ფორმის endpoint ქვემოთ ინთება. ვალიდაციის საჩვენებლად წაშალე ველი ან შეიყვანე კოდი 000000. დააკლიკე ფორმას ან ღილაკს, რომ ბრუნვა შეჩერდეს. ხაზი გაუსვი: login-ის პასუხში accessToken body-ში მოდის და მხოლოდ მეხსიერებაში ინახება, refresh token-ს სერვერი Set-Cookie-თი httpOnly cookie-ში ჩადებს — JS-ი მას საერთოდ ვერ ხედავს. forgot-password ყოველთვის 202-ს აბრუნებს, რომ არ ჩანდეს, email რეგისტრირებულია თუ არა. ხაზი გაუსვი: client-ის ვალიდაცია UX-ისთვისაა — სერვერი ყველაფერს თავიდან ამოწმებს.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5 flex min-w-0 flex-col">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-live"><span class="h-1.5 w-1.5 rounded-full bg-live"></span>auth flow</p>
-      <h2 class="display mt-4 text-[2.6rem] leading-[1.02] font-semibold">ფორმიდან<br>cookie-მდე</h2>
-      <div class="mt-6 flex flex-1 flex-col items-center justify-center gap-4">
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>auth flow</p>
+      <h2 class="sr-only">Auth flow: ფორმები, ვალიდაცია და token-ები</h2>
+      <div class="mt-4 flex flex-1 flex-col items-center justify-center gap-4">
         <div id="authScene" class="af-scene">
           <div class="af-lift">
             <div id="authCube" class="af-cube">
 
               <form class="af-face" data-face="login" style="--a:0deg" novalidate>
                 <div class="af-head"><span class="af-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><div><p class="af-title">შესვლა</p><p class="af-sub">კეთილი იყოს შენი დაბრუნება</p></div></div>
-                <label class="af-field"><span class="af-label">ელ-ფოსტა</span><input class="af-input" type="email" name="email" value="nino@example.ge" autocomplete="email"></label>
-                <div class="af-field">
-                  <span class="af-label"><label for="afLoginPass">პაროლი</label><button type="button" class="af-link" data-goto="forgot">დაგავიწყდა?</button></span>
-                  <span class="af-pass"><input id="afLoginPass" class="af-input" type="password" name="password" value="correct-horse" autocomplete="current-password"><button type="button" class="af-eye" aria-label="პაროლის ჩვენება" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button></span>
+                <div class="af-field" data-rule="email">
+                  <div class="af-label"><label for="afLiEmail">ელ-ფოსტა</label><span class="af-err" id="afLiEmailErr" aria-live="polite"></span></div>
+                  <input id="afLiEmail" class="af-input" type="email" name="email" value="nino@example.ge" autocomplete="email" aria-describedby="afLiEmailErr">
                 </div>
-                <label class="af-remember"><input type="checkbox" name="remember" checked>დამიმახსოვრე ამ მოწყობილობაზე</label>
+                <div class="af-field" data-rule="password">
+                  <div class="af-label"><label for="afLiPass">პაროლი</label><span class="af-err" id="afLiPassErr" aria-live="polite"></span></div>
+                  <span class="af-pass"><input id="afLiPass" class="af-input" type="password" name="password" value="correct-horse" autocomplete="current-password" aria-describedby="afLiPassErr"><button type="button" class="af-eye" aria-label="პაროლის ჩვენება" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button></span>
+                </div>
+                <div class="af-row"><label class="af-remember"><input type="checkbox" name="remember" checked>დამიმახსოვრე</label><button type="button" class="af-link" data-goto="forgot">დაგავიწყდა პაროლი?</button></div>
                 <button class="af-btn" data-done="✓ შესული ხარ">შესვლა</button>
                 <div class="af-foot"><span class="af-route"><b>POST</b> /auth/login</span><button type="button" class="af-link" data-goto="register">რეგისტრაცია →</button></div>
               </form>
 
-              <form class="af-face" data-face="register" style="--a:-90deg" novalidate>
+              <form class="af-face" data-face="register" data-next="verify" style="--a:72deg" novalidate>
                 <div class="af-head"><span class="af-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M19 8v6M16 11h6"/></svg></span><div><p class="af-title">რეგისტრაცია</p><p class="af-sub">ახალი ანგარიში — ერთ წუთში</p></div></div>
-                <label class="af-field"><span class="af-label">სახელი</span><input class="af-input" type="text" name="name" value="ნინო ბერიძე" autocomplete="name"></label>
-                <label class="af-field"><span class="af-label">ელ-ფოსტა</span><input class="af-input" type="email" name="email" value="nino@example.ge" autocomplete="email"></label>
-                <label class="af-field"><span class="af-label">პაროლი<span class="af-meter" aria-label="პაროლი ძლიერია"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><em>ძლიერი</em></span></span><input class="af-input" type="password" name="password" value="Tb1l1s!-2026" autocomplete="new-password"></label>
+                <div class="af-field" data-rule="name">
+                  <div class="af-label"><label for="afRgName">სახელი</label><span class="af-err" id="afRgNameErr" aria-live="polite"></span></div>
+                  <input id="afRgName" class="af-input" type="text" name="name" value="ნინო ბერიძე" autocomplete="name" aria-describedby="afRgNameErr">
+                </div>
+                <div class="af-field" data-rule="email">
+                  <div class="af-label"><label for="afRgEmail">ელ-ფოსტა</label><span class="af-err" id="afRgEmailErr" aria-live="polite"></span></div>
+                  <input id="afRgEmail" class="af-input" type="email" name="email" value="nino@example.ge" autocomplete="email" aria-describedby="afRgEmailErr">
+                </div>
+                <div class="af-field" data-rule="new-password">
+                  <div class="af-label"><label for="afRgPass">პაროლი</label><span class="af-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><em></em></span><span class="af-err" id="afRgPassErr" aria-live="polite"></span></div>
+                  <input id="afRgPass" class="af-input" type="password" name="password" value="Tb1l1s!-2026" autocomplete="new-password" aria-describedby="afRgPassErr">
+                </div>
                 <button class="af-btn" data-done="✓ ანგარიში შეიქმნა">ანგარიშის შექმნა</button>
                 <div class="af-foot"><span class="af-route"><b>POST</b> /auth/register</span><button type="button" class="af-link" data-goto="login">შესვლა →</button></div>
               </form>
 
-              <form class="af-face" data-face="forgot" style="--a:-180deg" novalidate>
+              <form class="af-face" data-face="forgot" data-next="reset" style="--a:144deg" novalidate>
                 <div class="af-head"><span class="af-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><p class="af-title">პაროლის აღდგენა</p><p class="af-sub">აღდგენის ბმულს გამოგიგზავნით ელ-ფოსტაზე</p></div></div>
-                <label class="af-field"><span class="af-label">ელ-ფოსტა</span><input class="af-input" type="email" name="email" value="nino@example.ge" autocomplete="email"></label>
+                <div class="af-field" data-rule="email">
+                  <div class="af-label"><label for="afFpEmail">ელ-ფოსტა</label><span class="af-err" id="afFpEmailErr" aria-live="polite"></span></div>
+                  <input id="afFpEmail" class="af-input" type="email" name="email" value="nino@example.ge" autocomplete="email" aria-describedby="afFpEmailErr">
+                </div>
                 <p class="af-note">პასუხი ყოველთვის ერთნაირია — ასე არავინ გაიგებს, ეს ელ-ფოსტა რეგისტრირებულია თუ არა.</p>
                 <button class="af-btn" data-done="✓ ბმული გაიგზავნა">ბმულის გაგზავნა</button>
                 <div class="af-foot"><span class="af-route"><b>POST</b> /auth/forgot-password</span><button type="button" class="af-link" data-goto="login">შესვლა →</button></div>
               </form>
 
-              <form class="af-face" data-face="reset" style="--a:-270deg" novalidate>
+              <form class="af-face" data-face="verify" data-next="login" style="--a:216deg" novalidate>
+                <div class="af-head"><span class="af-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><div><p class="af-title">კოდის შეყვანა</p><p class="af-sub">6-ნიშნა კოდი გაიგზავნა: n•••@example.ge</p></div></div>
+                <div class="af-field" data-rule="code">
+                  <div class="af-label"><label for="afVc1">კოდი ელ-ფოსტიდან</label><span class="af-err" id="afVcErr" aria-live="polite"></span></div>
+                  <div class="af-otp" role="group" aria-label="6-ნიშნა კოდი">
+                    <input id="afVc1" class="af-input" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="·" aria-label="ციფრი 1" aria-describedby="afVcErr">
+                    <input class="af-input" type="text" inputmode="numeric" autocomplete="off" placeholder="·" aria-label="ციფრი 2" aria-describedby="afVcErr">
+                    <input class="af-input" type="text" inputmode="numeric" autocomplete="off" placeholder="·" aria-label="ციფრი 3" aria-describedby="afVcErr">
+                    <input class="af-input" type="text" inputmode="numeric" autocomplete="off" placeholder="·" aria-label="ციფრი 4" aria-describedby="afVcErr">
+                    <input class="af-input" type="text" inputmode="numeric" autocomplete="off" placeholder="·" aria-label="ციფრი 5" aria-describedby="afVcErr">
+                    <input class="af-input" type="text" inputmode="numeric" autocomplete="off" placeholder="·" aria-label="ციფრი 6" aria-describedby="afVcErr">
+                  </div>
+                </div>
+                <div class="af-row"><span class="af-sub">ვალიდურია 10 წუთი</span><button type="button" class="af-link" data-resend>ხელახლა გაგზავნა</button></div>
+                <button class="af-btn" data-done="✓ ელ-ფოსტა დადასტურდა">დადასტურება</button>
+                <div class="af-foot"><span class="af-route"><b>POST</b> /auth/verify-email</span><button type="button" class="af-link" data-goto="login">შესვლა →</button></div>
+              </form>
+
+              <form class="af-face" data-face="reset" data-next="login" style="--a:288deg" novalidate>
                 <div class="af-head"><span class="af-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 9.3-9.3M17 6l3 3M14.5 8.5l2 2"/></svg></span><div><p class="af-title">ახალი პაროლი</p><p class="af-sub">ერთჯერადი ბმული · 15 წუთი</p></div></div>
-                <label class="af-field"><span class="af-label">ახალი პაროლი</span><input class="af-input" type="password" name="password" value="n3w-Passw0rd!" autocomplete="new-password"></label>
-                <label class="af-field"><span class="af-label">გაიმეორე პაროლი</span><input class="af-input" type="password" name="confirm" value="n3w-Passw0rd!" autocomplete="new-password"></label>
-                <p class="af-note"><span class="font-mono text-[11px] text-ink">?token=7f3a9c…</span> ბმულიდან მოდის, სერვერი ერთხელ ამოწმებს</p>
+                <div class="af-field" data-rule="new-password">
+                  <div class="af-label"><label for="afRpPass">ახალი პაროლი</label><span class="af-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><em></em></span><span class="af-err" id="afRpPassErr" aria-live="polite"></span></div>
+                  <input id="afRpPass" class="af-input" type="password" name="password" value="n3w-Passw0rd!" autocomplete="new-password" aria-describedby="afRpPassErr">
+                </div>
+                <div class="af-field" data-rule="confirm" data-match="afRpPass">
+                  <div class="af-label"><label for="afRpConfirm">გაიმეორე პაროლი</label><span class="af-err" id="afRpConfirmErr" aria-live="polite"></span></div>
+                  <input id="afRpConfirm" class="af-input" type="password" name="confirm" value="n3w-Passw0rd!" autocomplete="new-password" aria-describedby="afRpConfirmErr">
+                </div>
+                <p class="af-note"><span class="font-mono text-[12.5px] text-ink">?token=7f3a9c…</span> ბმულიდან მოდის, სერვერი ერთხელ ამოწმებს</p>
                 <button class="af-btn" data-done="✓ პაროლი შეიცვალა">პაროლის შეცვლა</button>
                 <div class="af-foot"><span class="af-route"><b>POST</b> /auth/reset-password</span><button type="button" class="af-link" data-goto="login">შესვლა →</button></div>
               </form>
@@ -1712,6 +1793,7 @@
           <button type="button" class="af-tab" role="tab" data-cube-tab="login" aria-selected="true">შესვლა</button>
           <button type="button" class="af-tab" role="tab" data-cube-tab="register" aria-selected="false">რეგისტრაცია</button>
           <button type="button" class="af-tab" role="tab" data-cube-tab="forgot" aria-selected="false">აღდგენა</button>
+          <button type="button" class="af-tab" role="tab" data-cube-tab="verify" aria-selected="false">კოდი</button>
           <button type="button" class="af-tab" role="tab" data-cube-tab="reset" aria-selected="false">ახალი პაროლი</button>
         </div>
       </div>
@@ -1767,7 +1849,7 @@
         <div class="af-api-head"><p class="af-cap">REST API · 8 endpoint</p><p class="af-cap" style="letter-spacing:0;text-transform:none">ინთება კუბზე ნაჩვენები ფორმის endpoint</p></div>
         <div class="grid grid-cols-2 gap-px bg-rule">
           <div class="af-ep" data-ep="register"><span class="af-m post">POST</span><span class="af-path">/auth/register</span><span class="af-auth pub">public</span><p>ანგარიშის შექმნა → 201 + ბმული მეილზე</p></div>
-          <div class="af-ep" data-ep="verify"><span class="af-m post">POST</span><span class="af-path">/auth/verify-email</span><span class="af-auth pub">public</span><p>ბმულის token → ანგარიში აქტიური</p></div>
+          <div class="af-ep" data-ep="verify"><span class="af-m post">POST</span><span class="af-path">/auth/verify-email</span><span class="af-auth pub">public</span><p>6-ნიშნა კოდი → ანგარიში აქტიური</p></div>
           <div class="af-ep" data-ep="login"><span class="af-m post">POST</span><span class="af-path">/auth/login</span><span class="af-auth pub">public</span><p>email + password → token-ები</p></div>
           <div class="af-ep" data-ep="me"><span class="af-m get">GET</span><span class="af-path">/auth/me</span><span class="af-auth br">bearer</span><p>ვინ ვარ? → user, reload-ის შემდეგ</p></div>
           <div class="af-ep" data-ep="refresh"><span class="af-m post">POST</span><span class="af-path">/auth/refresh</span><span class="af-auth ck">cookie</span><p>cookie → ახალი accessToken + rotation</p></div>
@@ -1794,7 +1876,7 @@
 
     <div class="relative flex items-start justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-paper/50">
       <span>ლექციის დასასრული</span>
-      <span class="end-credit normal-case tracking-normal text-paper/60">Photo · <a href="https://unsplash.com/@fachinformatiker?utm_source=auth-js&amp;utm_medium=referral" target="_blank" rel="noopener">Patrick Szalewicz</a> / <a href="https://unsplash.com/photos/Hk-C576NPfk?utm_source=auth-js&amp;utm_medium=referral" target="_blank" rel="noopener">Unsplash</a></span>
+      <span class="end-credit normal-case tracking-normal text-paper/60">Photo · <a href="https://unsplash.com/@fachinformatiker?utm_source=auth-js&amp;utm_medium=referral" target="_blank" rel="noopener">Patrick Szalewicz</a> / <a href="https://unsplash.com/photos/Hk-C576NPfk?utm_source=auth-js&amp;utm_medium=referral" target="_blank" rel="noopener">Unsplash</a> · Illustrations · <a href="https://storyset.com/" target="_blank" rel="noopener">Storyset</a></span>
     </div>
 
     <div class="relative">
@@ -2127,34 +2209,132 @@
     render();
   }
 
-  // ── auth flow: კუბი ბრუნავს მარჯვნივ, ყოველ ფორმას თავისი endpoint ინთება ──
+  // ── auth flow: 5-წახნაგა „კუბი" ბრუნავს მარცხნივ, ყოველ ფორმას თავისი endpoint ინთება ──
   const authCube = document.getElementById('authCube');
   if (authCube) {
     const scene = document.getElementById('authScene');
     const faces = [...authCube.querySelectorAll('[data-face]')];
     const names = faces.map(f => f.dataset.face);
+    const step = 360 / faces.length;
     const tabs = [...document.querySelectorAll('[data-cube-tab]')];
     const endpoints = [...document.querySelectorAll('[data-ep]')];
     let cur = 0, turn = 0, auto = null;
 
     function go(k, animate = true) {
-      if (animate && k === cur) return;
-      turn += ((k - cur + 4) % 4) * 90;   // ყოველთვის მარჯვნივ, არასდროს უკან
+      if (k < 0 || (animate && k === cur)) return;
+      turn -= ((k - cur + faces.length) % faces.length) * step;   // ყოველთვის მარცხნივ, არასდროს უკან
       cur = k;
       authCube.style.setProperty('--turn', turn + 'deg');
-      faces.forEach((f, j) => { f.inert = j !== k; });   // Tab-ი მხოლოდ წინა ფორმაზე
+      faces.forEach((f, j) => { f.inert = j !== k; });            // Tab-ი მხოლოდ წინა ფორმაზე
       tabs.forEach(t => t.setAttribute('aria-selected', String(t.dataset.cubeTab === names[k])));
       endpoints.forEach(e => e.classList.toggle('is-now', e.dataset.ep === names[k]));
       if (animate) { scene.classList.remove('is-turning'); void scene.offsetWidth; scene.classList.add('is-turning'); }
     }
+    const goTo = name => go(names.indexOf(name));
     const stopAuto = () => { clearInterval(auto); auto = null; };
 
-    tabs.forEach(t => t.addEventListener('click', () => { stopAuto(); go(names.indexOf(t.dataset.cubeTab)); }));
+    // ── ვალიდაცია: blur-ზე (თუ შეცვლილია) და submit-ზე; შეცდომის შემდეგ — ყოველ input-ზე ──
+    const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const hasLetterAndDigit = v => /\p{L}/u.test(v) && /\d/.test(v);
+    const strength = v => (v.length >= 8) + (v.length >= 12) + hasLetterAndDigit(v) + /[^\p{L}\d]/u.test(v);
+    const LEVELS = ['', 'სუსტი', 'საშუალო', 'ძლიერი', 'ძალიან ძლიერი'];
+    const rules = {
+      email:          v => !v ? 'შეიყვანე ელ-ფოსტა' : !EMAIL.test(v) ? 'არასწორი ფორმატი' : '',
+      password:       v => !v ? 'შეიყვანე პაროლი' : '',
+      name:           v => !v ? 'შეიყვანე სახელი' : v.length < 2 ? 'მინიმუმ 2 სიმბოლო' : '',
+      'new-password': v => !v ? 'შეიყვანე პაროლი' : v.length < 8 ? 'მინიმუმ 8 სიმბოლო' : !hasLetterAndDigit(v) ? 'საჭიროა ასო და ციფრი' : '',
+      confirm:        (v, field) => !v ? 'შეიყვანე ისევ' : v !== document.getElementById(field.dataset.match).value ? 'არ ემთხვევა' : '',
+      code:           v => v.length < 6 ? 'შეიყვანე 6 ციფრი' : '',
+    };
+    const inputsOf = field => [...field.querySelectorAll('input')];
+    function valueOf(field) {
+      const rule = field.dataset.rule;
+      if (rule === 'code') return inputsOf(field).map(i => i.value).join('');
+      const raw = field.querySelector('input').value;
+      return rule === 'email' || rule === 'name' ? raw.trim() : raw;   // პაროლს არ ვჭრით
+    }
+    function showError(field, msg) {
+      field.querySelector('.af-err').textContent = msg;
+      field.classList.toggle('is-invalid', !!msg);
+      inputsOf(field).forEach(i => i.setAttribute('aria-invalid', String(!!msg)));
+    }
+    function check(field) {
+      const msg = rules[field.dataset.rule](valueOf(field), field);
+      showError(field, msg);
+      return !msg;
+    }
+    function meter(field) {
+      const m = field.querySelector('.af-meter');
+      if (!m) return;
+      const v = field.querySelector('input').value;
+      const level = v ? Math.max(1, strength(v)) : 0;
+      m.dataset.level = level;
+      m.querySelector('em').textContent = LEVELS[level];
+    }
+
+    authCube.querySelectorAll('[data-rule]').forEach(field => {
+      meter(field);
+      field.addEventListener('focusout', e => {
+        if (field.contains(e.relatedTarget)) return;   // OTP-ის ციფრებს შორის გადასვლა blur არ არის
+        if (field.dataset.touched) check(field);
+      });
+      field.addEventListener('input', () => {
+        field.dataset.touched = '1';
+        meter(field);
+        if (field.classList.contains('is-invalid') || field.closest('form').dataset.tried) check(field);
+        const twin = authCube.querySelector(`[data-match="${field.querySelector('input').id}"]`);
+        if (twin && twin.dataset.touched) check(twin);   // პაროლი შეიცვალა → „გაიმეორე" თავიდან მოწმდება
+      });
+    });
+
+    // ── 6-ნიშნა კოდი: ციფრი → შემდეგ უჯრა, Backspace → უკან, paste/autofill → ყველა უჯრა ──
+    authCube.querySelectorAll('.af-otp').forEach(otp => {
+      const cells = [...otp.querySelectorAll('input')];
+      const fill = (from, digits) => {
+        digits.slice(0, cells.length - from).split('').forEach((d, j) => { cells[from + j].value = d; });
+        cells[Math.min(from + digits.length, cells.length - 1)].focus();
+      };
+      cells.forEach((cell, k) => {
+        cell.addEventListener('focus', () => cell.select());
+        cell.addEventListener('input', () => {
+          const digits = cell.value.replace(/\D/g, '');
+          cell.value = '';
+          if (digits) fill(k, digits);
+        });
+        cell.addEventListener('keydown', e => {
+          if (e.key === 'Backspace' && !cell.value && k > 0) { e.preventDefault(); cells[k - 1].value = ''; cells[k - 1].focus(); otp.dispatchEvent(new Event('input', { bubbles: true })); }
+          else if (e.key === 'ArrowLeft' && k > 0) { e.preventDefault(); cells[k - 1].focus(); }
+          else if (e.key === 'ArrowRight' && k < cells.length - 1) { e.preventDefault(); cells[k + 1].focus(); }
+        });
+        cell.addEventListener('paste', e => {
+          e.preventDefault();
+          fill(k, (e.clipboardData.getData('text') || '').replace(/\D/g, ''));
+          otp.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+      });
+    });
+
+    // ── „ხელახლა გაგზავნა": 30 წამის cooldown ──
+    authCube.querySelectorAll('[data-resend]').forEach(btn => {
+      const label = btn.textContent;
+      btn.addEventListener('click', () => {
+        let left = 30;
+        btn.disabled = true;
+        const tick = () => {
+          btn.textContent = `ხელახლა 0:${String(left).padStart(2, '0')}`;
+          if (left-- <= 0) { clearInterval(timer); btn.disabled = false; btn.textContent = label; }
+        };
+        const timer = setInterval(tick, 1000);
+        tick();
+      });
+    });
+
+    tabs.forEach(t => t.addEventListener('click', () => { stopAuto(); goTo(t.dataset.cubeTab); }));
     authCube.addEventListener('pointerdown', stopAuto);
     authCube.addEventListener('focusin', stopAuto);
     authCube.addEventListener('click', e => {
       const link = e.target.closest('[data-goto]');
-      if (link) { go(names.indexOf(link.dataset.goto)); return; }
+      if (link) { goTo(link.dataset.goto); return; }
       const eye = e.target.closest('.af-eye');
       if (eye) {
         const input = eye.previousElementSibling;
@@ -2163,22 +2343,46 @@
         eye.setAttribute('aria-pressed', String(show));
       }
     });
-    // submit: spinner → ✓ → საწყისი ტექსტი (request-ი არ იგზავნება, მხოლოდ UI)
+
+    // submit: ვალიდაცია → spinner → ✓ → შემდეგი ფორმა (request-ი არ იგზავნება, მხოლოდ UI)
     authCube.addEventListener('submit', e => {
       e.preventDefault();
-      const btn = e.target.querySelector('.af-btn');
+      const form = e.target;
+      const btn = form.querySelector('.af-btn');
       if (btn.classList.contains('is-busy') || btn.classList.contains('is-done')) return;
+      form.dataset.tried = '1';
+      const invalid = [...form.querySelectorAll('[data-rule]')].filter(f => !check(f));
+      if (invalid.length) {
+        invalid.forEach(f => f.querySelectorAll('.af-input').forEach(i => { i.classList.remove('af-shake'); void i.offsetWidth; i.classList.add('af-shake'); }));
+        invalid[0].querySelector('input').focus({ preventScroll: true });
+        return;
+      }
       const label = btn.textContent;
       btn.textContent = '';
       btn.classList.add('is-busy');
-      setTimeout(() => { btn.classList.replace('is-busy', 'is-done'); btn.textContent = btn.dataset.done; }, 800);
-      setTimeout(() => { btn.classList.remove('is-done'); btn.textContent = label; }, 2400);
+      setTimeout(() => {
+        btn.classList.remove('is-busy');
+        const codeField = form.querySelector('[data-rule="code"]');
+        if (codeField && valueOf(codeField) === '000000') {   // სერვერის შეცდომის მაგალითი
+          btn.textContent = label;
+          showError(codeField, 'კოდი არასწორია');
+          return;
+        }
+        btn.classList.add('is-done');
+        btn.textContent = btn.dataset.done;
+        setTimeout(() => {
+          btn.classList.remove('is-done');
+          btn.textContent = label;
+          delete form.dataset.tried;
+          if (form.dataset.next) goTo(form.dataset.next);
+        }, 1400);
+      }, 800);
     });
 
     go(0, false);
     players.push({
       root: authCube,
-      play() { stopAuto(); auto = setInterval(() => go((cur + 1) % 4), 3800); },
+      play() { stopAuto(); auto = setInterval(() => go((cur + 1) % faces.length), 3800); },
       stop: stopAuto,
     });
   }

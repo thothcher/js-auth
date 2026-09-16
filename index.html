@@ -205,7 +205,7 @@
   @keyframes bub2 { 0%, 75% { opacity: 0; transform: translateY(6px); } 79%, 95% { opacity: 1; transform: none; } 99%, 100% { opacity: 0; } }
   @keyframes srv  { 0%, 25%, 34%, 73%, 82%, 100% { stroke: #0b2997; } 28% { stroke: #10b981; } 76% { stroke: #f43f5e; } }
 
-  /* 09 · Authn: ID ბარათის სკანირება ✓ · Authz: ბარათი ერთ კარს აღებს, მეორეს — ვერა */
+  /* 05 · Authn: ID ბარათის სკანირება ✓ · Authz: ბარათი ერთ კარს აღებს, მეორეს — ვერა */
   .id-scan .scan { animation: scan 3s ease-in-out infinite; }
   @keyframes scan { 0% { transform: translateY(0); opacity: 0; } 8% { opacity: 1; } 42% { transform: translateY(45px); } 60% { transform: translateY(0); opacity: 1; } 66%, 100% { transform: translateY(0); opacity: 0; } }
   .id-scan .ok { transform-box: fill-box; transform-origin: center; animation: pop-ok 3s ease infinite; }
@@ -227,10 +227,10 @@
   .tl .tl-end { animation: tl-end 9s ease infinite; }
   @keyframes tl-end { 0%, 87% { opacity: 0; } 90%, 100% { opacity: 1; } }
 
-  /* 12 · sequence diagram: ისრის წერტილი მოძრაობს მხოლოდ მიმდინარე ნაბიჯზე */
+  /* 13 · sequence diagram: ისრის წერტილი მოძრაობს მხოლოდ მიმდინარე ნაბიჯზე */
   .dia .travel { opacity: 0; }
 
-  /* 13 · XSS „ხოჭო" ოთხ საცავს სტუმრობს (8s ციკლი) */
+  /* 12 · XSS „ხოჭო" ოთხ საცავს სტუმრობს (8s ციკლი) */
   .xss .bug { animation: bug 8s ease-in-out infinite; }
   @keyframes bug {
     0%       { transform: translate(170px, 105px); }
@@ -265,7 +265,7 @@
   .icp .icp-ok { animation: icp-ok 5s ease infinite; }
   @keyframes icp-ok { 0%, 80% { opacity: 0; } 84%, 96% { opacity: 1; } 100% { opacity: 0; } }
 
-  /* 16 · silent refresh: ოთხი 401 — lock-ის გარეშე vs lock-ით (7s ციკლი, რეჟიმს JS ცვლის) */
+  /* 15 · silent refresh: ოთხი 401 — lock-ის გარეშე vs lock-ით (7s ციკლი, რეჟიმს JS ცვლის) */
   .sr-fig[data-mode="bad"] .good-only, .sr-fig[data-mode="good"] .bad-only { display: none; }
   .sr-btn { border-color: #e3e1f3; background: #fff; color: #545378; }
   .sr-btn:hover { border-color: #17153b; }
@@ -342,7 +342,7 @@
   .curl .resp { animation: curl-resp 7s ease infinite; }
   @keyframes curl-resp { 0%, 64% { opacity: 0; transform: translateY(4px); } 68%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
 
-  /* 22 · დიდი სურათი: request „მოგზაურობს" ჯაჭვში, ყოველი რგოლი რიგრიგობით ინთება */
+  /* 23 · დიდი სურათი: request „მოგზაურობს" ჯაჭვში, ყოველი რგოლი რიგრიგობით ინთება */
   .flow > :nth-child(1) { --k: 0; } .flow > :nth-child(2) { --k: .5; } .flow > :nth-child(3) { --k: 1; } .flow > :nth-child(4) { --k: 1.5; }
   .flow > :nth-child(5) { --k: 2; } .flow > :nth-child(6) { --k: 2.5; } .flow > :nth-child(7) { --k: 3; } .flow > :nth-child(8) { --k: 3.5; }
   .flow > :nth-child(9) { --k: 4; } .flow > :nth-child(10) { --k: 4.5; } .flow > :nth-child(11) { --k: 5; } .flow > :nth-child(12) { --k: 5.5; }
@@ -352,7 +352,7 @@
   @keyframes flow-on { 0%, 14%, 100% { transform: none; box-shadow: none; } 4%, 10% { transform: translateY(-6px) scale(1.04); box-shadow: 0 0 0 3px #0b299740, 0 16px 30px -12px #0b2997; } }
   @keyframes flow-arrow { 0%, 12%, 100% { color: #545378; transform: none; } 5% { color: #0b2997; transform: translateX(5px) scale(1.4); } }
 
-  /* 25 · auth flow: 3D „კუბი" ხუთი ფორმით (ბრუნავს მარცხნივ) · login-ის request → response → token-ების შენახვა · REST endpoint-ები */
+  /* 22 · auth flow: 3D „კუბი" ხუთი ფორმით (ბრუნავს მარცხნივ) · login-ის request → response → token-ების შენახვა · REST endpoint-ები */
   .af-scene { --cw: 360px; --ch: 460px; --apo: calc(var(--cw) * .6882); width: var(--cw); height: var(--ch); }   /* 5 წახნაგი: apothem = w / (2·tan 36°) */
   /* perspective lift-ზე (არა scene-ზე): ერთი 3D-შრე ნაკლები — Chrome-ი ბრუნვის შემდეგ click-ს სწორ ფორმას აწვდის */
   .af-lift { width: 100%; height: 100%; perspective: 750px; }
@@ -505,7 +505,7 @@
   .end-credit a { text-decoration: underline; text-decoration-color: #f7f6fd4d; text-underline-offset: 3px; }
   .end-credit a:hover { color: #f7f6fd; }
 
-  /* 15 · session demo: გაფრთხილების ფაზა */
+  /* 16 · session demo: გაფრთხილების ფაზა */
   #sessionDemo.warn #sessionBar { animation: blink 1s ease-in-out infinite; }
   @keyframes blink { 50% { opacity: .45; } }
   #sessionOverlay.flex { animation: fade-in .35s ease both; }
@@ -522,7 +522,7 @@
   .rbac-role-btn { border-radius: 999px; }
   #rbacOutput p { transition: color .3s ease; }
 
-  /* 10 · JWT: აქტიური ნაწილი „სუნთქავს" */
+  /* 09 · JWT: აქტიური ნაწილი „სუნთქავს" */
   .jwt-part.is-on { animation: jwt-glow 1.6s ease-in-out infinite; }
   @keyframes jwt-glow { 50% { filter: brightness(1.08) saturate(1.3); } }
   [data-jwt-decoded] { transition: border-color .3s ease, transform .3s ease; }
@@ -533,7 +533,7 @@
   .ill-hero { position: absolute; right: 4%; bottom: 8%; width: min(23vw, 420px); }
   @keyframes ill-float { 50% { transform: translateY(-8px); } }
 
-  /* 04 · auth სხემები: stateful (session → ბაზაში lookup) vs stateless (token → ხელმოწერის შემოწმება), 4s ციკლი */
+  /* 06 · auth სხემები: stateful (session → ბაზაში lookup) vs stateless (token → ხელმოწერის შემოწმება), 4s ციკლი */
   .fam .dot { animation: fam-dot 4s cubic-bezier(.5,0,.3,1) infinite; }
   @keyframes fam-dot { 0% { transform: translateX(0); opacity: 0; } 6% { opacity: 1; } 40% { transform: translateX(126px); opacity: 1; } 46%, 100% { transform: translateX(126px); opacity: 0; } }
   .fam .db { animation: fam-db 4s ease infinite; }
@@ -557,7 +557,7 @@
   .as-foot { font-size: 12.5px; line-height: 1.5; color: #545378; }
   .as-foot b { font-weight: 600; color: #17153b; }
 
-  /* 05 · encoding / encryption / hashing / signing + HTTP ↔ HTTPS: შუაში მყოფი request-ს ინტერცეპტავს (7.5s ციკლი, რეჟიმს JS ცვლის) */
+  /* 07 · encoding / encryption / hashing / signing + HTTP ↔ HTTPS: შუაში მყოფი request-ს ინტერცეპტავს (7.5s ციკლი, რეჟიმს JS ცვლის) */
   .ec-row { display: grid; grid-template-columns: minmax(0, 1fr) 4.8rem 5.8rem; align-items: center; gap: 10px; padding: 9px 14px; background: #fff; }
   .ec-head { padding-block: 7px; background: #f7f6fd; font: 500 10.5px/1.2 "IBM Plex Mono", "Noto Sans Georgian", monospace; letter-spacing: .1em; text-transform: uppercase; color: #545378; }
   .ec-name { font: 600 14px/1.25 "Noto Sans Georgian", sans-serif; color: #17153b; }
@@ -624,7 +624,48 @@
   .mitm.run .mt-line, .mitm.run .mt-ok, .mitm.run .mt-verdict { animation: mt-line .35s ease both; animation-delay: var(--d, 0s); }
   @keyframes mt-line { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
-  /* 06 · opaque token vs JWT: 5 ნაბიჯი ღილაკით — 1 სერვერი ✓ → 3 სერვერი ✕ → JWT → მისი ნაწილები → 3 სერვერი ✓ */
+  /* 08 · HTTP vs HTTPS: ცხრილი + სკანერი — packet-ები lens-ის ქვეშ, chip-ი ინთება როცა მისი packet გადის (6s ციკლი) */
+  .hh-row { display: grid; grid-template-columns: 12rem minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 16px; padding: 8px 18px; background: #fff; font-size: 13.5px; line-height: 1.4; }
+  .hh-head { padding-block: 9px; background: #f7f6fd; font: 600 12px/1.2 "IBM Plex Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
+  .hh-head span { display: inline-flex; align-items: center; gap: 7px; }
+  .hh-head svg { width: 15px; height: 15px; }
+  .hh-label { font-weight: 600; color: #17153b; }
+  .hh-bad { color: #be123c; }
+  .hh-ok { color: #047857; }
+  .hh-row code { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; }
+  .scan { --hit-bg: #e11d48; --hit-fg: #fff; --chip-bg: #fff1f2; --chip-fg: #be123c; padding: 14px 18px; border: 1px solid #e3e1f3; border-radius: 16px; background: #fff; box-shadow: 0 1px 2px #17153b0d, 0 14px 34px -16px #0b299740; }
+  .scan[data-mode="https"] { --hit-bg: #059669; --chip-bg: #f0eff9; --chip-fg: #545378; }
+  .scan[data-mode="http"] .https-only, .scan[data-mode="https"] .http-only { display: none; }
+  .scan-grid { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 7.5rem auto; align-items: center; gap: 14px; }
+  .scan-node { display: flex; align-items: center; gap: 8px; font: 600 13px "Noto Sans Georgian", sans-serif; color: #17153b; white-space: nowrap; }
+  .scan-node svg { width: 18px; height: 18px; flex: none; color: #0b2997; }
+  .scan-lane { position: relative; height: 46px; overflow: hidden; border-radius: 10px; background: #f7f6fd; }
+  .scan-lane::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: repeating-linear-gradient(90deg, #c9c6e6 0 6px, transparent 6px 11px); }
+  .scan-pk { position: absolute; top: 50%; left: -12%; padding: 3px 9px; border: 1px solid; border-radius: 999px; transform: translateY(-50%); font: 600 11px "IBM Plex Mono", monospace; white-space: nowrap; animation: scan-flow 6s linear infinite; animation-delay: calc(var(--k) * -1.5s); }
+  .scan[data-mode="http"] .scan-pk { color: #be123c; background: #fff1f2; border-color: #fda4af; }
+  .scan[data-mode="https"] .scan-pk { color: #047857; background: #ecfdf5; border-color: #6ee7b7; letter-spacing: .08em; }
+  @keyframes scan-flow { from { left: -12%; } to { left: 100%; } }
+  .scan-lens { position: absolute; top: 50%; left: 50%; z-index: 2; width: 40px; height: 40px; border: 2.5px solid #17153b; border-radius: 50%; background: #ffffff66; transform: translate(-50%, -50%); box-shadow: 0 0 0 3px #ffffffaa; }
+  .scan-lens::after { content: ''; position: absolute; top: 4px; bottom: 4px; left: 50%; width: 2px; margin-left: -1px; background: var(--hit-bg); opacity: .7; animation: scan-beam 1.5s ease-in-out infinite; }
+  @keyframes scan-beam { 50% { opacity: .15; } }
+  .scan-btn { padding: 9px 16px; border: 1px solid #17153b; border-radius: 999px; background: #17153b; color: #f7f6fd; font: 500 13px "Noto Sans Georgian", sans-serif; white-space: nowrap; cursor: pointer; transition: background-color .2s ease, border-color .2s ease; }
+  .scan-btn:hover { background: #0b2997; border-color: #0b2997; }
+  .scan[data-mode="https"] .scan-btn { background: #059669; border-color: #059669; }
+  .scan-btn:focus-visible { outline: 2px solid #0b2997; outline-offset: 2px; }
+  .scan-read { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: 10px 0 0 calc(7.5rem + 14px); }
+  .scan-read-label { font: 500 10.5px "IBM Plex Mono", "Noto Sans Georgian", monospace; letter-spacing: .12em; text-transform: uppercase; color: #545378; }
+  .scan-chip { padding: 2px 9px; border-radius: 999px; font: 500 12px "IBM Plex Mono", monospace; white-space: nowrap; animation: scan-hit 6s linear infinite; animation-delay: calc(var(--k) * -1.5s); }
+  .scan-chip { background: var(--chip-bg); color: var(--chip-fg); }
+  /* packet-ის ცენტრი lens-ის ქვეშ ≈ ციკლის 44–54% — ფერი ყოველ keyframe-ზე, რომ interpolation-ი არ „გაიწელოს" */
+  @keyframes scan-hit { 0%, 40%, 58%, 100% { background: var(--chip-bg); color: var(--chip-fg); } 44%, 54% { background: var(--hit-bg); color: var(--hit-fg); } }
+
+  /* diagrams-end */
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  }
+
+  /* 10 · opaque token vs JWT: 5 ნაბიჯი ღილაკით — 1 სერვერი ✓ → 3 სერვერი ✕ → JWT → მისი ნაწილები → 3 სერვერი ✓ */
   .bj-btn { padding: 9px 16px; border: 1px solid #17153b; border-radius: 999px; background: #17153b; color: #f7f6fd; font: 500 13px "Noto Sans Georgian", sans-serif; cursor: pointer; transition: background-color .2s ease, border-color .2s ease, opacity .2s ease; }
   .bj-btn:hover { background: #0b2997; border-color: #0b2997; }
   .bj-btn.ghost { background: #fff; border-color: #e3e1f3; color: #545378; }
@@ -679,47 +720,6 @@
   .bj[data-step="4"] .jw-parts, .bj[data-step="5"] .jw-parts { display: grid; }
   .bj[data-step="1"] .bj-right, .bj[data-step="2"] .bj-right { opacity: .4; filter: grayscale(.8); }
   .bj[data-step="3"] .bj-left, .bj[data-step="4"] .bj-left, .bj[data-step="5"] .bj-left { opacity: .55; }
-
-  /* 07 · HTTP vs HTTPS: ცხრილი + სკანერი — packet-ები lens-ის ქვეშ, chip-ი ინთება როცა მისი packet გადის (6s ციკლი) */
-  .hh-row { display: grid; grid-template-columns: 12rem minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 16px; padding: 8px 18px; background: #fff; font-size: 13.5px; line-height: 1.4; }
-  .hh-head { padding-block: 9px; background: #f7f6fd; font: 600 12px/1.2 "IBM Plex Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
-  .hh-head span { display: inline-flex; align-items: center; gap: 7px; }
-  .hh-head svg { width: 15px; height: 15px; }
-  .hh-label { font-weight: 600; color: #17153b; }
-  .hh-bad { color: #be123c; }
-  .hh-ok { color: #047857; }
-  .hh-row code { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; }
-  .scan { --hit-bg: #e11d48; --hit-fg: #fff; --chip-bg: #fff1f2; --chip-fg: #be123c; padding: 14px 18px; border: 1px solid #e3e1f3; border-radius: 16px; background: #fff; box-shadow: 0 1px 2px #17153b0d, 0 14px 34px -16px #0b299740; }
-  .scan[data-mode="https"] { --hit-bg: #059669; --chip-bg: #f0eff9; --chip-fg: #545378; }
-  .scan[data-mode="http"] .https-only, .scan[data-mode="https"] .http-only { display: none; }
-  .scan-grid { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 7.5rem auto; align-items: center; gap: 14px; }
-  .scan-node { display: flex; align-items: center; gap: 8px; font: 600 13px "Noto Sans Georgian", sans-serif; color: #17153b; white-space: nowrap; }
-  .scan-node svg { width: 18px; height: 18px; flex: none; color: #0b2997; }
-  .scan-lane { position: relative; height: 46px; overflow: hidden; border-radius: 10px; background: #f7f6fd; }
-  .scan-lane::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: repeating-linear-gradient(90deg, #c9c6e6 0 6px, transparent 6px 11px); }
-  .scan-pk { position: absolute; top: 50%; left: -12%; padding: 3px 9px; border: 1px solid; border-radius: 999px; transform: translateY(-50%); font: 600 11px "IBM Plex Mono", monospace; white-space: nowrap; animation: scan-flow 6s linear infinite; animation-delay: calc(var(--k) * -1.5s); }
-  .scan[data-mode="http"] .scan-pk { color: #be123c; background: #fff1f2; border-color: #fda4af; }
-  .scan[data-mode="https"] .scan-pk { color: #047857; background: #ecfdf5; border-color: #6ee7b7; letter-spacing: .08em; }
-  @keyframes scan-flow { from { left: -12%; } to { left: 100%; } }
-  .scan-lens { position: absolute; top: 50%; left: 50%; z-index: 2; width: 40px; height: 40px; border: 2.5px solid #17153b; border-radius: 50%; background: #ffffff66; transform: translate(-50%, -50%); box-shadow: 0 0 0 3px #ffffffaa; }
-  .scan-lens::after { content: ''; position: absolute; top: 4px; bottom: 4px; left: 50%; width: 2px; margin-left: -1px; background: var(--hit-bg); opacity: .7; animation: scan-beam 1.5s ease-in-out infinite; }
-  @keyframes scan-beam { 50% { opacity: .15; } }
-  .scan-btn { padding: 9px 16px; border: 1px solid #17153b; border-radius: 999px; background: #17153b; color: #f7f6fd; font: 500 13px "Noto Sans Georgian", sans-serif; white-space: nowrap; cursor: pointer; transition: background-color .2s ease, border-color .2s ease; }
-  .scan-btn:hover { background: #0b2997; border-color: #0b2997; }
-  .scan[data-mode="https"] .scan-btn { background: #059669; border-color: #059669; }
-  .scan-btn:focus-visible { outline: 2px solid #0b2997; outline-offset: 2px; }
-  .scan-read { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: 10px 0 0 calc(7.5rem + 14px); }
-  .scan-read-label { font: 500 10.5px "IBM Plex Mono", "Noto Sans Georgian", monospace; letter-spacing: .12em; text-transform: uppercase; color: #545378; }
-  .scan-chip { padding: 2px 9px; border-radius: 999px; font: 500 12px "IBM Plex Mono", monospace; white-space: nowrap; animation: scan-hit 6s linear infinite; animation-delay: calc(var(--k) * -1.5s); }
-  .scan-chip { background: var(--chip-bg); color: var(--chip-fg); }
-  /* packet-ის ცენტრი lens-ის ქვეშ ≈ ციკლის 44–54% — ფერი ყოველ keyframe-ზე, რომ interpolation-ი არ „გაიწელოს" */
-  @keyframes scan-hit { 0%, 40%, 58%, 100% { background: var(--chip-bg); color: var(--chip-fg); } 44%, 54% { background: var(--hit-bg); color: var(--hit-fg); } }
-
-  /* diagrams-end */
-
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
-  }
 </style>
 </head>
 
@@ -765,7 +765,7 @@
 </section>
 
 <!-- 02 ───────────────────────────────────────────────────────────── -->
-<section class="slide h-full" data-section="გეგმა" data-notes="60 წამზე მეტი არ დახარჯო აქ. თქვი, რომ ეს ექვსივე თემა ერთი ჯაჭვია — ბოლო თემა (RBAC UI) პირველი ორის (authn/authz) პირდაპირი გაგრძელებაა, არა ცალკე თემა.">
+<section class="slide h-full" data-section="გეგმა" data-notes="60 წამზე მეტი არ დახარჯო აქ. თქვი, რომ რვაივე თემა ერთი ჯაჭვია: HTTP-ს „ამნეზიიდან“ და HTTPS-იდან token-ებამდე, სესიამდე და RBAC-მდე — ბოლოს ყველაფერი ერთ auth flow-ში ერთდება (სლაიდი 22). RBAC (07) authn/authz-ის (01) პირდაპირი გაგრძელებაა, არა ცალკე თემა.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5 flex flex-col justify-between">
       <div>
@@ -776,24 +776,29 @@
         <svg class="dia chain" viewBox="0 0 360 70" aria-hidden="true">
           <line x1="24" y1="26" x2="336" y2="26" stroke="#e3e1f3" stroke-width="3" stroke-linecap="round"/>
           <line class="chain-line" x1="24" y1="26" x2="336" y2="26" stroke="#0b2997" stroke-width="3" stroke-linecap="round"/>
+          <!-- 8 რგოლი; --k × .6s ⇒ ბოლო რგოლი 3s-ზე ინთება, სწორედ როცა ხაზი მასზე მოდის -->
           <g class="chain-node" style="--k:0"><circle cx="24"  cy="26" r="6"/><text x="24"  y="60" text-anchor="middle">01</text></g>
-          <g class="chain-node" style="--k:1"><circle cx="86"  cy="26" r="6"/><text x="86"  y="60" text-anchor="middle">02</text></g>
-          <g class="chain-node" style="--k:2"><circle cx="149" cy="26" r="6"/><text x="149" y="60" text-anchor="middle">03</text></g>
-          <g class="chain-node" style="--k:3"><circle cx="211" cy="26" r="6"/><text x="211" y="60" text-anchor="middle">04</text></g>
-          <g class="chain-node" style="--k:4"><circle cx="274" cy="26" r="6"/><text x="274" y="60" text-anchor="middle">05</text></g>
-          <g class="chain-node" style="--k:5"><circle cx="336" cy="26" r="6"/><text x="336" y="60" text-anchor="middle">06</text></g>
+          <g class="chain-node" style="--k:.71"><circle cx="69"  cy="26" r="6"/><text x="69"  y="60" text-anchor="middle">02</text></g>
+          <g class="chain-node" style="--k:1.43"><circle cx="113" cy="26" r="6"/><text x="113" y="60" text-anchor="middle">03</text></g>
+          <g class="chain-node" style="--k:2.14"><circle cx="158" cy="26" r="6"/><text x="158" y="60" text-anchor="middle">04</text></g>
+          <g class="chain-node" style="--k:2.86"><circle cx="202" cy="26" r="6"/><text x="202" y="60" text-anchor="middle">05</text></g>
+          <g class="chain-node" style="--k:3.57"><circle cx="247" cy="26" r="6"/><text x="247" y="60" text-anchor="middle">06</text></g>
+          <g class="chain-node" style="--k:4.29"><circle cx="291" cy="26" r="6"/><text x="291" y="60" text-anchor="middle">07</text></g>
+          <g class="chain-node" style="--k:5"><circle cx="336" cy="26" r="6"/><text x="336" y="60" text-anchor="middle">08</text></g>
         </svg>
-        <figcaption class="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-2">ექვსი თემა — ერთი ჯაჭვი</figcaption>
+        <figcaption class="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-2">რვა თემა — ერთი ჯაჭვი</figcaption>
       </figure>
     </div>
 
     <ol data-plan data-stagger class="col-span-7 grid content-center gap-px bg-rule">
-      <li class="flex items-center gap-6 bg-paper p-5"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-live/30 bg-live/10 font-mono text-[11px] text-live">01</span><span>Authentication vs Authorization — ორი ცნება, რომელსაც ხშირად ერთმანეთში ურევენ</span></li>
-      <li class="flex items-center gap-6 bg-paper p-5"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-live/30 bg-live/10 font-mono text-[11px] text-live">02</span><span>JWT-ის ანატომია და Access / Refresh token-ის სასიცოცხლო ციკლი</span></li>
-      <li class="flex items-center gap-6 bg-paper p-5"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-live/30 bg-live/10 font-mono text-[11px] text-live">03</span><span>სესიის ვადის გასვლა და ავტომატური გამოსვლის (auto-logout) მექანიზმი</span></li>
-      <li class="flex items-center gap-6 bg-paper p-5"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-live/30 bg-live/10 font-mono text-[11px] text-live">04</span><span>Silent Token Refresh — სესიის გახანგრძლივება მომხმარებლის შეუმჩნევლად</span></li>
-      <li class="flex items-center gap-6 bg-paper p-5"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-live/30 bg-live/10 font-mono text-[11px] text-live">05</span><span>Auth State Management — ერთი store და <code class="font-mono text-[13px]">subscribe()</code>, ფრეიმვორკის გარეშე</span></li>
-      <li class="flex items-center gap-6 bg-paper p-5"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-live/30 bg-live/10 font-mono text-[11px] text-live">06</span><span>Role-Based Access Control და Permission Engine ინტერფეისში — ცოცხალი დემო</span></li>
+      <li class="flex items-center gap-5 bg-paper px-5 py-4"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-live/30 bg-live/10 font-mono text-[11px] text-live">01</span><span class="min-w-0 flex-1">HTTP-ს „ამნეზია“, სტატუს კოდები და Authentication vs Authorization</span><span class="shrink-0 font-mono text-[11px] text-ink-2">03–05</span></li>
+      <li class="flex items-center gap-5 bg-paper px-5 py-4"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-live/30 bg-live/10 font-mono text-[11px] text-live">02</span><span class="min-w-0 flex-1">სქემები: Session, Bearer, OAuth, OIDC · Encoding ≠ Encryption · HTTP vs HTTPS</span><span class="shrink-0 font-mono text-[11px] text-ink-2">06–08</span></li>
+      <li class="flex items-center gap-5 bg-paper px-5 py-4"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-live/30 bg-live/10 font-mono text-[11px] text-live">03</span><span class="min-w-0 flex-1">JWT-ის ანატომია და opaque token vs JWT</span><span class="shrink-0 font-mono text-[11px] text-ink-2">09–10</span></li>
+      <li class="flex items-center gap-5 bg-paper px-5 py-4"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-live/30 bg-live/10 font-mono text-[11px] text-live">04</span><span class="min-w-0 flex-1">Access / Refresh token-ი, მათი შენახვა და სასიცოცხლო ციკლი</span><span class="shrink-0 font-mono text-[11px] text-ink-2">11–13</span></li>
+      <li class="flex items-center gap-5 bg-paper px-5 py-4"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-live/30 bg-live/10 font-mono text-[11px] text-live">05</span><span class="min-w-0 flex-1">fetch wrapper, Silent Token Refresh და უმოქმედო სესია</span><span class="shrink-0 font-mono text-[11px] text-ink-2">14–16</span></li>
+      <li class="flex items-center gap-5 bg-paper px-5 py-4"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-live/30 bg-live/10 font-mono text-[11px] text-live">06</span><span class="min-w-0 flex-1">Auth State — ერთი store და <code class="font-mono text-[13px]">subscribe()</code>, ფრეიმვორკის გარეშე</span><span class="shrink-0 font-mono text-[11px] text-ink-2">17</span></li>
+      <li class="flex items-center gap-5 bg-paper px-5 py-4"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-live/30 bg-live/10 font-mono text-[11px] text-live">07</span><span class="min-w-0 flex-1">Route Guards, RBAC და Permission Engine — დემო</span><span class="shrink-0 font-mono text-[11px] text-ink-2">18–21</span></li>
+      <li class="flex items-center gap-5 bg-paper px-5 py-4"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-live/30 bg-live/10 font-mono text-[11px] text-live">08</span><span class="min-w-0 flex-1">auth flow: ფორმები + endpoint-ები, დიდი სურათი და შეცდომები</span><span class="shrink-0 font-mono text-[11px] text-ink-2">22–25</span></li>
     </ol>
   </div>
 </section>
@@ -855,7 +860,7 @@
       </li>
       <li class="grid grid-cols-[3rem_1fr] gap-6 bg-paper p-6">
         <span class="flex h-9 w-9 items-center justify-center rounded-full border border-live/30 bg-live/10 font-mono text-sm text-live">2</span>
-        <div><p class="font-medium">ეს სესია ჯერ კიდევ ცოცხალია? <span class="font-mono text-[12px] text-ink-2">— Session validity</span></p><p class="mt-1 text-ink-2">Token ვადაგასული ხომ არ არის, გაუქმებული ხომ არ არის?</p></div>
+        <div><p class="font-medium">ეს სესია ჯერ კიდევ აქტიურია? <span class="font-mono text-[12px] text-ink-2">— Session validity</span></p><p class="mt-1 text-ink-2">Token ვადაგასული ხომ არ არის, გაუქმებული ხომ არ არის?</p></div>
       </li>
       <li class="grid grid-cols-[3rem_1fr] gap-6 bg-ink p-6 text-paper">
         <span class="flex h-9 w-9 items-center justify-center rounded-full border border-box-p/40 bg-box-p/10 font-mono text-sm text-box-p">3</span>
@@ -867,272 +872,6 @@
 </section>
 
 <!-- 04 ───────────────────────────────────────────────────────────── -->
-<section class="slide h-full" data-section="Auth სხემები" data-notes="ამნეზიის წამალი: ყოველ request-ს თავად ერთვის „ვინ ვარ“. ორი ოჯახი — stateful (სერვერი ინახავს სესიას, cookie-ში მხოლოდ id) და stateless (token-ი თავად ატარებს ინფორმაციას, სერვერი ხელმოწერას ამოწმებს). ხაზი გაუსვი: OAuth 2.0 authorization-ის ფრეიმვორკია, არა login-ის — login-ისთვის მის თავზე OpenID Connect-ი მოდის. Basic auth ყოველ request-ზე user:password-ს base64-ით აგზავნის — შემდეგ სლაიდზე ნავ, რატომ არ არის ეს დაცვა.">
-  <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
-    <div class="col-span-4 flex flex-col">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>გადაწყვეტა</p>
-      <h2 class="display mt-4 text-5xl leading-[1] font-semibold">ამნეზიის<br>წამალი</h2>
-      <p class="mt-6 text-ink-2">სერვერს მეხსიერება არ აქვს — ამიტომ <span class="text-ink">ყოველ request-ს</span> ერთვის „ვინ ვარ“-ის მტკიცებულება. სხემები ორ ოჯახზე იყოფა: <span class="text-ink">ვინ ინახავს state-ს</span> — სერვერი თუ token-ი.</p>
-      <figure class="mt-6">
-        <svg class="dia fam" viewBox="0 0 360 196" role="img" aria-label="stateful: cookie-ს session id → სერვერი ბაზაში ეძებს. stateless: bearer token → სერვერი ხელმოწერას ამოწმებს ბაზის გარეშე.">
-          <text x="0" y="11" font-size="10" letter-spacing="1.2" fill="#545378">STATEFUL · სერვერი ახსოვს</text>
-          <rect x="0.5" y="24.5" width="58" height="40" rx="9" fill="#fff" stroke="#e3e1f3"/>
-          <path d="M0.5 35.5h58" stroke="#e3e1f3"/><circle cx="8" cy="30" r="1.8" fill="#c9c6e6"/><circle cx="14" cy="30" r="1.8" fill="#c9c6e6"/>
-          <rect x="10" y="42" width="38" height="5" rx="2.5" fill="#e3e1f3"/><rect x="10" y="51" width="24" height="6" rx="3" fill="#17153b"/>
-          <path d="M62 44.5h134" stroke="#c9c6e6" stroke-width="2" stroke-dasharray="5 5"/>
-          <text x="129" y="36" font-size="10" text-anchor="middle" fill="#0b2997">Cookie: sid=8f3c</text>
-          <circle class="dot" cx="66" cy="44.5" r="4" fill="#0b2997"/>
-          <rect x="200.5" y="24.5" width="62" height="40" rx="9" fill="#fff" stroke="#0b2997" stroke-width="1.5"/>
-          <rect x="210" y="32" width="42" height="6" rx="3" fill="#ebefff"/><rect x="210" y="42" width="42" height="6" rx="3" fill="#ebefff"/><rect x="210" y="52" width="26" height="6" rx="3" fill="#ebefff"/><circle cx="246" cy="55" r="2" fill="#059669"/>
-          <path class="look" d="M266 44.5h36" stroke="#ff6b35" stroke-width="1.8" stroke-dasharray="3 3"/>
-          <path class="db" d="M308 31v25c0 3.3 9.8 6 22 6s22-2.7 22-6V31" fill="#fff" stroke="#c9c6e6" stroke-width="1.5"/>
-          <ellipse class="db" cx="330" cy="31" rx="22" ry="6" fill="#fff" stroke="#c9c6e6" stroke-width="1.5"/>
-          <path d="M308 44c0 3.3 9.8 6 22 6s22-2.7 22-6" fill="none" stroke="#e3e1f3" stroke-width="1.2"/>
-          <text x="0" y="82" font-size="10.5" fill="#545378">ყოველ request-ზე — lookup ბაზაში</text>
-
-          <text x="0" y="115" font-size="10" letter-spacing="1.2" fill="#545378">STATELESS · token-ი ახსოვს</text>
-          <rect x="0.5" y="128.5" width="58" height="40" rx="9" fill="#fff" stroke="#e3e1f3"/>
-          <path d="M0.5 139.5h58" stroke="#e3e1f3"/><circle cx="8" cy="134" r="1.8" fill="#c9c6e6"/><circle cx="14" cy="134" r="1.8" fill="#c9c6e6"/>
-          <rect x="10" y="146" width="38" height="5" rx="2.5" fill="#e3e1f3"/><rect x="10" y="155" width="24" height="6" rx="3" fill="#17153b"/>
-          <path d="M62 148.5h134" stroke="#c9c6e6" stroke-width="2" stroke-dasharray="5 5"/>
-          <text x="129" y="140" font-size="10" text-anchor="middle" fill="#0b2997">Bearer eyJhbGci…</text>
-          <circle class="dot" cx="66" cy="148.5" r="4" fill="#0b2997"/>
-          <rect x="200.5" y="128.5" width="62" height="40" rx="9" fill="#fff" stroke="#0b2997" stroke-width="1.5"/>
-          <rect x="210" y="136" width="42" height="6" rx="3" fill="#ebefff"/><rect x="210" y="146" width="42" height="6" rx="3" fill="#ebefff"/><rect x="210" y="156" width="26" height="6" rx="3" fill="#ebefff"/><circle cx="246" cy="159" r="2" fill="#059669"/>
-          <g class="ok"><circle cx="318" cy="148.5" r="14" fill="#059669"/><path d="m311.5 148.5 4.5 4.5 8.5-9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>
-          <text x="0" y="187" font-size="10.5" fill="#545378">ხელმოწერის შემოწმება — ბაზის გარეშე</text>
-        </svg>
-      </figure>
-    </div>
-
-    <div class="col-span-8 flex min-w-0 flex-col justify-center gap-3">
-      <div data-stagger style="--step:55ms; align-self:stretch" class="flex flex-col gap-px bg-rule" role="table" aria-label="authentication-ის სხემები">
-        <div class="as-row as-head" role="row"><span role="columnheader">სხემა</span><span role="columnheader">რა ერთვის request-ს</span><span role="columnheader">სად — დღეს</span><span role="columnheader">სტატუსი</span></div>
-        <div class="as-row" role="row"><div role="cell"><p class="as-name">Session + Cookie</p><span class="as-tag">stateful</span></div><div role="cell" class="min-w-0"><p class="as-code">Cookie: <b>sid=8f3c…</b></p><p class="as-desc">სერვერი ინახავს სესიას — cookie-ში მხოლოდ id</p></div><p role="cell" class="as-use">SSR აპები: Django, Rails, Laravel</p><p role="cell"><span class="as-status ok">✓ სტანდარტი</span></p></div>
-        <div class="as-row" role="row"><div role="cell"><p class="as-name">Bearer · JWT</p><span class="as-tag">stateless</span></div><div role="cell" class="min-w-0"><p class="as-code">Authorization: Bearer <b>eyJhbGci…</b></p><p class="as-desc">token-ი თავად ამბობს ვინ ხარ — ბაზის გარეშე</p></div><p role="cell" class="as-use">SPA, mobile, microservices</p><p role="cell"><span class="as-status ok">✓ სტანდარტი</span></p></div>
-        <div class="as-row" role="row"><div role="cell"><p class="as-name">OAuth 2.0</p><span class="as-tag">delegated</span></div><div role="cell" class="min-w-0"><p class="as-code">Authorization: Bearer <b>ya29.a0Af…</b></p><p class="as-desc">სხვა აპს წვდომა — პაროლის გადაცემის გარეშე</p></div><p role="cell" class="as-use">„Connect GitHub“, third-party API</p><p role="cell"><span class="as-status ok">✓ სტანდარტი</span></p></div>
-        <div class="as-row" role="row"><div role="cell"><p class="as-name">OpenID Connect</p><span class="as-tag">identity</span></div><div role="cell" class="min-w-0"><p class="as-code">id_token: <b>eyJraWQi…</b></p><p class="as-desc">ვინ ხარ — Google-ის, Apple-ის მეშვეობით</p></div><p role="cell" class="as-use">Sign in with Google · SSO</p><p role="cell"><span class="as-status ok">✓ სტანდარტი</span></p></div>
-        <div class="as-row" role="row"><div role="cell"><p class="as-name">API Key</p><span class="as-tag">machine</span></div><div role="cell" class="min-w-0"><p class="as-code">X-API-Key: <b>sk_live_4eC3…</b></p><p class="as-desc">აპლიკაციის (არა ადამიანის) იდენტიფიკაცია</p></div><p role="cell" class="as-use">Stripe, OpenAI · server ↔ server</p><p role="cell"><span class="as-status mid">◐ მანქანები</span></p></div>
-        <div class="as-row" role="row"><div role="cell"><p class="as-name">mTLS</p><span class="as-tag">transport</span></div><div role="cell" class="min-w-0"><p class="as-code">TLS handshake: <b>client certificate</b></p><p class="as-desc">ორივე მხარე სერტიფიკატს ადასტურებს</p></div><p role="cell" class="as-use">ბანკები · service mesh · zero trust</p><p role="cell"><span class="as-status mid">◐ ნიშა</span></p></div>
-        <div class="as-row" role="row"><div role="cell"><p class="as-name">Basic Auth</p><span class="as-tag">legacy</span></div><div role="cell" class="min-w-0"><p class="as-code">Authorization: Basic <b>dXNlcjpwYXNz</b></p><p class="as-desc">user:password ყოველ request-ზე — base64, არა შიფრი</p></div><p role="cell" class="as-use">internal tools, CI, ძველი API</p><p role="cell"><span class="as-status old">✕ legacy</span></p></div>
-      </div>
-      <p class="as-foot"><b>Passkeys (WebAuthn)</b> პაროლს ცვლის login-ის მომენტში — login-ის შემდეგ მაინც session ან token-ი მოდის. <b>Digest, NTLM</b> — ✕ ნუ ვიყენებთ.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 05 ───────────────────────────────────────────────────────────── -->
-<section class="slide h-full" data-section="Encoding vs Encryption" data-notes="ყველაზე ხშირი მითი: „JWT დაშიფრულია“. ჩვენე: base64-ს atob() ერთ ხაზში დეკოდირებს — ეს encoding-ია, არა encryption. შემდეგ HTTPS-ზე გადართე: იგივე request, მაგრამ შუაში მყოფი მხოლოდ ბაიტების ხმაურს ხედავს. ოთხივე ცნება მიზნით განსხვავდება: encoding — ფორმატი, encryption — საიდუმლოება, hashing — ცალმხრივი შემოწმება (პაროლი), signing — მთლიანობა (JWT signature).">
-  <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
-    <div class="col-span-5 flex flex-col">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>encoding ≠ encryption</p>
-      <h2 class="display mt-4 text-5xl leading-[1] font-semibold">Base64 —<br>არა შიფრი</h2>
-      <p class="mt-6 text-ink-2">Encoding ცვლის <span class="text-ink">ფორმას</span>, encryption მალავს <span class="text-ink">შინაარსს</span>. Base64-ის დეკოდირებას გასაღები არ სჭირდება — <code class="font-mono text-[13px]">atob()</code> ყველა ბრაუზერში არის. JWT-ის payload-იც base64-ა.</p>
-      <div data-stagger style="align-self:stretch" class="mt-6 flex flex-col gap-px bg-rule" role="table" aria-label="encoding, encryption, hashing, signing">
-        <div class="ec-row ec-head" role="row"><span role="columnheader"></span><span role="columnheader" class="text-center">გასაღები</span><span role="columnheader">წაიკითხავს</span></div>
-        <div class="ec-row" role="row"><div role="cell"><p class="ec-name">Encoding<span>Base64 · URL</span></p><p class="ec-desc">ფორმატი: ბაიტები → ტექსტი (JWT, Basic)</p></div><p role="cell" class="ec-key n">✕</p><p role="cell"><span class="ec-read bad">ყველა</span></p></div>
-        <div class="ec-row" role="row"><div role="cell"><p class="ec-name">Encryption<span>TLS · AES</span></p><p class="ec-desc">საიდუმლოება: HTTPS-ი მთელ request-ს შიფრავს</p></div><p role="cell" class="ec-key y">✓</p><p role="cell"><span class="ec-read ok">გასაღებით</span></p></div>
-        <div class="ec-row" role="row"><div role="cell"><p class="ec-name">Hashing<span>argon2 · bcrypt</span></p><p class="ec-desc">ცალმხრივი: პაროლი ბაზაში, უკან — არასდროს</p></div><p role="cell" class="ec-key n">✕</p><p role="cell"><span class="ec-read none">არავინ</span></p></div>
-        <div class="ec-row" role="row"><div role="cell"><p class="ec-name">Signing<span>HS256 · RS256</span></p><p class="ec-desc">მთლიანობა: JWT-ს წაიკითხავს ყველა, შეცვლის — არა</p></div><p role="cell" class="ec-key y">✓</p><p role="cell"><span class="ec-read warn">ყველა</span></p></div>
-      </div>
-    </div>
-
-    <div class="col-span-7 flex min-w-0 flex-col justify-center gap-4">
-      <div class="flex flex-wrap items-center justify-between gap-3">
-        <p class="af-cap">login request · public Wi-Fi</p>
-        <div class="flex gap-2">
-          <button type="button" class="mitm-btn" data-mitm="http" aria-pressed="true">HTTP · ღია ტექსტი</button>
-          <button type="button" class="mitm-btn" data-mitm="https" aria-pressed="false">HTTPS · TLS</button>
-        </div>
-      </div>
-
-      <figure id="mitmFig" class="mitm" data-mode="http">
-        <div class="mt-stage">
-          <div class="mt-node">
-            <p class="mt-node-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg>ბრაუზერი</p>
-            <p class="mt-sub">nino@example.ge</p>
-            <p class="mt-sub">POST /login</p>
-          </div>
-          <div class="mt-wire">
-            <span class="mt-wire-label http-only">HTTP · ღია ტექსტი</span>
-            <span class="mt-wire-label https-only">TLS 1.3 · დაშიფრული</span>
-            <span class="mt-packet">
-              <span class="http-only flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg>Basic bmlub0Bl…</span>
-              <span class="https-only flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>17 03 03 00 d1…</span>
-            </span>
-            <span class="mt-copy" aria-hidden="true"></span>
-          </div>
-          <div class="mt-node">
-            <p class="mt-node-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>სერვერი</p>
-            <p class="mt-sub">api.example.ge</p>
-            <p class="mt-ok http-only" style="--d:2.8s">✓ 200 OK</p>
-            <p class="mt-ok https-only" style="--d:2.8s">✓ decrypt → 200</p>
-          </div>
-          <div class="mt-node mt-spy">
-            <p class="mt-node-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h18M5 11l2-6h10l2 6"/><circle cx="7.5" cy="16" r="3"/><circle cx="16.5" cy="16" r="3"/><path d="M10.5 16h3"/></svg>შუაში ვიღაც</p>
-            <p class="mt-sub">sniffer · იგივე Wi-Fi</p>
-          </div>
-        </div>
-
-        <div class="vsc">
-          <div class="vsc-bar"><span class="vsc-ptab">terminal</span><span class="vsc-desc">man-in-the-middle · wlan0</span></div>
-          <div class="mt-term">
-            <p class="mt-line" style="--d:1.9s"><span class="tk-pn">$</span> <span class="tk-fn">sniff</span> <span class="tk-var">--iface</span> wlan0</p>
-            <p class="mt-line http-only" style="--d:2.3s"><span class="tk-kw">POST</span> <span class="tk-str">/login</span> HTTP/1.1</p>
-            <p class="mt-line http-only" style="--d:2.7s"><span class="tk-var">Authorization</span>: Basic <span class="tk-str">bmlub0BleGFtcGxlLmdlOnNlY3JldDEyMw==</span></p>
-            <p class="mt-line http-only" style="--d:3.5s"><span class="tk-pn">$</span> <span class="tk-fn">atob</span>(<span class="tk-str">"bmlub0BleGFtcGxlLmdlOnNlY3JldDEyMw=="</span>)</p>
-            <p class="mt-line http-only" style="--d:4.3s"><span class="mt-leak">"nino@example.ge:secret123"</span><span class="mt-note bad">← პაროლი ღიაა</span></p>
-            <p class="mt-line https-only" style="--d:2.3s"><span class="tk-cm">TLS 1.3 · Application Data · 214 bytes</span></p>
-            <p class="mt-line https-only" style="--d:2.7s"><span class="mt-noise">17 03 03 00 d1 8e 4f c2 19 a7 0d 5b 93 e1 35 ff 6c 02 b8 …</span></p>
-            <p class="mt-line https-only" style="--d:3.5s"><span class="tk-pn">$</span> <span class="tk-fn">decode</span>(payload)</p>
-            <p class="mt-line https-only" style="--d:4.3s"><span class="mt-noise">"ŽOÂ§[“á5ÿl¸Ô…"</span><span class="mt-note ok">← ხმაური: გასაღების გარეშე არაფერი</span></p>
-          </div>
-        </div>
-
-        <p class="mt-verdict http-only" style="--d:4.8s">✕ Base64 ≠ დაცვა: შუაში მყოფი user:password-ს ერთ ბრძანებით კითხულობს.</p>
-        <p class="mt-verdict https-only" style="--d:4.8s">✓ TLS შიფრავს მთელ request-ს — header-ებს, cookie-ებს, token-ებს. შუაში ჩანს მხოლოდ domain (SNI) და ბაიტების ხმაური.</p>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- 06 ───────────────────────────────────────────────────────────── -->
-<section class="slide h-full" data-section="Opaque vs JWT" data-notes="ორივე token-ი Bearer-ით იგზავნება — სხვაობა token-ის შიგთავსშია. ნაბიჯებს ღილაკით „შემდეგ“ მართე: 1) ერთი სერვერი — opaque token-ი ok; 2) სამი სერვერი — load balancer-ი, token-ს ორი სერვერი არ იცნობს; 3) JWT; 4) მისი სამი ნაწილი; 5) ყოველი სერვერი ხელმოწერას თავად ამოწმებს. Trade-off-ი ნუ დაგავიწყდება: JWT-ს revoke რთულია — ამიტომ access token-ი ხანმოკლეა.">
-  <div class="flex h-full flex-col px-14 py-12">
-    <div class="flex items-end justify-between gap-8">
-      <div>
-        <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>bearer: opaque vs jwt</p>
-        <h2 class="display mt-3 text-5xl font-semibold">ვინ „ახსოვს“ token-ს?</h2>
-      </div>
-      <div class="flex items-center gap-3">
-        <div class="bj-dots" aria-hidden="true"><i data-bj-dot="1" class="is-on"></i><i data-bj-dot="2"></i><i data-bj-dot="3"></i><i data-bj-dot="4"></i><i data-bj-dot="5"></i></div>
-        <button id="bjPrev" type="button" class="bj-btn ghost" disabled>← უკან</button>
-        <button id="bjNext" type="button" class="bj-btn">შემდეგ →</button>
-      </div>
-    </div>
-
-    <div id="bjDemo" class="bj mt-6 grid min-h-0 flex-1 grid-cols-2 gap-6" data-step="1">
-      <figure class="bj-panel bj-left">
-        <div class="bj-head"><p class="bj-title">შემთხვევითი token-ი</p><span class="bj-badge">Bearer · opaque</span></div>
-        <div class="bj-token">
-          <p class="bj-code">Authorization: Bearer <b style="color:#b45309">8f3c9a2e71d44b0f5a6e9c1d</b></p>
-          <p class="bj-note">შემთხვევითი ID — შიგნით არაფერი. სერვერმა უნდა ახსოვდეს, ვის ეკუთვნის.</p>
-        </div>
-        <svg class="bj-net" viewBox="0 0 440 230" role="img" aria-label="opaque token: ერთი სერვერი token-ს იცნობს; სამი სერვერიდან ორი — არა">
-          <g class="multi">
-            <path class="ln" d="M340 115 106 40" style="stroke:#fda4af"/>
-            <path class="ln" d="M340 115 106 190" style="stroke:#fda4af"/>
-            <rect x="24.5" y="14.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="20" width="67" height="30" rx="3" fill="#fff1f2"/><path d="M64.5 60v7M50 67.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
-            <text x="64.5" y="33" font-size="9.5" text-anchor="middle" fill="#17153b">server 2</text><text x="64.5" y="45" font-size="9" text-anchor="middle" fill="#e11d48">8f3c → ∅</text>
-            <rect x="24.5" y="164.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="170" width="67" height="30" rx="3" fill="#fff1f2"/><path d="M64.5 210v7M50 217.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
-            <text x="64.5" y="183" font-size="9.5" text-anchor="middle" fill="#17153b">server 3</text><text x="64.5" y="195" font-size="9" text-anchor="middle" fill="#e11d48">8f3c → ∅</text>
-          </g>
-          <path class="ln" d="M340 115H106"/>
-          <rect x="24.5" y="89.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="95" width="67" height="30" rx="3" fill="#ecfdf5"/><path d="M64.5 135v7M50 142.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
-          <text x="64.5" y="108" font-size="9.5" text-anchor="middle" fill="#17153b">server 1</text><text x="64.5" y="120" font-size="9" text-anchor="middle" fill="#047857">8f3c → nino</text>
-          <g><circle cx="385" cy="99" r="13" fill="#0b2997"/><path d="M359 141a26 26 0 0 1 52 0z" fill="#0b2997"/><text x="385" y="160" font-size="10" text-anchor="middle" fill="#545378">nino</text></g>
-          <g class="pk m"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#d97706"/><text x="330" y="118.5" font-size="9.5" text-anchor="middle" fill="#b45309">8f3c…</text></g>
-          <g class="multi">
-            <g class="pk t"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#d97706"/><text x="330" y="118.5" font-size="9.5" text-anchor="middle" fill="#b45309">8f3c…</text></g>
-            <g class="pk b"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#d97706"/><text x="330" y="118.5" font-size="9.5" text-anchor="middle" fill="#b45309">8f3c…</text></g>
-            <g class="mark"><circle cx="223" cy="77.5" r="11" fill="#e11d48"/><path d="m218.5 73 9 9m0-9-9 9" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></g>
-            <g class="mark"><circle cx="223" cy="152.5" r="11" fill="#e11d48"/><path d="m218.5 148 9 9m0-9-9 9" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></g>
-          </g>
-          <g class="mark"><circle cx="223" cy="115" r="11" fill="#059669"/><path d="m218 115 3.5 3.5 6.5-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
-        </svg>
-        <p class="bj-cap">
-          <span class="c c-single"><span class="ok">✓ ერთი სერვერი:</span> token-ი მის მეხსიერებაშია — ერთი lookup და მორჩა.</span>
-          <span class="c c-multi"><span class="bad">✕ სამი სერვერი:</span> load balancer-ი request-ს ნებისმიერზე აგზავნის — 2 და 3 token-ს არ იცნობს → 401. საერთო Redis-ი შველის, მაგრამ ყოველ request = ქსელის lookup.</span>
-        </p>
-      </figure>
-
-      <figure class="bj-panel bj-right">
-        <div class="bj-head"><p class="bj-title">ხელმოწერილი token-ი</p><span class="bj-badge">Bearer · JWT</span></div>
-        <div class="bj-token">
-          <div class="jw-wait">eyJ… · JWT — შემდეგ ნაბიჯზე →</div>
-          <p class="bj-code jw-string">Authorization: Bearer <span class="h" style="color:#0284c7">eyJhbGciOiJIUzI1NiJ9</span>.<span class="p" style="color:#059669">eyJzdWIiOiI0MiIsInJvbGUiOiJlZGl0b3IifQ</span>.<span class="s" style="color:#b45309">Zk3pQ9xR2LwT8mV1nB4cE7</span></p>
-          <div class="jw-parts">
-            <p class="jw-part h" style="--from:100%"><b>HEADER</b>{"alg":"HS256",<br>"typ":"JWT"}</p>
-            <p class="jw-part p"><b>PAYLOAD</b>{"sub":"42",<br>"role":"editor"}</p>
-            <p class="jw-part s" style="--from:-100%"><b>SIGNATURE</b>HMACSHA256(<br>h.p, secret)</p>
-          </div>
-        </div>
-        <svg class="bj-net" viewBox="0 0 440 230" role="img" aria-label="JWT: სამივე სერვერი ხელმოწერას ერთი და იმავე გასაღებით ამოწმებს">
-          <path class="ln" d="M340 115 106 40"/><path class="ln" d="M340 115H106"/><path class="ln" d="M340 115 106 190"/>
-          <rect x="24.5" y="14.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="20" width="67" height="30" rx="3" fill="#ebefff"/><path d="M64.5 60v7M50 67.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
-          <text x="64.5" y="33" font-size="9.5" text-anchor="middle" fill="#17153b">server 2</text><text x="64.5" y="45" font-size="9" text-anchor="middle" fill="#b45309">key K</text>
-          <rect x="24.5" y="89.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="95" width="67" height="30" rx="3" fill="#ebefff"/><path d="M64.5 135v7M50 142.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
-          <text x="64.5" y="108" font-size="9.5" text-anchor="middle" fill="#17153b">server 1</text><text x="64.5" y="120" font-size="9" text-anchor="middle" fill="#b45309">key K</text>
-          <rect x="24.5" y="164.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="170" width="67" height="30" rx="3" fill="#ebefff"/><path d="M64.5 210v7M50 217.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
-          <text x="64.5" y="183" font-size="9.5" text-anchor="middle" fill="#17153b">server 3</text><text x="64.5" y="195" font-size="9" text-anchor="middle" fill="#b45309">key K</text>
-          <g><circle cx="385" cy="99" r="13" fill="#0b2997"/><path d="M359 141a26 26 0 0 1 52 0z" fill="#0b2997"/><text x="385" y="160" font-size="10" text-anchor="middle" fill="#545378">nino</text></g>
-          <g class="live">
-            <g class="pk t"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#17153b"/><rect x="309" y="111" width="12" height="8" rx="2" fill="#7cc4ff"/><rect x="324" y="111" width="12" height="8" rx="2" fill="#34d399"/><rect x="339" y="111" width="12" height="8" rx="2" fill="#fbbf24"/></g>
-            <g class="pk m"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#17153b"/><rect x="309" y="111" width="12" height="8" rx="2" fill="#7cc4ff"/><rect x="324" y="111" width="12" height="8" rx="2" fill="#34d399"/><rect x="339" y="111" width="12" height="8" rx="2" fill="#fbbf24"/></g>
-            <g class="pk b"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#17153b"/><rect x="309" y="111" width="12" height="8" rx="2" fill="#7cc4ff"/><rect x="324" y="111" width="12" height="8" rx="2" fill="#34d399"/><rect x="339" y="111" width="12" height="8" rx="2" fill="#fbbf24"/></g>
-            <g class="mark"><circle cx="223" cy="77.5" r="11" fill="#059669"/><path d="m218 77.5 3.5 3.5 6.5-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
-            <g class="mark"><circle cx="223" cy="115" r="11" fill="#059669"/><path d="m218 115 3.5 3.5 6.5-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
-            <g class="mark"><circle cx="223" cy="152.5" r="11" fill="#059669"/><path d="m218 152.5 3.5 3.5 6.5-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
-          </g>
-        </svg>
-        <p class="bj-cap">
-          <span class="c c-wait">JWT-ს ნავ მე-3 ნაბიჯიდან — ჯერ მარცხენა მხარე.</span>
-          <span class="c c-token">JWT — token-ი, რომელიც ინფორმაციას თავად ატარებს: სამი base64url ბლოკი, წერტილებით.</span>
-          <span class="c c-parts">header — ალგორითმი · payload — ვინ ხარ და რა უფლება გაქვს · signature — ხელმოწერა, რომელიც გაყალბებას არ დაუშვებს.</span>
-          <span class="c c-verify"><span class="ok">✓ ყოველი სერვერი</span> ხელმოწერას თავად ამოწმებს იმავე გასაღებით — ბაზა არ სჭირდება. Trade-off: revoke რთულია → access token-ი ხანმოკლე.</span>
-        </p>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- 07 ───────────────────────────────────────────────────────────── -->
-<section class="slide h-full" data-section="HTTP vs HTTPS" data-notes="S — TLS: შიფრაცია, მთლიანობა და სერვერის ვინაობა ერთად. ღილაკით ჩვენე, რა ჩანს შუაში: HTTP-ზე — URL, cookie, პაროლი; HTTPS-ზე — მხოლოდ IP, domain (SNI) და ზომა. HSTS-ი ბრაუზერს ეუბნევა: ამ საიტზე HTTP-ზე საერთოდ ნუ მიდიხარ.">
-  <div class="flex h-full flex-col justify-center px-14 py-12">
-    <div class="flex items-end justify-between gap-10">
-      <div>
-        <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>http vs https</p>
-        <h2 class="display mt-3 text-5xl font-semibold">S = Secure: რა იცვლება?</h2>
-      </div>
-      <p class="max-w-md text-sm text-ink-2">HTTPS = HTTP + TLS. Request-ი იგივეა — ოღონდ ბრაუზერსა და სერვერს შორის <span class="text-ink">დაშიფრული გვირაბი</span> ჩნდება, და სერვერი სერტიფიკატით ამტკიცებს, ვინ არის.</p>
-    </div>
-
-    <div data-stagger style="--step:60ms; align-self:stretch" class="mt-6 flex flex-col gap-px bg-rule" role="table" aria-label="HTTP vs HTTPS">
-      <div class="hh-row hh-head" role="row"><span role="columnheader"></span><span role="columnheader" class="hh-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg>HTTP</span><span role="columnheader" class="hh-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>HTTPS</span></div>
-      <div class="hh-row" role="row"><p role="cell" class="hh-label">პორტი</p><p role="cell"><code>http://</code> · :80</p><p role="cell"><code>https://</code> · :443</p></div>
-      <div class="hh-row" role="row"><p role="cell" class="hh-label">შიფრაცია</p><p role="cell" class="hh-bad">✕ ღია ტექსტი — ყველა ხედავს</p><p role="cell" class="hh-ok">✓ TLS 1.3 · AES-GCM / ChaCha20</p></div>
-      <div class="hh-row" role="row"><p role="cell" class="hh-label">მთლიანობა</p><p role="cell" class="hh-bad">✕ გზაში შეცვლადია: რეკლამა, malware</p><p role="cell" class="hh-ok">✓ ყოველი ბაიტი MAC-ით — ცვლილება ჩანს</p></div>
-      <div class="hh-row" role="row"><p role="cell" class="hh-label">სერვერის ვინაობა</p><p role="cell" class="hh-bad">✕ ნებისმიერი „ვითომ“ სერვერი უპასუხებს</p><p role="cell" class="hh-ok">✓ სერტიფიკატი (CA) — ბრაუზერში საკეტი</p></div>
-      <div class="hh-row" role="row"><p role="cell" class="hh-label">cookie · token</p><p role="cell" class="hh-bad">✕ Secure cookie არ იგზავნება, token-ი ღიაა</p><p role="cell" class="hh-ok">✓ Secure cookie + HSTS — HTTP-ზე დაბრუნება ✕</p></div>
-      <div class="hh-row" role="row"><p role="cell" class="hh-label">ბრაუზერი</p><p role="cell" class="hh-bad">⚠ „Not secure“, HTTP/2-ის გარეშე</p><p role="cell" class="hh-ok">✓ HTTP/2 და HTTP/3 — მხოლოდ TLS-ით</p></div>
-    </div>
-
-    <figure id="scanDemo" class="scan mt-5" data-mode="http">
-      <div class="scan-grid">
-        <p class="scan-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg>ბრაუზერი</p>
-        <div class="scan-lane" aria-hidden="true">
-          <span class="scan-pk" style="--k:0"><span class="http-only">POST /login</span><span class="https-only">TLS 9f2c e17a</span></span>
-          <span class="scan-pk" style="--k:1"><span class="http-only">Host: bank.ge</span><span class="https-only">TLS 04b8 77d1</span></span>
-          <span class="scan-pk" style="--k:2"><span class="http-only">Cookie: sid=8f3c</span><span class="https-only">TLS c3a0 5e92</span></span>
-          <span class="scan-pk" style="--k:3"><span class="http-only">password=secret123</span><span class="https-only">TLS 1b6f d04c</span></span>
-          <span class="scan-lens"></span>
-        </div>
-        <p class="scan-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>bank.ge</p>
-        <button id="scanToggle" type="button" class="scan-btn" aria-pressed="false">HTTPS-ზე გადართვა →</button>
-      </div>
-      <div class="scan-read">
-        <span class="scan-read-label">შუაში ჩანს</span>
-        <!-- chip-ი ერთია ორივე რეჟიმისთვის (იცვლება მხოლოდ ტექსტი), რომ ანიმაცია packet-ებთან სინქრონში დარჩეს -->
-        <span class="scan-chip" style="--k:0"><span class="http-only">POST /login</span><span class="https-only">IP 93.184.216.34:443</span></span>
-        <span class="scan-chip" style="--k:1"><span class="http-only">Host: bank.ge</span><span class="https-only">SNI: bank.ge</span></span>
-        <span class="scan-chip" style="--k:2"><span class="http-only">Cookie: sid=8f3c…</span><span class="https-only">≈ 1.4 KB</span></span>
-        <span class="scan-chip" style="--k:3"><span class="http-only">password: secret123</span><span class="https-only">9f 2c e1 7a … ciphertext</span></span>
-      </div>
-    </figure>
-  </div>
-</section>
-
-<!-- 08 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="სტატუს კოდები" data-notes="კოდებს ზეპირად ნუ ასწავლი — მთავარი პირველი ციფრია: 2 — წარმატება, 3 — სხვაგან წადი, 4 — კლიენტის ბრალი, 5 — სერვერის ბრალი. დღევანდელი ლექციისთვის ორი კოდია მთავარი, 401 და 403 — შემდეგ სლაიდზე სწორედ ამ ორ ცნებას გავარჩევთ. ბოლოს აჩვენე fetch-ის ხაფანგი: 404-ზე და 500-ზე fetch არ აგდებს error-ს, ამიტომ res.ok ყოველთვის უნდა შემოწმდეს. (ვალიდაციის შეცდომაზე ზოგი API 400-ის ნაცვლად 422-ს აბრუნებს.)">
   <div class="grid h-full grid-cols-12 grid-rows-[auto_1fr_auto] gap-x-6 gap-y-4 px-14 py-12">
     <div class="col-span-12 flex items-end justify-between gap-10">
@@ -1215,7 +954,7 @@
   </div>
 </section>
 
-<!-- 09 ───────────────────────────────────────────────────────────── -->
+<!-- 05 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Authn vs Authz" data-notes="ეს ორი სიტყვა ინგლისურადაც ჰგავს ერთმანეთს — swap-ის რისკი მაღალია interview-ზეც კი. ბარათი ბოლოს დააკლიკე მხოლოდ მას შემდეგ, რაც დარბაზმა თავად სცადა პასუხის გამოცნობა.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-12">
@@ -1288,7 +1027,183 @@
   </div>
 </section>
 
-<!-- 10 ───────────────────────────────────────────────────────────── -->
+<!-- 06 ───────────────────────────────────────────────────────────── -->
+<section class="slide h-full" data-section="Auth სხემები" data-notes="ამნეზიის წამალი: ყოველ request-ს თავად ერთვის „ვინ ვარ“. ორი ოჯახი — stateful (სერვერი ინახავს სესიას, cookie-ში მხოლოდ id) და stateless (token-ი თავად ატარებს ინფორმაციას, სერვერი ხელმოწერას ამოწმებს). ხაზი გაუსვი: OAuth 2.0 authorization-ის ფრეიმვორკია, არა login-ის — login-ისთვის მის თავზე OpenID Connect-ი მოდის. Basic auth ყოველ request-ზე user:password-ს base64-ით აგზავნის — შემდეგ სლაიდზე ნავ, რატომ არ არის ეს დაცვა.">
+  <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
+    <div class="col-span-4 flex flex-col">
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>გადაწყვეტა</p>
+      <h2 class="display mt-4 text-5xl leading-[1] font-semibold">ამნეზიის<br>წამალი</h2>
+      <p class="mt-6 text-ink-2">სერვერს მეხსიერება არ აქვს — ამიტომ <span class="text-ink">ყოველ request-ს</span> ერთვის „ვინ ვარ“-ის მტკიცებულება. სხემები ორ ოჯახზე იყოფა: <span class="text-ink">ვინ ინახავს state-ს</span> — სერვერი თუ token-ი.</p>
+      <figure class="mt-6">
+        <svg class="dia fam" viewBox="0 0 360 196" role="img" aria-label="stateful: cookie-ს session id → სერვერი ბაზაში ეძებს. stateless: bearer token → სერვერი ხელმოწერას ამოწმებს ბაზის გარეშე.">
+          <text x="0" y="11" font-size="10" letter-spacing="1.2" fill="#545378">STATEFUL · სერვერი ახსოვს</text>
+          <rect x="0.5" y="24.5" width="58" height="40" rx="9" fill="#fff" stroke="#e3e1f3"/>
+          <path d="M0.5 35.5h58" stroke="#e3e1f3"/><circle cx="8" cy="30" r="1.8" fill="#c9c6e6"/><circle cx="14" cy="30" r="1.8" fill="#c9c6e6"/>
+          <rect x="10" y="42" width="38" height="5" rx="2.5" fill="#e3e1f3"/><rect x="10" y="51" width="24" height="6" rx="3" fill="#17153b"/>
+          <path d="M62 44.5h134" stroke="#c9c6e6" stroke-width="2" stroke-dasharray="5 5"/>
+          <text x="129" y="36" font-size="10" text-anchor="middle" fill="#0b2997">Cookie: sid=8f3c</text>
+          <circle class="dot" cx="66" cy="44.5" r="4" fill="#0b2997"/>
+          <rect x="200.5" y="24.5" width="62" height="40" rx="9" fill="#fff" stroke="#0b2997" stroke-width="1.5"/>
+          <rect x="210" y="32" width="42" height="6" rx="3" fill="#ebefff"/><rect x="210" y="42" width="42" height="6" rx="3" fill="#ebefff"/><rect x="210" y="52" width="26" height="6" rx="3" fill="#ebefff"/><circle cx="246" cy="55" r="2" fill="#059669"/>
+          <path class="look" d="M266 44.5h36" stroke="#ff6b35" stroke-width="1.8" stroke-dasharray="3 3"/>
+          <path class="db" d="M308 31v25c0 3.3 9.8 6 22 6s22-2.7 22-6V31" fill="#fff" stroke="#c9c6e6" stroke-width="1.5"/>
+          <ellipse class="db" cx="330" cy="31" rx="22" ry="6" fill="#fff" stroke="#c9c6e6" stroke-width="1.5"/>
+          <path d="M308 44c0 3.3 9.8 6 22 6s22-2.7 22-6" fill="none" stroke="#e3e1f3" stroke-width="1.2"/>
+          <text x="0" y="82" font-size="10.5" fill="#545378">ყოველ request-ზე — lookup ბაზაში</text>
+
+          <text x="0" y="115" font-size="10" letter-spacing="1.2" fill="#545378">STATELESS · token-ი ახსოვს</text>
+          <rect x="0.5" y="128.5" width="58" height="40" rx="9" fill="#fff" stroke="#e3e1f3"/>
+          <path d="M0.5 139.5h58" stroke="#e3e1f3"/><circle cx="8" cy="134" r="1.8" fill="#c9c6e6"/><circle cx="14" cy="134" r="1.8" fill="#c9c6e6"/>
+          <rect x="10" y="146" width="38" height="5" rx="2.5" fill="#e3e1f3"/><rect x="10" y="155" width="24" height="6" rx="3" fill="#17153b"/>
+          <path d="M62 148.5h134" stroke="#c9c6e6" stroke-width="2" stroke-dasharray="5 5"/>
+          <text x="129" y="140" font-size="10" text-anchor="middle" fill="#0b2997">Bearer eyJhbGci…</text>
+          <circle class="dot" cx="66" cy="148.5" r="4" fill="#0b2997"/>
+          <rect x="200.5" y="128.5" width="62" height="40" rx="9" fill="#fff" stroke="#0b2997" stroke-width="1.5"/>
+          <rect x="210" y="136" width="42" height="6" rx="3" fill="#ebefff"/><rect x="210" y="146" width="42" height="6" rx="3" fill="#ebefff"/><rect x="210" y="156" width="26" height="6" rx="3" fill="#ebefff"/><circle cx="246" cy="159" r="2" fill="#059669"/>
+          <g class="ok"><circle cx="318" cy="148.5" r="14" fill="#059669"/><path d="m311.5 148.5 4.5 4.5 8.5-9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+          <text x="0" y="187" font-size="10.5" fill="#545378">ხელმოწერის შემოწმება — ბაზის გარეშე</text>
+        </svg>
+      </figure>
+    </div>
+
+    <div class="col-span-8 flex min-w-0 flex-col justify-center gap-3">
+      <div data-stagger style="--step:55ms; align-self:stretch" class="flex flex-col gap-px bg-rule" role="table" aria-label="authentication-ის სხემები">
+        <div class="as-row as-head" role="row"><span role="columnheader">ტოკენი</span><span role="columnheader">რა ერთვის request-ს</span><span role="columnheader">სად — დღეს</span><span role="columnheader">სტატუსი</span></div>
+        <div class="as-row" role="row"><div role="cell"><p class="as-name">Session + Cookie</p><span class="as-tag">stateful</span></div><div role="cell" class="min-w-0"><p class="as-code">Cookie: <b>sid=8f3c…</b></p><p class="as-desc">სერვერი ინახავს სესიას — cookie-ში მხოლოდ id</p></div><p role="cell" class="as-use">SSR აპები: Django, Rails, Laravel</p><p role="cell"><span class="as-status ok">✓ სტანდარტი</span></p></div>
+        <div class="as-row" role="row"><div role="cell"><p class="as-name">Bearer · JWT</p><span class="as-tag">stateless</span></div><div role="cell" class="min-w-0"><p class="as-code">Authorization: Bearer <b>eyJhbGci…</b></p><p class="as-desc">token-ი თავად ამბობს ვინ ხარ — ბაზის გარეშე</p></div><p role="cell" class="as-use">SPA, mobile, microservices</p><p role="cell"><span class="as-status ok">✓ სტანდარტი</span></p></div>
+        <div class="as-row" role="row"><div role="cell"><p class="as-name">OAuth 2.0</p><span class="as-tag">delegated</span></div><div role="cell" class="min-w-0"><p class="as-code">Authorization: Bearer <b>ya29.a0Af…</b></p><p class="as-desc">სხვა აპს წვდომა — პაროლის გადაცემის გარეშე</p></div><p role="cell" class="as-use">„Connect GitHub“, third-party API</p><p role="cell"><span class="as-status ok">✓ სტანდარტი</span></p></div>
+        <div class="as-row" role="row"><div role="cell"><p class="as-name">OpenID Connect</p><span class="as-tag">identity</span></div><div role="cell" class="min-w-0"><p class="as-code">id_token: <b>eyJraWQi…</b></p><p class="as-desc">ვინ ხარ — Google-ის, Apple-ის მეშვეობით</p></div><p role="cell" class="as-use">Sign in with Google · SSO</p><p role="cell"><span class="as-status ok">✓ სტანდარტი</span></p></div>
+        <div class="as-row" role="row"><div role="cell"><p class="as-name">API Key</p><span class="as-tag">machine</span></div><div role="cell" class="min-w-0"><p class="as-code">X-API-Key: <b>sk_live_4eC3…</b></p><p class="as-desc">აპლიკაციის (არა ადამიანის) იდენტიფიკაცია</p></div><p role="cell" class="as-use">Stripe, OpenAI · server ↔ server</p><p role="cell"><span class="as-status mid">◐ მანქანები</span></p></div>
+        <div class="as-row" role="row"><div role="cell"><p class="as-name">mTLS</p><span class="as-tag">transport</span></div><div role="cell" class="min-w-0"><p class="as-code">TLS handshake: <b>client certificate</b></p><p class="as-desc">ორივე მხარე სერტიფიკატს ადასტურებს</p></div><p role="cell" class="as-use">ბანკები · service mesh · zero trust</p><p role="cell"><span class="as-status mid">◐ ნიშა</span></p></div>
+        <div class="as-row" role="row"><div role="cell"><p class="as-name">Basic Auth</p><span class="as-tag">legacy</span></div><div role="cell" class="min-w-0"><p class="as-code">Authorization: Basic <b>dXNlcjpwYXNz</b></p><p class="as-desc">user:password ყოველ request-ზე — base64, არა შიფრი</p></div><p role="cell" class="as-use">internal tools, CI, ძველი API</p><p role="cell"><span class="as-status old">✕ legacy</span></p></div>
+      </div>
+      <p class="as-foot"><b>Passkeys (WebAuthn)</b> პაროლს ცვლის login-ის მომენტში — login-ის შემდეგ მაინც session ან token-ი მოდის. <b>Digest, NTLM</b> — ✕ ნუ ვიყენებთ.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 ───────────────────────────────────────────────────────────── -->
+<section class="slide h-full" data-section="Encoding vs Encryption" data-notes="ყველაზე ხშირი მითი: „JWT დაშიფრულია“. ჩვენე: base64-ს atob() ერთ ხაზში დეკოდირებს — ეს encoding-ია, არა encryption. შემდეგ HTTPS-ზე გადართე: იგივე request, მაგრამ შუაში მყოფი მხოლოდ ბაიტების ხმაურს ხედავს. ოთხივე ცნება მიზნით განსხვავდება: encoding — ფორმატი, encryption — საიდუმლოება, hashing — ცალმხრივი შემოწმება (პაროლი), signing — მთლიანობა (JWT signature).">
+  <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
+    <div class="col-span-5 flex flex-col">
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>encoding ≠ encryption</p>
+      <h2 class="display mt-4 text-5xl leading-[1] font-semibold">Base64 —<br>არა შიფრი</h2>
+      <p class="mt-6 text-ink-2">Encoding ცვლის <span class="text-ink">ფორმას</span>, encryption მალავს <span class="text-ink">შინაარსს</span>. Base64-ის დეკოდირებას გასაღები არ სჭირდება — <code class="font-mono text-[13px]">atob()</code> ყველა ბრაუზერში არის. JWT-ის payload-იც base64-ა.</p>
+      <div data-stagger style="align-self:stretch" class="mt-6 flex flex-col gap-px bg-rule" role="table" aria-label="encoding, encryption, hashing, signing">
+        <div class="ec-row ec-head" role="row"><span role="columnheader"></span><span role="columnheader" class="text-center">გასაღები</span><span role="columnheader">წაიკითხავს</span></div>
+        <div class="ec-row" role="row"><div role="cell"><p class="ec-name">Encoding<span>Base64 · URL</span></p><p class="ec-desc">ფორმატი: ბაიტები → ტექსტი (JWT, Basic)</p></div><p role="cell" class="ec-key n">✕</p><p role="cell"><span class="ec-read bad">ყველა</span></p></div>
+        <div class="ec-row" role="row"><div role="cell"><p class="ec-name">Encryption<span>TLS · AES</span></p><p class="ec-desc">საიდუმლოება: HTTPS-ი მთელ request-ს შიფრავს</p></div><p role="cell" class="ec-key y">✓</p><p role="cell"><span class="ec-read ok">გასაღებით</span></p></div>
+        <div class="ec-row" role="row"><div role="cell"><p class="ec-name">Hashing<span>argon2 · bcrypt</span></p><p class="ec-desc">ცალმხრივი: პაროლი ბაზაში, უკან — არასდროს</p></div><p role="cell" class="ec-key n">✕</p><p role="cell"><span class="ec-read none">არავინ</span></p></div>
+        <div class="ec-row" role="row"><div role="cell"><p class="ec-name">Signing<span>HS256 · RS256</span></p><p class="ec-desc">მთლიანობა: JWT-ს წაიკითხავს ყველა, შეცვლის — არა</p></div><p role="cell" class="ec-key y">✓</p><p role="cell"><span class="ec-read warn">ყველა</span></p></div>
+      </div>
+    </div>
+
+    <div class="col-span-7 flex min-w-0 flex-col justify-center gap-4">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <p class="af-cap">login request · public Wi-Fi</p>
+        <div class="flex gap-2">
+          <button type="button" class="mitm-btn" data-mitm="http" aria-pressed="true">HTTP · ღია ტექსტი</button>
+          <button type="button" class="mitm-btn" data-mitm="https" aria-pressed="false">HTTPS · TLS</button>
+        </div>
+      </div>
+
+      <figure id="mitmFig" class="mitm" data-mode="http">
+        <div class="mt-stage">
+          <div class="mt-node">
+            <p class="mt-node-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg>ბრაუზერი</p>
+            <p class="mt-sub">nino@example.ge</p>
+            <p class="mt-sub">POST /login</p>
+          </div>
+          <div class="mt-wire">
+            <span class="mt-wire-label http-only">HTTP · ღია ტექსტი</span>
+            <span class="mt-wire-label https-only">TLS 1.3 · დაშიფრული</span>
+            <span class="mt-packet">
+              <span class="http-only flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg>Basic bmlub0Bl…</span>
+              <span class="https-only flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>17 03 03 00 d1…</span>
+            </span>
+            <span class="mt-copy" aria-hidden="true"></span>
+          </div>
+          <div class="mt-node">
+            <p class="mt-node-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>სერვერი</p>
+            <p class="mt-sub">api.example.ge</p>
+            <p class="mt-ok http-only" style="--d:2.8s">✓ 200 OK</p>
+            <p class="mt-ok https-only" style="--d:2.8s">✓ decrypt → 200</p>
+          </div>
+          <div class="mt-node mt-spy">
+            <p class="mt-node-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h18M5 11l2-6h10l2 6"/><circle cx="7.5" cy="16" r="3"/><circle cx="16.5" cy="16" r="3"/><path d="M10.5 16h3"/></svg>შუაში ვიღაც</p>
+            <p class="mt-sub">sniffer · იგივე Wi-Fi</p>
+          </div>
+        </div>
+
+        <div class="vsc">
+          <div class="vsc-bar"><span class="vsc-ptab">terminal</span><span class="vsc-desc">man-in-the-middle · wlan0</span></div>
+          <div class="mt-term">
+            <p class="mt-line" style="--d:1.9s"><span class="tk-pn">$</span> <span class="tk-fn">sniff</span> <span class="tk-var">--iface</span> wlan0</p>
+            <p class="mt-line http-only" style="--d:2.3s"><span class="tk-kw">POST</span> <span class="tk-str">/login</span> HTTP/1.1</p>
+            <p class="mt-line http-only" style="--d:2.7s"><span class="tk-var">Authorization</span>: Basic <span class="tk-str">bmlub0BleGFtcGxlLmdlOnNlY3JldDEyMw==</span></p>
+            <p class="mt-line http-only" style="--d:3.5s"><span class="tk-pn">$</span> <span class="tk-fn">atob</span>(<span class="tk-str">"bmlub0BleGFtcGxlLmdlOnNlY3JldDEyMw=="</span>)</p>
+            <p class="mt-line http-only" style="--d:4.3s"><span class="mt-leak">"nino@example.ge:secret123"</span><span class="mt-note bad">← პაროლი ღიაა</span></p>
+            <p class="mt-line https-only" style="--d:2.3s"><span class="tk-cm">TLS 1.3 · Application Data · 214 bytes</span></p>
+            <p class="mt-line https-only" style="--d:2.7s"><span class="mt-noise">17 03 03 00 d1 8e 4f c2 19 a7 0d 5b 93 e1 35 ff 6c 02 b8 …</span></p>
+            <p class="mt-line https-only" style="--d:3.5s"><span class="tk-pn">$</span> <span class="tk-fn">decode</span>(payload)</p>
+            <p class="mt-line https-only" style="--d:4.3s"><span class="mt-noise">"ŽOÂ§[“á5ÿl¸Ô…"</span><span class="mt-note ok">← ხმაური: გასაღების გარეშე არაფერი</span></p>
+          </div>
+        </div>
+
+        <p class="mt-verdict http-only" style="--d:4.8s">✕ Base64 ≠ დაცვა: შუაში მყოფი user:password-ს ერთ ბრძანებით კითხულობს.</p>
+        <p class="mt-verdict https-only" style="--d:4.8s">✓ TLS შიფრავს მთელ request-ს — header-ებს, cookie-ებს, token-ებს. შუაში ჩანს მხოლოდ domain (SNI) და ბაიტების ხმაური.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 08 ───────────────────────────────────────────────────────────── -->
+<section class="slide h-full" data-section="HTTP vs HTTPS" data-notes="S — TLS: შიფრაცია, მთლიანობა და სერვერის ვინაობა ერთად. ღილაკით ჩვენე, რა ჩანს შუაში: HTTP-ზე — URL, cookie, პაროლი; HTTPS-ზე — მხოლოდ IP, domain (SNI) და ზომა. HSTS-ი ბრაუზერს ეუბნევა: ამ საიტზე HTTP-ზე საერთოდ ნუ მიდიხარ.">
+  <div class="flex h-full flex-col justify-center px-14 py-12">
+    <div class="flex items-end justify-between gap-10">
+      <div>
+        <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>http vs https</p>
+        <h2 class="display mt-3 text-5xl font-semibold">S = Secure: რა იცვლება?</h2>
+      </div>
+      <p class="max-w-md text-sm text-ink-2">HTTPS = HTTP + TLS. Request-ი იგივეა — ოღონდ ბრაუზერსა და სერვერს შორის <span class="text-ink">დაშიფრული გვირაბი</span> ჩნდება, და სერვერი სერტიფიკატით ამტკიცებს, ვინ არის.</p>
+    </div>
+
+    <div data-stagger style="--step:60ms; align-self:stretch" class="mt-6 flex flex-col gap-px bg-rule" role="table" aria-label="HTTP vs HTTPS">
+      <div class="hh-row hh-head" role="row"><span role="columnheader"></span><span role="columnheader" class="hh-bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg>HTTP</span><span role="columnheader" class="hh-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>HTTPS</span></div>
+      <div class="hh-row" role="row"><p role="cell" class="hh-label">პორტი</p><p role="cell"><code>http://</code> · :80</p><p role="cell"><code>https://</code> · :443</p></div>
+      <div class="hh-row" role="row"><p role="cell" class="hh-label">შიფრაცია</p><p role="cell" class="hh-bad">✕ ღია ტექსტი — ყველა ხედავს</p><p role="cell" class="hh-ok">✓ TLS 1.3 · AES-GCM / ChaCha20</p></div>
+      <div class="hh-row" role="row"><p role="cell" class="hh-label">მთლიანობა</p><p role="cell" class="hh-bad">✕ გზაში შეცვლადია: რეკლამა, malware</p><p role="cell" class="hh-ok">✓ ყოველი ბაიტი MAC-ით — ცვლილება ჩანს</p></div>
+      <div class="hh-row" role="row"><p role="cell" class="hh-label">სერვერის ვინაობა</p><p role="cell" class="hh-bad">✕ ნებისმიერი „ვითომ“ სერვერი უპასუხებს</p><p role="cell" class="hh-ok">✓ სერტიფიკატი (CA) — ბრაუზერში საკეტი</p></div>
+      <div class="hh-row" role="row"><p role="cell" class="hh-label">cookie · token</p><p role="cell" class="hh-bad">✕ Secure cookie არ იგზავნება, token-ი ღიაა</p><p role="cell" class="hh-ok">✓ Secure cookie + HSTS — HTTP-ზე დაბრუნება ✕</p></div>
+      <div class="hh-row" role="row"><p role="cell" class="hh-label">ბრაუზერი</p><p role="cell" class="hh-bad">⚠ „Not secure“, HTTP/2-ის გარეშე</p><p role="cell" class="hh-ok">✓ HTTP/2 და HTTP/3 — მხოლოდ TLS-ით</p></div>
+    </div>
+
+    <figure id="scanDemo" class="scan mt-5" data-mode="http">
+      <div class="scan-grid">
+        <p class="scan-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg>ბრაუზერი</p>
+        <div class="scan-lane" aria-hidden="true">
+          <span class="scan-pk" style="--k:0"><span class="http-only">POST /login</span><span class="https-only">TLS 9f2c e17a</span></span>
+          <span class="scan-pk" style="--k:1"><span class="http-only">Host: bank.ge</span><span class="https-only">TLS 04b8 77d1</span></span>
+          <span class="scan-pk" style="--k:2"><span class="http-only">Cookie: sid=8f3c</span><span class="https-only">TLS c3a0 5e92</span></span>
+          <span class="scan-pk" style="--k:3"><span class="http-only">password=secret123</span><span class="https-only">TLS 1b6f d04c</span></span>
+          <span class="scan-lens"></span>
+        </div>
+        <p class="scan-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>bank.ge</p>
+        <button id="scanToggle" type="button" class="scan-btn" aria-pressed="false">HTTPS-ზე გადართვა →</button>
+      </div>
+      <div class="scan-read">
+        <span class="scan-read-label">შუაში ჩანს</span>
+        <!-- chip-ი ერთია ორივე რეჟიმისთვის (იცვლება მხოლოდ ტექსტი), რომ ანიმაცია packet-ებთან სინქრონში დარჩეს -->
+        <span class="scan-chip" style="--k:0"><span class="http-only">POST /login</span><span class="https-only">IP 93.184.216.34:443</span></span>
+        <span class="scan-chip" style="--k:1"><span class="http-only">Host: bank.ge</span><span class="https-only">SNI: bank.ge</span></span>
+        <span class="scan-chip" style="--k:2"><span class="http-only">Cookie: sid=8f3c…</span><span class="https-only">≈ 1.4 KB</span></span>
+        <span class="scan-chip" style="--k:3"><span class="http-only">password: secret123</span><span class="https-only">9f 2c e1 7a … ciphertext</span></span>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- 09 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="JWT" data-notes="დააკლიკინე დარბაზს სამივე ფერადი ბლოკი — highlight გადადის შესაბამის decoded ველზე. ხაზი გაუსვი: signature არ ნიშნავს დაშიფვრას. Payload ნებისმიერს შეუძლია წაიკითხოს base64-დან — არასდროს ჩადოთ იქ პაროლი თუ საიდუმლო.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
@@ -1334,6 +1249,96 @@
       </div>
 
       <p class="text-sm text-ink-2">რეალურ აპლიკაციაში payload-ში ხშირად ხედავთ დამატებით <code class="font-mono text-[12px]">roles</code>, <code class="font-mono text-[12px]">exp</code>, <code class="font-mono text-[12px]">iss</code>, <code class="font-mono text-[12px]">aud</code> ველებსაც — ეს კონკრეტული მაგალითი jwt.io-ს კლასიკური მინიმალური ტოკენია.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 ───────────────────────────────────────────────────────────── -->
+<section class="slide h-full" data-section="Opaque vs JWT" data-notes="ორივე token-ი Bearer-ით იგზავნება — სხვაობა token-ის შიგთავსშია. ნაბიჯებს ღილაკით „შემდეგ“ მართე: 1) ერთი სერვერი — opaque token-ი ok; 2) სამი სერვერი — load balancer-ი, token-ს ორი სერვერი არ იცნობს; 3) JWT; 4) მისი სამი ნაწილი; 5) ყოველი სერვერი ხელმოწერას თავად ამოწმებს. Trade-off-ი ნუ დაგავიწყდება: JWT-ს revoke რთულია — ამიტომ access token-ი ხანმოკლეა.">
+  <div class="flex h-full flex-col px-14 py-12">
+    <div class="flex items-end justify-between gap-8">
+      <div>
+        <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>bearer: opaque vs jwt</p>
+        <h2 class="display mt-3 text-5xl font-semibold">ვის „ახსოვს“ token-ი?</h2>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="bj-dots" aria-hidden="true"><i data-bj-dot="1" class="is-on"></i><i data-bj-dot="2"></i><i data-bj-dot="3"></i><i data-bj-dot="4"></i><i data-bj-dot="5"></i></div>
+        <button id="bjPrev" type="button" class="bj-btn ghost" disabled>← უკან</button>
+        <button id="bjNext" type="button" class="bj-btn">შემდეგ →</button>
+      </div>
+    </div>
+
+    <div id="bjDemo" class="bj mt-6 grid min-h-0 flex-1 grid-cols-2 gap-6" data-step="1">
+      <figure class="bj-panel bj-left">
+        <div class="bj-head"><p class="bj-title">შემთხვევითი token-ი</p><span class="bj-badge">Bearer · opaque</span></div>
+        <div class="bj-token">
+          <p class="bj-code">Authorization: Bearer <b style="color:#b45309">8f3c9a2e71d44b0f5a6e9c1d</b></p>
+          <p class="bj-note">შემთხვევითი ID — შიგნით არაფერი. სერვერს უნდა ახსოვდეს, ვის ეკუთვნის.</p>
+        </div>
+        <svg class="bj-net" viewBox="0 0 440 230" role="img" aria-label="opaque token: ერთი სერვერი token-ს იცნობს; სამი სერვერიდან ორი — არა">
+          <g class="multi">
+            <path class="ln" d="M340 115 106 40" style="stroke:#fda4af"/>
+            <path class="ln" d="M340 115 106 190" style="stroke:#fda4af"/>
+            <rect x="24.5" y="14.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="20" width="67" height="30" rx="3" fill="#fff1f2"/><path d="M64.5 60v7M50 67.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="64.5" y="33" font-size="9.5" text-anchor="middle" fill="#17153b">server 2</text><text x="64.5" y="45" font-size="9" text-anchor="middle" fill="#e11d48">8f3c → ∅</text>
+            <rect x="24.5" y="164.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="170" width="67" height="30" rx="3" fill="#fff1f2"/><path d="M64.5 210v7M50 217.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="64.5" y="183" font-size="9.5" text-anchor="middle" fill="#17153b">server 3</text><text x="64.5" y="195" font-size="9" text-anchor="middle" fill="#e11d48">8f3c → ∅</text>
+          </g>
+          <path class="ln" d="M340 115H106"/>
+          <rect x="24.5" y="89.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="95" width="67" height="30" rx="3" fill="#ecfdf5"/><path d="M64.5 135v7M50 142.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="64.5" y="108" font-size="9.5" text-anchor="middle" fill="#17153b">server 1</text><text x="64.5" y="120" font-size="9" text-anchor="middle" fill="#047857">8f3c → nino</text>
+          <g><circle cx="385" cy="99" r="13" fill="#0b2997"/><path d="M359 141a26 26 0 0 1 52 0z" fill="#0b2997"/><text x="385" y="160" font-size="10" text-anchor="middle" fill="#545378">nino</text></g>
+          <g class="pk m"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#d97706"/><text x="330" y="118.5" font-size="9.5" text-anchor="middle" fill="#b45309">8f3c…</text></g>
+          <g class="multi">
+            <g class="pk t"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#d97706"/><text x="330" y="118.5" font-size="9.5" text-anchor="middle" fill="#b45309">8f3c…</text></g>
+            <g class="pk b"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#d97706"/><text x="330" y="118.5" font-size="9.5" text-anchor="middle" fill="#b45309">8f3c…</text></g>
+            <g class="mark"><circle cx="223" cy="77.5" r="11" fill="#e11d48"/><path d="m218.5 73 9 9m0-9-9 9" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></g>
+            <g class="mark"><circle cx="223" cy="152.5" r="11" fill="#e11d48"/><path d="m218.5 148 9 9m0-9-9 9" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></g>
+          </g>
+          <g class="mark"><circle cx="223" cy="115" r="11" fill="#059669"/><path d="m218 115 3.5 3.5 6.5-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+        </svg>
+        <p class="bj-cap">
+          <span class="c c-single"><span class="ok">✓ ერთი სერვერი:</span> token-ი მის მეხსიერებაშია — ერთი lookup და მორჩა.</span>
+          <span class="c c-multi"><span class="bad">✕ სამი სერვერი:</span> load balancer-ი request-ს ნებისმიერზე აგზავნის — 2 და 3 token-ს არ იცნობს → 401. საერთო Redis-ი შველის, მაგრამ ყოველ request = ქსელის lookup.</span>
+        </p>
+      </figure>
+
+      <figure class="bj-panel bj-right">
+        <div class="bj-head"><p class="bj-title">ხელმოწერილი token-ი</p><span class="bj-badge">Bearer · JWT</span></div>
+        <div class="bj-token">
+          <div class="jw-wait">eyJ… · JWT — შემდეგ ნაბიჯზე →</div>
+          <p class="bj-code jw-string">Authorization: Bearer <span class="h" style="color:#0284c7">eyJhbGciOiJIUzI1NiJ9</span>.<span class="p" style="color:#059669">eyJzdWIiOiI0MiIsInJvbGUiOiJlZGl0b3IifQ</span>.<span class="s" style="color:#b45309">Zk3pQ9xR2LwT8mV1nB4cE7</span></p>
+          <div class="jw-parts">
+            <p class="jw-part h" style="--from:100%"><b>HEADER</b>{"alg":"HS256",<br>"typ":"JWT"}</p>
+            <p class="jw-part p"><b>PAYLOAD</b>{"sub":"42",<br>"role":"editor"}</p>
+            <p class="jw-part s" style="--from:-100%"><b>SIGNATURE</b>HMACSHA256(<br>h.p, secret)</p>
+          </div>
+        </div>
+        <svg class="bj-net" viewBox="0 0 440 230" role="img" aria-label="JWT: სამივე სერვერი ხელმოწერას ერთი და იმავე გასაღებით ამოწმებს">
+          <path class="ln" d="M340 115 106 40"/><path class="ln" d="M340 115H106"/><path class="ln" d="M340 115 106 190"/>
+          <rect x="24.5" y="14.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="20" width="67" height="30" rx="3" fill="#ebefff"/><path d="M64.5 60v7M50 67.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="64.5" y="33" font-size="9.5" text-anchor="middle" fill="#17153b">server 2</text><text x="64.5" y="45" font-size="9" text-anchor="middle" fill="#b45309">key K</text>
+          <rect x="24.5" y="89.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="95" width="67" height="30" rx="3" fill="#ebefff"/><path d="M64.5 135v7M50 142.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="64.5" y="108" font-size="9.5" text-anchor="middle" fill="#17153b">server 1</text><text x="64.5" y="120" font-size="9" text-anchor="middle" fill="#b45309">key K</text>
+          <rect x="24.5" y="164.5" width="80" height="46" rx="7" fill="#fff" stroke="#17153b" stroke-width="1.5"/><rect x="31" y="170" width="67" height="30" rx="3" fill="#ebefff"/><path d="M64.5 210v7M50 217.5h29" stroke="#17153b" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="64.5" y="183" font-size="9.5" text-anchor="middle" fill="#17153b">server 3</text><text x="64.5" y="195" font-size="9" text-anchor="middle" fill="#b45309">key K</text>
+          <g><circle cx="385" cy="99" r="13" fill="#0b2997"/><path d="M359 141a26 26 0 0 1 52 0z" fill="#0b2997"/><text x="385" y="160" font-size="10" text-anchor="middle" fill="#545378">nino</text></g>
+          <g class="live">
+            <g class="pk t"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#17153b"/><rect x="309" y="111" width="12" height="8" rx="2" fill="#7cc4ff"/><rect x="324" y="111" width="12" height="8" rx="2" fill="#34d399"/><rect x="339" y="111" width="12" height="8" rx="2" fill="#fbbf24"/></g>
+            <g class="pk m"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#17153b"/><rect x="309" y="111" width="12" height="8" rx="2" fill="#7cc4ff"/><rect x="324" y="111" width="12" height="8" rx="2" fill="#34d399"/><rect x="339" y="111" width="12" height="8" rx="2" fill="#fbbf24"/></g>
+            <g class="pk b"><rect x="302" y="106" width="56" height="18" rx="9" fill="#fff" stroke="#17153b"/><rect x="309" y="111" width="12" height="8" rx="2" fill="#7cc4ff"/><rect x="324" y="111" width="12" height="8" rx="2" fill="#34d399"/><rect x="339" y="111" width="12" height="8" rx="2" fill="#fbbf24"/></g>
+            <g class="mark"><circle cx="223" cy="77.5" r="11" fill="#059669"/><path d="m218 77.5 3.5 3.5 6.5-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <g class="mark"><circle cx="223" cy="115" r="11" fill="#059669"/><path d="m218 115 3.5 3.5 6.5-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <g class="mark"><circle cx="223" cy="152.5" r="11" fill="#059669"/><path d="m218 152.5 3.5 3.5 6.5-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+          </g>
+        </svg>
+        <p class="bj-cap">
+          <span class="c c-wait">JWT-ს ნავ მე-3 ნაბიჯიდან — ჯერ მარცხენა მხარე.</span>
+          <span class="c c-token">JWT — token-ი, რომელიც ინფორმაციას თავად ატარებს: სამი base64url ბლოკი, წერტილებით.</span>
+          <span class="c c-parts">header — ალგორითმი · payload — ვინ ხარ და რა უფლება გაქვს · signature — ხელმოწერა, რომელიც გაყალბებას არ დაუშვებს.</span>
+          <span class="c c-verify"><span class="ok">✓ ყოველი სერვერი</span> ხელმოწერას თავად ამოწმებს იმავე გასაღებით — ბაზა არ სჭირდება. Trade-off: revoke რთულია → access token-ი ხანმოკლე.</span>
+        </p>
+      </figure>
     </div>
   </div>
 </section>
@@ -1413,69 +1418,6 @@
 </section>
 
 <!-- 12 ───────────────────────────────────────────────────────────── -->
-<section class="slide h-full" data-section="Lifecycle" data-notes="გაატარე თითოეულ ნაბიჯზე ხმამაღლა. მე-4 და მე-5 ნაბიჯი ერთად წარმოადგინე — სწორედ ეს არის Silent Refresh, რომელსაც ცალკე სლაიდზე დავაგრძელებთ.">
-  <div class="grid h-full grid-cols-12 gap-10 px-14 py-12" data-player data-interval="2600">
-    <div class="col-span-4">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>lifecycle</p>
-      <h2 class="display mt-4 text-5xl leading-[1] font-semibold">Login-იდან<br>logout-მდე</h2>
-      <p class="mt-6 text-ink-2">ერთი token-ის სასიცოცხლო ციკლი ექვს ნაბიჯად. მომხმარებელი მხოლოდ პირველ და ბოლო ნაბიჯს ხედავს — შუალედური ხუთი ავტომატურია.</p>
-      <figure class="mt-6 border border-rule bg-panel p-4">
-        <svg class="dia seq" viewBox="0 0 340 300" role="img" aria-label="Sequence diagram: JS კლიენტსა და API-ს შორის token-ის ექვსი ნაბიჯი">
-          <g font-size="11">
-            <rect x="4" y="2" width="72" height="24" rx="12" fill="#0b2997"/><text x="40" y="18" text-anchor="middle" fill="#fff">JS app</text>
-            <rect x="264" y="2" width="72" height="24" rx="12" fill="#17153b"/><text x="300" y="18" text-anchor="middle" fill="#fff">API</text>
-            <path d="M40 30V296M300 30V296" stroke="#c9c6e6" stroke-width="1.5" stroke-dasharray="3 5"/>
-
-            <g data-step="1" fill="#0b2997" stroke="#0b2997">
-              <path d="M40 58H292" stroke-width="2"/><path d="M300 58l-9-4.5v9z" stroke="none"/>
-              <text x="170" y="50" stroke="none" text-anchor="middle">POST /auth/login</text>
-              <circle class="travel" cx="40" cy="58" r="4.5" stroke="none" style="--dx:252px"/>
-            </g>
-            <g data-step="2" fill="#0b2997" stroke="#0b2997">
-              <path d="M300 98H48" stroke-width="2"/><path d="M40 98l9-4.5v9z" stroke="none"/>
-              <text x="170" y="90" stroke="none" text-anchor="middle">200 · access + refresh 🍪</text>
-              <circle class="travel" cx="300" cy="98" r="4.5" stroke="none" style="--dx:-252px"/>
-            </g>
-            <g data-step="3" fill="#0b2997" stroke="#0b2997">
-              <path d="M40 138H292" stroke-width="2"/><path d="M300 138l-9-4.5v9z" stroke="none"/>
-              <text x="170" y="130" stroke="none" text-anchor="middle">GET /posts · Bearer ✓</text>
-              <circle class="travel" cx="40" cy="138" r="4.5" stroke="none" style="--dx:252px"/>
-            </g>
-            <g data-step="4" fill="#d97706" stroke="#d97706">
-              <path d="M300 178H48" stroke-width="2"/><path d="M40 178l9-4.5v9z" stroke="none"/>
-              <text x="170" y="170" stroke="none" text-anchor="middle">401 · access ვადაგასულია</text>
-              <circle class="travel" cx="300" cy="178" r="4.5" stroke="none" style="--dx:-252px"/>
-            </g>
-            <g data-step="5" fill="#059669" stroke="#059669">
-              <path d="M40 218H292" stroke-width="2"/><path d="M300 218l-9-4.5v9z" stroke="none"/>
-              <text x="170" y="210" stroke="none" text-anchor="middle">POST /auth/refresh 🍪</text>
-              <path d="M300 248H48" stroke-width="2"/><path d="M40 248l9-4.5v9z" stroke="none"/>
-              <text x="170" y="240" stroke="none" text-anchor="middle">ახალი access · retry ✓</text>
-              <circle class="travel" cx="40" cy="218" r="4.5" stroke="none" style="--dx:252px"/>
-            </g>
-            <g data-step="6" fill="#17153b" stroke="#17153b">
-              <path d="M300 288H48" stroke-width="2" stroke-dasharray="5 4"/><path d="M40 288l9-4.5v9z" stroke="none"/>
-              <text x="170" y="280" stroke="none" text-anchor="middle">refresh-იც ვადაგასულია → /login</text>
-              <circle class="travel" cx="300" cy="288" r="4.5" stroke="none" style="--dx:-252px"/>
-            </g>
-          </g>
-        </svg>
-        <figcaption class="mt-2 font-mono text-[11px] uppercase tracking-[0.15em] text-ink-2">ავტომატურად მიდის · დააკლიკე ნაბიჯს</figcaption>
-      </figure>
-    </div>
-
-    <ol class="col-span-8 flex flex-col justify-center gap-px bg-rule">
-      <li data-step class="grid cursor-pointer grid-cols-[3rem_1fr] gap-6 bg-paper p-5"><span class="flex h-8 w-8 items-center justify-center rounded-full border border-live/30 bg-live/10 font-mono text-[13px] text-live">1</span><span><span class="font-medium">Login.</span> <code class="font-mono text-[12px] text-ink-2">POST /auth/login</code> — სერვერი ამოწმებს credentials-ს.</span></li>
-      <li data-step class="grid cursor-pointer grid-cols-[3rem_1fr] gap-6 bg-paper p-5"><span class="flex h-8 w-8 items-center justify-center rounded-full border border-live/30 bg-live/10 font-mono text-[13px] text-live">2</span><span><span class="font-medium">სერვერი აბრუნებს ორ token-ს.</span> Access (მოკლევადიანი) + Refresh (გრძელვადიანი).</span></li>
-      <li data-step class="grid cursor-pointer grid-cols-[3rem_1fr] gap-6 bg-paper p-5"><span class="flex h-8 w-8 items-center justify-center rounded-full border border-live/30 bg-live/10 font-mono text-[13px] text-live">3</span><span><span class="font-medium">Access token ერთვის ყოველ request-ს.</span> <code class="font-mono text-[12px] text-ink-2">Authorization: Bearer &lt;token&gt;</code>.</span></li>
-      <li data-step class="grid cursor-pointer grid-cols-[3rem_1fr] gap-6 bg-paper p-5"><span class="flex h-8 w-8 items-center justify-center rounded-full border border-box-m/40 bg-box-m/10 font-mono text-[13px]" style="color:#d97706">4</span><span><span class="font-medium">Access token ვადა გადის.</span> შემდეგი request სერვერისგან <code class="font-mono text-[12px] text-ink-2">401</code>-ს იღებს.</span></li>
-      <li data-step class="grid cursor-pointer grid-cols-[3rem_1fr] gap-6 bg-paper p-5"><span class="flex h-8 w-8 items-center justify-center rounded-full border border-box-p/40 bg-box-p/10 font-mono text-[13px]" style="color:#059669">5</span><span><span class="font-medium"><code class="font-mono text-[13px]">apiFetch()</code> ავტომატურად ითხოვს ახალს.</span> Refresh token-ით — მომხმარებელი ვერაფერს ამჩნევს (silent refresh).</span></li>
-      <li data-step class="grid cursor-pointer grid-cols-[3rem_1fr] gap-6 bg-ink p-5 text-paper"><span class="flex h-8 w-8 items-center justify-center rounded-full border border-paper/30 bg-paper/10 font-mono text-[13px]">6</span><span><span class="font-medium">Refresh token-იც ვადაგასულია?</span> <span class="text-paper/70">მომხმარებელი გამოდის სისტემიდან და უბრუნდება login გვერდს.</span></span></li>
-    </ol>
-  </div>
-</section>
-
-<!-- 13 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="შენახვა" data-notes="ეს ხშირად დასმული interview კითხვაა — არავითარი „ერთადერთი სწორი პასუხი" არ არსებობს, ტრეიდ-ოფია. ხაზი გაუსვი httpOnly cookie-ს: JavaScript-ს საერთოდ არ შეუძლია მისი წაკითხვა — ესე იგი XSS-ითაც ვერ მოიპარავენ.">
   <div class="grid grid-cols-12 gap-10 px-14 pt-12 pb-8">
     <div class="col-span-4">
@@ -1543,6 +1485,69 @@
   </div>
 </section>
 
+<!-- 13 ───────────────────────────────────────────────────────────── -->
+<section class="slide h-full" data-section="Lifecycle" data-notes="გაატარე თითოეულ ნაბიჯზე ხმამაღლა. მე-4 და მე-5 ნაბიჯი ერთად წარმოადგინე — სწორედ ეს არის Silent Refresh, რომელსაც ცალკე სლაიდზე დავაგრძელებთ.">
+  <div class="grid h-full grid-cols-12 gap-10 px-14 py-12" data-player data-interval="2600">
+    <div class="col-span-4">
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>lifecycle</p>
+      <h2 class="display mt-4 text-5xl leading-[1] font-semibold">Login-იდან<br>logout-მდე</h2>
+      <p class="mt-6 text-ink-2">ერთი token-ის სასიცოცხლო ციკლი ექვს ნაბიჯად. მომხმარებელი მხოლოდ პირველ და ბოლო ნაბიჯს ხედავს — შუალედური ხუთი ავტომატურია.</p>
+      <figure class="mt-6 border border-rule bg-panel p-4">
+        <svg class="dia seq" viewBox="0 0 340 300" role="img" aria-label="Sequence diagram: JS კლიენტსა და API-ს შორის token-ის ექვსი ნაბიჯი">
+          <g font-size="11">
+            <rect x="4" y="2" width="72" height="24" rx="12" fill="#0b2997"/><text x="40" y="18" text-anchor="middle" fill="#fff">JS app</text>
+            <rect x="264" y="2" width="72" height="24" rx="12" fill="#17153b"/><text x="300" y="18" text-anchor="middle" fill="#fff">API</text>
+            <path d="M40 30V296M300 30V296" stroke="#c9c6e6" stroke-width="1.5" stroke-dasharray="3 5"/>
+
+            <g data-step="1" fill="#0b2997" stroke="#0b2997">
+              <path d="M40 58H292" stroke-width="2"/><path d="M300 58l-9-4.5v9z" stroke="none"/>
+              <text x="170" y="50" stroke="none" text-anchor="middle">POST /auth/login</text>
+              <circle class="travel" cx="40" cy="58" r="4.5" stroke="none" style="--dx:252px"/>
+            </g>
+            <g data-step="2" fill="#0b2997" stroke="#0b2997">
+              <path d="M300 98H48" stroke-width="2"/><path d="M40 98l9-4.5v9z" stroke="none"/>
+              <text x="170" y="90" stroke="none" text-anchor="middle">200 · access + refresh 🍪</text>
+              <circle class="travel" cx="300" cy="98" r="4.5" stroke="none" style="--dx:-252px"/>
+            </g>
+            <g data-step="3" fill="#0b2997" stroke="#0b2997">
+              <path d="M40 138H292" stroke-width="2"/><path d="M300 138l-9-4.5v9z" stroke="none"/>
+              <text x="170" y="130" stroke="none" text-anchor="middle">GET /posts · Bearer ✓</text>
+              <circle class="travel" cx="40" cy="138" r="4.5" stroke="none" style="--dx:252px"/>
+            </g>
+            <g data-step="4" fill="#d97706" stroke="#d97706">
+              <path d="M300 178H48" stroke-width="2"/><path d="M40 178l9-4.5v9z" stroke="none"/>
+              <text x="170" y="170" stroke="none" text-anchor="middle">401 · access ვადაგასულია</text>
+              <circle class="travel" cx="300" cy="178" r="4.5" stroke="none" style="--dx:-252px"/>
+            </g>
+            <g data-step="5" fill="#059669" stroke="#059669">
+              <path d="M40 218H292" stroke-width="2"/><path d="M300 218l-9-4.5v9z" stroke="none"/>
+              <text x="170" y="210" stroke="none" text-anchor="middle">POST /auth/refresh 🍪</text>
+              <path d="M300 248H48" stroke-width="2"/><path d="M40 248l9-4.5v9z" stroke="none"/>
+              <text x="170" y="240" stroke="none" text-anchor="middle">ახალი access · retry ✓</text>
+              <circle class="travel" cx="40" cy="218" r="4.5" stroke="none" style="--dx:252px"/>
+            </g>
+            <g data-step="6" fill="#17153b" stroke="#17153b">
+              <path d="M300 288H48" stroke-width="2" stroke-dasharray="5 4"/><path d="M40 288l9-4.5v9z" stroke="none"/>
+              <text x="170" y="280" stroke="none" text-anchor="middle">refresh-იც ვადაგასულია → /login</text>
+              <circle class="travel" cx="300" cy="288" r="4.5" stroke="none" style="--dx:-252px"/>
+            </g>
+          </g>
+        </svg>
+        <figcaption class="mt-2 font-mono text-[11px] uppercase tracking-[0.15em] text-ink-2">ავტომატურად მიდის · დააკლიკე ნაბიჯს</figcaption>
+      </figure>
+    </div>
+
+    <ol class="col-span-8 flex flex-col justify-center gap-px bg-rule">
+      <li data-step class="grid cursor-pointer grid-cols-[3rem_1fr] gap-6 bg-paper p-5"><span class="flex h-8 w-8 items-center justify-center rounded-full border border-live/30 bg-live/10 font-mono text-[13px] text-live">1</span><span><span class="font-medium">Login.</span> <code class="font-mono text-[12px] text-ink-2">POST /auth/login</code> — სერვერი ამოწმებს credentials-ს.</span></li>
+      <li data-step class="grid cursor-pointer grid-cols-[3rem_1fr] gap-6 bg-paper p-5"><span class="flex h-8 w-8 items-center justify-center rounded-full border border-live/30 bg-live/10 font-mono text-[13px] text-live">2</span><span><span class="font-medium">სერვერი აბრუნებს ორ token-ს.</span> Access (მოკლევადიანი) + Refresh (გრძელვადიანი).</span></li>
+      <li data-step class="grid cursor-pointer grid-cols-[3rem_1fr] gap-6 bg-paper p-5"><span class="flex h-8 w-8 items-center justify-center rounded-full border border-live/30 bg-live/10 font-mono text-[13px] text-live">3</span><span><span class="font-medium">Access token ერთვის ყოველ request-ს.</span> <code class="font-mono text-[12px] text-ink-2">Authorization: Bearer &lt;token&gt;</code>.</span></li>
+      <li data-step class="grid cursor-pointer grid-cols-[3rem_1fr] gap-6 bg-paper p-5"><span class="flex h-8 w-8 items-center justify-center rounded-full border border-box-m/40 bg-box-m/10 font-mono text-[13px]" style="color:#d97706">4</span><span><span class="font-medium">Access token ვადა გადის.</span> შემდეგი request სერვერისგან <code class="font-mono text-[12px] text-ink-2">401</code>-ს იღებს.</span></li>
+      <li data-step class="grid cursor-pointer grid-cols-[3rem_1fr] gap-6 bg-paper p-5"><span class="flex h-8 w-8 items-center justify-center rounded-full border border-box-p/40 bg-box-p/10 font-mono text-[13px]" style="color:#059669">5</span><span><span class="font-medium"><code class="font-mono text-[13px]">apiFetch()</code> ავტომატურად ითხოვს ახალს.</span> Refresh token-ით — მომხმარებელი ვერაფერს ამჩნევს (silent refresh).</span></li>
+      <li data-step class="grid cursor-pointer grid-cols-[3rem_1fr] gap-6 bg-ink p-5 text-paper"><span class="flex h-8 w-8 items-center justify-center rounded-full border border-paper/30 bg-paper/10 font-mono text-[13px]">6</span><span><span class="font-medium">Refresh token-იც ვადაგასულია?</span> <span class="text-paper/70">მომხმარებელი გამოდის სისტემიდან და უბრუნდება login გვერდს.</span></span></li>
+    </ol>
+  </div>
+</section>
+
 <!-- 14 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="fetch wrapper" data-notes="ხაზი გაუსვი: wrapper ერთხელ იწერება და ყველა request-ს ეხმარება — არც ერთ ფაილში აღარ დაგვჭირდება ხელით token-ის მიბმა. წესი: აპლიკაციის კოდში fetch() პირდაპირ აღარსად იწერება, მხოლოდ apiFetch().">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
@@ -1603,7 +1608,7 @@
 
       <div class="vsc">
         <div class="vsc-bar"><span class="vsc-tab"><span class="vsc-ico">≡</span>ფენები</span><span class="vsc-desc">აპლიკაცია მხოლოდ apiFetch()-ს იძახებს</span></div>
-        <pre class="text-[12.5px] leading-[1.8]"><code><span class="tk-fn">apiFetch</span>(<span class="tk-var">url</span>)         <span class="tk-cm">// 401 → refresh → retry (სლაიდი 16)</span>
+        <pre class="text-[12.5px] leading-[1.8]"><code><span class="tk-fn">apiFetch</span>(<span class="tk-var">url</span>)         <span class="tk-cm">// 401 → refresh → retry (სლაიდი 15)</span>
   <span class="tk-pn">└─</span> <span class="tk-fn">authFetch</span>(<span class="tk-var">url</span>)   <span class="tk-cm">// + Authorization: Bearer</span>
        <span class="tk-pn">└─</span> <span class="tk-fn">fetch</span>(<span class="tk-var">url</span>)</code></pre>
       </div>
@@ -1612,48 +1617,6 @@
 </section>
 
 <!-- 15 ───────────────────────────────────────────────────────────── -->
-<section class="slide h-full" data-section="Session" data-notes="ეს ცოცხალი დემოა — 15 წუთის ნაცვლად წამებში. ჯერ არაფერს ეხე, დაუტოვე 0-მდე ჩავიდეს, აჩვენე warning ფაზა და locked overlay. მერე Reset და აჩვენე, როგორ არღვევს activity ღილაკი countdown-ს.">
-  <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
-    <div class="col-span-4">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>session</p>
-      <h2 class="display mt-4 text-5xl leading-[1] font-semibold">უმოქმედო<br>სესია</h2>
-      <p class="mt-6 text-ink-2">Access token-ის ვადა და <span class="text-ink">idle timeout</span> ორი სხვადასხვა საათია. Idle timeout ითვლის არა token-ის ასაკს, არამედ — რამდენი ხანია მომხმარებელმა არაფერი გააკეთა.</p>
-      <p class="mt-4 border-l-2 border-flame pl-5 text-sm text-ink-2">დემოში 15 წუთის ნაცვლად 15 წამს ვიყენებთ, რომ პასუხი დარბაზში დავინახოთ.</p>
-      <div class="vsc mt-6">
-        <div class="vsc-bar"><span class="vsc-tab"><span class="vsc-ico js">JS</span>session.js</span></div>
-        <pre class="text-[12px] leading-[1.8]"><code><span class="tk-st">const</span> <span class="tk-cst">events</span> = [<span class="tk-str">'mousemove'</span>, <span class="tk-str">'keydown'</span>];
-<span class="tk-cst">events</span>.<span class="tk-fn">forEach</span>(<span class="tk-var">type</span> <span class="tk-st">=&gt;</span>
-  <span class="tk-fn">addEventListener</span>(<span class="tk-var">type</span>, <span class="tk-fn">resetTimer</span>));</code></pre>
-      </div>
-    </div>
-
-    <div class="col-span-8 flex flex-col justify-center">
-      <div id="sessionDemo" class="relative overflow-hidden border border-rule bg-panel">
-        <div class="flex items-center justify-between px-6 pt-6">
-          <p id="sessionStatus" class="font-mono text-sm font-medium text-live">● აქტიური სესია</p>
-          <p class="font-mono text-sm text-ink-2"><span id="sessionSeconds">15</span>s დარჩენილია</p>
-        </div>
-        <div class="mx-6 mt-4 h-2 overflow-hidden rounded-full bg-rule">
-          <div id="sessionBar" class="h-full w-full rounded-full bg-live transition-[width] duration-150 ease-linear"></div>
-        </div>
-        <div class="flex flex-wrap gap-3 px-6 py-6">
-          <button id="sessionActivityBtn" class="border border-ink bg-ink px-4 py-2.5 font-mono text-[13px] text-paper hover:bg-ink-2">მოქმედება (mousemove)</button>
-          <button id="sessionResetBtn" class="border border-rule bg-paper px-4 py-2.5 font-mono text-[13px] hover:border-ink">↻ დემოს გადატვირთვა</button>
-        </div>
-
-        <div id="sessionOverlay" class="pointer-events-none absolute inset-0 flex hidden flex-col items-center justify-center gap-3 bg-ink/95 text-center text-paper">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-box-m"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          <p class="text-xl font-semibold">სესია ამოიწურა</p>
-          <p class="max-w-xs text-sm text-paper/60">15 წამი უმოქმედობის შემდეგ — token გასუფთავდა, redirect: /login</p>
-          <button id="sessionRelogin" class="pointer-events-auto mt-2 border border-paper/40 px-4 py-2 font-mono text-[12px] hover:border-box-p hover:text-box-p">ხელახლა შესვლა</button>
-        </div>
-      </div>
-      <img class="ill mt-5 ml-auto w-[15vw] max-w-[250px] -scale-x-100" src="img/storyset/time-management.svg" alt="">
-    </div>
-  </div>
-</section>
-
-<!-- 16 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Silent Refresh" data-notes="ეს ყველაზე ხშირად არასწორად დაწერილი ნაწილია. კითხვა დარბაზს: რა მოხდება, თუ ერთდროულად 5 request გავა და ყველა 401-ს მიიღებს — ხუთივე გამოიძახებს /refresh-ს? სწორედ ეს არის race condition. გამოსავალი ერთი საერთო Promise-ია: პირველი 401 მას ქმნის, დანარჩენები იმავეს await-ით ელოდებიან.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5">
@@ -1748,6 +1711,48 @@
   <span class="tk-kw">return</span> <span class="tk-fn">authFetch</span>(<span class="tk-var">url</span>, <span class="tk-var">options</span>);   <span class="tk-cm">// retry ახალი token-ით</span>
 }</code></pre>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 ───────────────────────────────────────────────────────────── -->
+<section class="slide h-full" data-section="Session" data-notes="ეს ცოცხალი დემოა — 15 წუთის ნაცვლად წამებში. ჯერ არაფერს ეხე, დაუტოვე 0-მდე ჩავიდეს, აჩვენე warning ფაზა და locked overlay. მერე Reset და აჩვენე, როგორ არღვევს activity ღილაკი countdown-ს.">
+  <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
+    <div class="col-span-4">
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>session</p>
+      <h2 class="display mt-4 text-5xl leading-[1] font-semibold">უმოქმედო<br>სესია</h2>
+      <p class="mt-6 text-ink-2">Access token-ის ვადა და <span class="text-ink">idle timeout</span> ორი სხვადასხვა საათია. Idle timeout ითვლის არა token-ის ასაკს, არამედ — რამდენი ხანია მომხმარებელმა არაფერი გააკეთა.</p>
+      <p class="mt-4 border-l-2 border-flame pl-5 text-sm text-ink-2">დემოში 15 წუთის ნაცვლად 15 წამს ვიყენებთ, რომ პასუხი დარბაზში დავინახოთ.</p>
+      <div class="vsc mt-6">
+        <div class="vsc-bar"><span class="vsc-tab"><span class="vsc-ico js">JS</span>session.js</span></div>
+        <pre class="text-[12px] leading-[1.8]"><code><span class="tk-st">const</span> <span class="tk-cst">events</span> = [<span class="tk-str">'mousemove'</span>, <span class="tk-str">'keydown'</span>];
+<span class="tk-cst">events</span>.<span class="tk-fn">forEach</span>(<span class="tk-var">type</span> <span class="tk-st">=&gt;</span>
+  <span class="tk-fn">addEventListener</span>(<span class="tk-var">type</span>, <span class="tk-fn">resetTimer</span>));</code></pre>
+      </div>
+    </div>
+
+    <div class="col-span-8 flex flex-col justify-center">
+      <div id="sessionDemo" class="relative overflow-hidden border border-rule bg-panel">
+        <div class="flex items-center justify-between px-6 pt-6">
+          <p id="sessionStatus" class="font-mono text-sm font-medium text-live">● აქტიური სესია</p>
+          <p class="font-mono text-sm text-ink-2"><span id="sessionSeconds">15</span>s დარჩენილია</p>
+        </div>
+        <div class="mx-6 mt-4 h-2 overflow-hidden rounded-full bg-rule">
+          <div id="sessionBar" class="h-full w-full rounded-full bg-live transition-[width] duration-150 ease-linear"></div>
+        </div>
+        <div class="flex flex-wrap gap-3 px-6 py-6">
+          <button id="sessionActivityBtn" class="border border-ink bg-ink px-4 py-2.5 font-mono text-[13px] text-paper hover:bg-ink-2">მოქმედება (mousemove)</button>
+          <button id="sessionResetBtn" class="border border-rule bg-paper px-4 py-2.5 font-mono text-[13px] hover:border-ink">↻ დემოს გადატვირთვა</button>
+        </div>
+
+        <div id="sessionOverlay" class="pointer-events-none absolute inset-0 flex hidden flex-col items-center justify-center gap-3 bg-ink/95 text-center text-paper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-box-m"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <p class="text-xl font-semibold">სესია ამოიწურა</p>
+          <p class="max-w-xs text-sm text-paper/60">15 წამი უმოქმედობის შემდეგ — token გასუფთავდა, redirect: /login</p>
+          <button id="sessionRelogin" class="pointer-events-auto mt-2 border border-paper/40 px-4 py-2 font-mono text-[12px] hover:border-box-p hover:text-box-p">ხელახლა შესვლა</button>
+        </div>
+      </div>
+      <img class="ill mt-5 ml-auto w-[15vw] max-w-[250px] -scale-x-100" src="img/storyset/time-management.svg" alt="">
     </div>
   </div>
 </section>
@@ -1961,7 +1966,7 @@
 <section class="slide h-full" data-section="Permission UI" data-notes="მთავარი დემო სლაიდი — გაატარე დარბაზს ღილაკები, ერთმანეთის მიყოლებით (Guest → Viewer → Editor → Admin). ყოველ ცვლილებაზე ხმამაღლა წაიკითხე, რომელი toolbar ღილაკი გაითიშა/ჩაირთო და რატომ — ეს ხდება პირდაპირ იმ permission matrix-ის მიხედვით, რაც წინა სლაიდზე ვნახეთ.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12" data-lab>
     <div class="col-span-4">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>ცოცხალი დემო</p>
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>დემო</p>
       <h2 class="display mt-4 text-5xl leading-[1] font-semibold">Permission<br>Engine UI-ში</h2>
       <p class="mt-6 text-ink-2">გადართე role — იგივე toolbar სხვადასხვანაირად რეაგირებს, ერთი და იმავე <code class="font-mono text-[13px]">can()</code> ფუნქციის მეშვეობით.</p>
       <div class="vsc mt-6">
@@ -2068,84 +2073,6 @@
 </section>
 
 <!-- 22 ───────────────────────────────────────────────────────────── -->
-<section class="slide h-full" data-section="სურათი" data-notes="ეს არის მთელი დღევანდელი ლექციის ერთ ხაზად ჩაწერა. გაატარე მარცხნიდან მარჯვნივ და ხმამაღლა დაასახელე თითოეული ეტაპი, ერთი წინადადებით.">
-  <div class="flex h-full flex-col justify-center px-14 py-12">
-    <div class="flex items-end justify-between gap-10">
-      <div>
-        <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>დიდი სურათი</p>
-        <h2 class="display mt-3 text-5xl font-semibold">ერთი მოთხოვნის მთელი გზა</h2>
-      </div>
-      <img class="ill -mb-4 w-[15vw] max-w-[250px] shrink-0" src="img/storyset/secure-server.svg" alt="">
-    </div>
-
-    <div class="flow mt-10 flex flex-wrap items-stretch gap-3 font-mono text-[13px]">
-      <div class="flex min-w-[8.5rem] flex-1 flex-col justify-center border border-live bg-live/10 p-4 text-center"><p class="font-semibold text-live">Login</p><p class="mt-1 text-[11px] text-ink-2">credentials → tokens</p></div>
-      <span class="flex items-center text-ink-2">→</span>
-      <div class="flex min-w-[8.5rem] flex-1 flex-col justify-center border border-rule bg-panel p-4 text-center"><p class="font-semibold">Storage</p><p class="mt-1 text-[11px] text-ink-2">memory + httpOnly</p></div>
-      <span class="flex items-center text-ink-2">→</span>
-      <div class="flex min-w-[8.5rem] flex-1 flex-col justify-center border border-rule bg-panel p-4 text-center"><p class="font-semibold">apiFetch()</p><p class="mt-1 text-[11px] text-ink-2">Bearer header</p></div>
-      <span class="flex items-center text-ink-2">→</span>
-      <div class="flex min-w-[8.5rem] flex-1 flex-col justify-center border border-rule bg-panel p-4 text-center"><p class="font-semibold">Guard</p><p class="mt-1 text-[11px] text-ink-2">route access</p></div>
-      <span class="flex items-center text-ink-2">→</span>
-      <div class="flex min-w-[8.5rem] flex-1 flex-col justify-center border border-box-p bg-box-p/10 p-4 text-center" style="color:#059669"><p class="font-semibold">RBAC UI</p><p class="mt-1 text-[11px] text-ink-2">can(permission)</p></div>
-      <span class="flex items-center text-ink-2">→</span>
-      <div class="flex min-w-[8.5rem] flex-1 flex-col justify-center border p-4 text-center" style="border-color:#d97706; background:#fbbf241a; color:#d97706"><p class="font-semibold">401?</p><p class="mt-1 text-[11px] text-ink-2">silent refresh</p></div>
-      <span class="flex items-center text-ink-2">→</span>
-      <div class="flex min-w-[8.5rem] flex-1 flex-col justify-center border border-ink bg-ink p-4 text-center text-paper"><p class="font-semibold">Logout</p><p class="mt-1 text-[11px] text-paper/60">idle ან refresh-fail</p></div>
-    </div>
-
-    <p class="mt-8 max-w-3xl text-ink-2">ეს არის შვიდივე ცნება, ერთ დიაგრამად — Authentication, token lifecycle, storage, fetch wrapper, guard, RBAC და session expiration ერთი ჯაჭვია და არა შვიდი ცალკეული თემა.</p>
-  </div>
-</section>
-
-<!-- 23 ───────────────────────────────────────────────────────────── -->
-<section class="slide h-full" data-section="შეცდომები" data-notes="თითოეულ პუნქტზე იკითხე: ვისთვის ჰგავს ეს ნაცნობს? საკუთარი პროექტიდან პირადი მაგალითი, თუ გაქვს, აქ ყველაზე მეტად მუშაობს.">
-  <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
-    <div class="col-span-4">
-      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>ხშირი შეცდომები</p>
-      <h2 class="display mt-4 text-5xl leading-[1] font-semibold">რაზე<br>ვცდებით</h2>
-      <p class="mt-6 text-ink-2">ექვსი შეცდომა, რომელიც production-ში ყველაზე ხშირად გვხვდება — ცალ-ცალკე უწყინარია, ერთად კრიტიკულია.</p>
-      <img class="ill mt-8 w-full max-w-[235px]" src="img/storyset/hacker.svg" alt="">
-    </div>
-
-    <div data-stagger class="col-span-8 grid grid-cols-2 gap-px bg-rule">
-      <div class="bg-panel p-5"><p class="flex items-center gap-2 font-mono text-[11px] text-ink-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 text-box-m"><path d="M12 9v4"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 17h.01"/></svg>#1</p><p class="mt-2 text-sm">Access token დაუცველ localStorage-ში — ნებისმიერი XSS მას პირდაპირ კითხულობს.</p></div>
-      <div class="bg-panel p-5"><p class="flex items-center gap-2 font-mono text-[11px] text-ink-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 text-box-m"><path d="M12 9v4"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 17h.01"/></svg>#2</p><p class="mt-2 text-sm">Role-ის შემოწმება მხოლოდ frontend-ზე — ღილაკი დამალულია, endpoint კი ღიაა curl-ისთვის.</p></div>
-      <div class="bg-panel p-5"><p class="flex items-center gap-2 font-mono text-[11px] text-ink-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 text-box-m"><path d="M12 9v4"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 17h.01"/></svg>#3</p><p class="mt-2 text-sm">Refresh call-ის დუბლირება — გაუთვალისწინებელი race condition, თითქმის-შემთხვევითი logout-ები.</p></div>
-      <div class="bg-panel p-5"><p class="flex items-center gap-2 font-mono text-[11px] text-ink-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 text-box-m"><path d="M12 9v4"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 17h.01"/></svg>#4</p><p class="mt-2 text-sm">JWT payload-ის ნდობა შემოწმების გარეშე — ხელმოწერას ყოველთვის ამოწმებს <span class="text-ink">სერვერი</span>, არა client.</p></div>
-      <div class="bg-panel p-5"><p class="flex items-center gap-2 font-mono text-[11px] text-ink-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 text-box-m"><path d="M12 9v4"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 17h.01"/></svg>#5</p><p class="mt-2 text-sm">Refresh token rotation არ არსებობს — მოპარული refresh token სამუდამოდ მუშაობს ვადის ამოწურვამდე.</p></div>
-      <div class="bg-ink p-5 text-paper"><p class="flex items-center gap-2 font-mono text-[11px] text-paper/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 text-box-m"><path d="M12 9v4"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 17h.01"/></svg>#6</p><p class="mt-2 text-sm text-paper/80">Logout მხოლოდ client-ის token-ს შლის — server-side revoke-ის გარეშე ძველი access token ვადის ამოწურვამდე მუშაობს.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 24 ───────────────────────────────────────────────────────────── -->
-<section class="slide h-full" data-section="შეჯამება" data-notes="დაასრულე ერთი წინადადებით. მერე დაავალე: აიღონ საკუთარი პროექტის ერთი guarded route, დაწერონ მისთვის permission-ზე დაფუძნებული toolbar — ისე, როგორც დღეს ვნახეთ RBAC დემოში.">
-  <div class="flex h-full flex-col justify-between px-14 py-12">
-    <div class="flex items-start justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-ink-2">
-      <span>შეჯამება</span><span>კითხვები</span>
-    </div>
-
-    <div class="grid grid-cols-12 gap-10">
-      <div class="col-span-7">
-        <img class="ill mb-5 w-[11vw] max-w-[190px]" src="img/storyset/key.svg" alt="">
-        <h2 class="display text-[3.6vw] leading-[1.15] font-semibold">Authentication ამბობს<br><span class="grad-text">ვინ ხარ.</span><br>Authorization ამბობს<br><span class="grad-text">რისი უფლება გაქვს.</span></h2>
-        <p class="mt-8 max-w-xl text-lg text-ink-2">
-          Token-ის სასიცოცხლო ციკლი, silent refresh, RBAC UI — ეს ყველაფერი მხოლოდ ამ ორი კითხვის
-          პასუხს აუმჯობესებს გამოცდილებას. საბოლოო გადაწყვეტილებას ყოველთვის სერვერი იღებს.
-        </p>
-      </div>
-      <div data-stagger style="--step:110ms" class="col-span-5 flex flex-col justify-end gap-px bg-rule">
-        <div class="bg-panel p-5"><p class="font-mono text-xs text-flame-d">დასამახსოვრებელი</p><p class="mt-2">Access token მოკლეა განზრახ — რისკის ფანჯარა პატარაა.</p></div>
-        <div class="bg-panel p-5"><p class="font-mono text-xs text-flame-d">დასამახსოვრებელი</p><p class="mt-2">Silent refresh მომხმარებელს არასდროს აჩვენებს login-ს, სანამ refresh token ცოცხალია.</p></div>
-        <div class="bg-panel p-5"><p class="font-mono text-xs text-flame-d">დასამახსოვრებელი</p><p class="mt-2">Role არის permissions-ის კონტეინერი, არა <code class="font-mono text-[13px]">if</code>-ის პირობა.</p></div>
-        <div class="bg-panel p-5"><p class="font-mono text-xs text-flame-d">დასამახსოვრებელი</p><p class="mt-2">Frontend-ის RBAC არის UX. Backend-ის RBAC არის უსაფრთხოება.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 25 ───────────────────────────────────────────────────────────── -->
 <section class="slide h-full" data-section="Auth flow" data-notes="კუბი თავად ბრუნავს მარცხნივ: ხუთი ფორმა, და ყოველ ფორმის endpoint ქვემოთ ინთება. ვალიდაციის საჩვენებლად წაშალე ველი ან შეიყვანე კოდი 000000. დააკლიკე ფორმას ან ღილაკს, რომ ბრუნვა შეჩერდეს. ხაზი გაუსვი: login-ის პასუხში accessToken body-ში მოდის და მხოლოდ მეხსიერებაში ინახება, refresh token-ს სერვერი Set-Cookie-თი httpOnly cookie-ში ჩადებს — JS-ი მას საერთოდ ვერ ხედავს. forgot-password ყოველთვის 202-ს აბრუნებს, რომ არ ჩანდეს, email რეგისტრირებულია თუ არა. ხაზი გაუსვი: client-ის ვალიდაცია UX-ისთვისაა — სერვერი ყველაფერს თავიდან ამოწმებს.">
   <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
     <div class="col-span-5 flex min-w-0 flex-col">
@@ -2305,6 +2232,84 @@
           <div class="af-ep" data-ep="forgot"><span class="af-m post">POST</span><span class="af-path">/auth/forgot-password</span><span class="af-auth pub">public</span><p>email → ყოველთვის 202</p></div>
           <div class="af-ep" data-ep="reset"><span class="af-m post">POST</span><span class="af-path">/auth/reset-password</span><span class="af-auth pub">public</span><p>token + ახალი პაროლი → 204</p></div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 23 ───────────────────────────────────────────────────────────── -->
+<section class="slide h-full" data-section="სურათი" data-notes="ეს არის მთელი დღევანდელი ლექციის ერთ ხაზად ჩაწერა. გაატარე მარცხნიდან მარჯვნივ და ხმამაღლა დაასახელე თითოეული ეტაპი, ერთი წინადადებით.">
+  <div class="flex h-full flex-col justify-center px-14 py-12">
+    <div class="flex items-end justify-between gap-10">
+      <div>
+        <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>დიდი სურათი</p>
+        <h2 class="display mt-3 text-5xl font-semibold">ერთი მოთხოვნის მთელი გზა</h2>
+      </div>
+      <img class="ill -mb-4 w-[15vw] max-w-[250px] shrink-0" src="img/storyset/secure-server.svg" alt="">
+    </div>
+
+    <div class="flow mt-10 flex flex-wrap items-stretch gap-3 font-mono text-[13px]">
+      <div class="flex min-w-[8.5rem] flex-1 flex-col justify-center border border-live bg-live/10 p-4 text-center"><p class="font-semibold text-live">Login</p><p class="mt-1 text-[11px] text-ink-2">credentials → tokens</p></div>
+      <span class="flex items-center text-ink-2">→</span>
+      <div class="flex min-w-[8.5rem] flex-1 flex-col justify-center border border-rule bg-panel p-4 text-center"><p class="font-semibold">Storage</p><p class="mt-1 text-[11px] text-ink-2">memory + httpOnly</p></div>
+      <span class="flex items-center text-ink-2">→</span>
+      <div class="flex min-w-[8.5rem] flex-1 flex-col justify-center border border-rule bg-panel p-4 text-center"><p class="font-semibold">apiFetch()</p><p class="mt-1 text-[11px] text-ink-2">Bearer header</p></div>
+      <span class="flex items-center text-ink-2">→</span>
+      <div class="flex min-w-[8.5rem] flex-1 flex-col justify-center border border-rule bg-panel p-4 text-center"><p class="font-semibold">Guard</p><p class="mt-1 text-[11px] text-ink-2">route access</p></div>
+      <span class="flex items-center text-ink-2">→</span>
+      <div class="flex min-w-[8.5rem] flex-1 flex-col justify-center border border-box-p bg-box-p/10 p-4 text-center" style="color:#059669"><p class="font-semibold">RBAC UI</p><p class="mt-1 text-[11px] text-ink-2">can(permission)</p></div>
+      <span class="flex items-center text-ink-2">→</span>
+      <div class="flex min-w-[8.5rem] flex-1 flex-col justify-center border p-4 text-center" style="border-color:#d97706; background:#fbbf241a; color:#d97706"><p class="font-semibold">401?</p><p class="mt-1 text-[11px] text-ink-2">silent refresh</p></div>
+      <span class="flex items-center text-ink-2">→</span>
+      <div class="flex min-w-[8.5rem] flex-1 flex-col justify-center border border-ink bg-ink p-4 text-center text-paper"><p class="font-semibold">Logout</p><p class="mt-1 text-[11px] text-paper/60">idle ან refresh-fail</p></div>
+    </div>
+
+    <p class="mt-8 max-w-3xl text-ink-2">ეს არის შვიდივე ცნება, ერთ დიაგრამად — Authentication, token lifecycle, storage, fetch wrapper, guard, RBAC და session expiration ერთი ჯაჭვია და არა შვიდი ცალკეული თემა.</p>
+  </div>
+</section>
+
+<!-- 24 ───────────────────────────────────────────────────────────── -->
+<section class="slide h-full" data-section="შეცდომები" data-notes="თითოეულ პუნქტზე იკითხე: ვისთვის ჰგავს ეს ნაცნობს? საკუთარი პროექტიდან პირადი მაგალითი, თუ გაქვს, აქ ყველაზე მეტად მუშაობს.">
+  <div class="grid h-full grid-cols-12 gap-10 px-14 py-12">
+    <div class="col-span-4">
+      <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-flame-d"><span class="h-1.5 w-1.5 rounded-full bg-flame"></span>ხშირი შეცდომები</p>
+      <h2 class="display mt-4 text-5xl leading-[1] font-semibold">რაზე<br>ვცდებით</h2>
+      <p class="mt-6 text-ink-2">ექვსი შეცდომა, რომელიც production-ში ყველაზე ხშირად გვხვდება — ცალ-ცალკე უწყინარია, ერთად კრიტიკულია.</p>
+      <img class="ill mt-8 w-full max-w-[235px]" src="img/storyset/hacker.svg" alt="">
+    </div>
+
+    <div data-stagger class="col-span-8 grid grid-cols-2 gap-px bg-rule">
+      <div class="bg-panel p-5"><p class="flex items-center gap-2 font-mono text-[11px] text-ink-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 text-box-m"><path d="M12 9v4"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 17h.01"/></svg>#1</p><p class="mt-2 text-sm">Access token დაუცველ localStorage-ში — ნებისმიერი XSS მას პირდაპირ კითხულობს.</p></div>
+      <div class="bg-panel p-5"><p class="flex items-center gap-2 font-mono text-[11px] text-ink-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 text-box-m"><path d="M12 9v4"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 17h.01"/></svg>#2</p><p class="mt-2 text-sm">Role-ის შემოწმება მხოლოდ frontend-ზე — ღილაკი დამალულია, endpoint კი ღიაა curl-ისთვის.</p></div>
+      <div class="bg-panel p-5"><p class="flex items-center gap-2 font-mono text-[11px] text-ink-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 text-box-m"><path d="M12 9v4"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 17h.01"/></svg>#3</p><p class="mt-2 text-sm">Refresh call-ის დუბლირება — გაუთვალისწინებელი race condition, თითქმის-შემთხვევითი logout-ები.</p></div>
+      <div class="bg-panel p-5"><p class="flex items-center gap-2 font-mono text-[11px] text-ink-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 text-box-m"><path d="M12 9v4"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 17h.01"/></svg>#4</p><p class="mt-2 text-sm">JWT payload-ის ნდობა შემოწმების გარეშე — ხელმოწერას ყოველთვის ამოწმებს <span class="text-ink">სერვერი</span>, არა client.</p></div>
+      <div class="bg-panel p-5"><p class="flex items-center gap-2 font-mono text-[11px] text-ink-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 text-box-m"><path d="M12 9v4"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 17h.01"/></svg>#5</p><p class="mt-2 text-sm">Refresh token rotation არ არსებობს — მოპარული refresh token სამუდამოდ მუშაობს ვადის ამოწურვამდე.</p></div>
+      <div class="bg-ink p-5 text-paper"><p class="flex items-center gap-2 font-mono text-[11px] text-paper/60"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 text-box-m"><path d="M12 9v4"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 17h.01"/></svg>#6</p><p class="mt-2 text-sm text-paper/80">Logout მხოლოდ client-ის token-ს შლის — server-side revoke-ის გარეშე ძველი access token ვადის ამოწურვამდე მუშაობს.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 25 ───────────────────────────────────────────────────────────── -->
+<section class="slide h-full" data-section="შეჯამება" data-notes="დაასრულე ერთი წინადადებით. მერე დაავალე: აიღონ საკუთარი პროექტის ერთი guarded route, დაწერონ მისთვის permission-ზე დაფუძნებული toolbar — ისე, როგორც დღეს ვნახეთ RBAC დემოში.">
+  <div class="flex h-full flex-col justify-between px-14 py-12">
+    <div class="flex items-start justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-ink-2">
+      <span>შეჯამება</span><span>კითხვები</span>
+    </div>
+
+    <div class="grid grid-cols-12 gap-10">
+      <div class="col-span-7">
+        <img class="ill mb-5 w-[11vw] max-w-[190px]" src="img/storyset/key.svg" alt="">
+        <h2 class="display text-[3.6vw] leading-[1.15] font-semibold">Authentication ამბობს<br><span class="grad-text">ვინ ხარ.</span><br>Authorization ამბობს<br><span class="grad-text">რისი უფლება გაქვს.</span></h2>
+        <p class="mt-8 max-w-xl text-lg text-ink-2">
+          Token-ის სასიცოცხლო ციკლი, silent refresh, RBAC UI — ეს ყველაფერი მხოლოდ ამ ორი კითხვის
+          პასუხს აუმჯობესებს გამოცდილებას. საბოლოო გადაწყვეტილებას ყოველთვის სერვერი იღებს.
+        </p>
+      </div>
+      <div data-stagger style="--step:110ms" class="col-span-5 flex flex-col justify-end gap-px bg-rule">
+        <div class="bg-panel p-5"><p class="font-mono text-xs text-flame-d">დასამახსოვრებელი</p><p class="mt-2">Access token მოკლეა განზრახ — რისკის ფანჯარა პატარაა.</p></div>
+        <div class="bg-panel p-5"><p class="font-mono text-xs text-flame-d">დასამახსოვრებელი</p><p class="mt-2">Silent refresh მომხმარებელს არასდროს აჩვენებს login-ს, სანამ refresh token აქტიურია.</p></div>
+        <div class="bg-panel p-5"><p class="font-mono text-xs text-flame-d">დასამახსოვრებელი</p><p class="mt-2">Role არის permissions-ის კონტეინერი, არა <code class="font-mono text-[13px]">if</code>-ის პირობა.</p></div>
+        <div class="bg-panel p-5"><p class="font-mono text-xs text-flame-d">დასამახსოვრებელი</p><p class="mt-2">Frontend-ის RBAC არის UX. Backend-ის RBAC არის უსაფრთხოება.</p></div>
       </div>
     </div>
   </div>

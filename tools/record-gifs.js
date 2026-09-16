@@ -17,12 +17,12 @@ fs.mkdirSync(OUT, { recursive: true });
 // sel: elements whose union is cropped (null = whole viewport); dur = one full loop in seconds
 const JOBS = [
   { name: 'http-stateless',     slide: 3,  sel: ['.stateless'],         dur: 8,    fig: true },
-  { name: 'authn-vs-authz',     slide: 9,  sel: ['.id-scan', '.doors'], dur: 12,   header: true, pad: 8 },
+  { name: 'authn-vs-authz',     slide: 5,  sel: ['.id-scan', '.doors'], dur: 12,   header: true, pad: 8 },
   { name: 'token-timeline',     slide: 11, sel: ['.tl'],                dur: 9,    fig: true },
-  { name: 'lifecycle-sequence', slide: 12, sel: null,                   dur: 15.6, scale: 0.55, fps: 6 },
-  { name: 'xss-storage',        slide: 13, sel: ['.xss'],               dur: 8,    fig: true },
+  { name: 'lifecycle-sequence', slide: 13, sel: null,                   dur: 15.6, scale: 0.55, fps: 6 },
+  { name: 'xss-storage',        slide: 12, sel: ['.xss'],               dur: 8,    fig: true },
   { name: 'fetch-wrapper',      slide: 14, sel: ['.icp'],               dur: 5,    fig: true },
-  { name: 'silent-refresh',     slide: 16, sel: ['.sr-btn', '#srFig'],  dur: 14 },
+  { name: 'silent-refresh',     slide: 15, sel: ['.sr-btn', '#srFig'],  dur: 14 },
   { name: 'auth-store',         slide: 17, sel: ['.sig'],               dur: 6,    fig: true },
   { name: 'route-guard',        slide: 18, sel: ['.guard'],             dur: 10,   fig: true },
   { name: 'hidden-button-curl', slide: 21, sel: ['.curl'],              dur: 7,    fig: true },
